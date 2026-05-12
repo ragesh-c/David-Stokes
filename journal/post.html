@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal — David Stokes</title>
+  <meta name="description" content="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/theme.css">
+  <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
+</head>
+<body class="journal">
+
+  <a href="#main" class="skip-nav">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="../index.html" class="nav-wordmark">David Stokes</a>
+    <ul class="nav-links" role="list">
+      <li><a href="../books.html">Books</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../media.html">Media</a></li>
+      <li><a href="../journal.html" aria-current="page">Journal</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
+      <span class="theme-icon" aria-hidden="true">☾</span>
+    </button>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </nav>
+
+  <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" aria-label="Close menu">&#x2715;</button>
+    <ul class="nav-links" role="list">
+      <li><a href="../books.html">Books</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../media.html">Media</a></li>
+      <li><a href="../journal.html">Journal</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </div>
+
+  <main id="main">
+
+    <!-- PAGE HERO — populated by JS -->
+    <section class="section page-hero journal-post-hero" id="post-hero">
+      <img class="journal-post-hero-bg" id="post-hero-img" src="" alt="" aria-hidden="true">
+      <div class="container" style="max-width:var(--max-body-width); margin-inline:auto; padding-inline:var(--side-margin-mobile);">
+        <span class="period-label" id="post-period-label"></span>
+        <h1 id="post-title"></h1>
+      </div>
+    </section>
+
+    <!-- ARTICLE BODY — populated by JS -->
+    <div class="section" style="padding-top:0;">
+      <div class="container article-body" id="post-body"></div>
+    </div>
+
+    <!-- BACK LINK -->
+    <div class="section bg-secondary" style="padding-block:3rem;">
+      <div class="container" style="max-width:var(--max-body-width);">
+        <a href="../journal.html" style="color:var(--accent-burg); font-size:0.875rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase; text-decoration:none;">← Back to Journal</a>
+      </div>
+    </div>
+
+  
+    <!-- CHAPTER STRIP -->
+    <div class="chapter-strip" aria-hidden="true">
+      <div class="chapter-strip-inner">
+        <span>c. 600 AD — The Warring Kingdoms</span>
+        <span aria-hidden="true">·</span>
+        <span>c. 900 AD — The Lady of the Mercians</span>
+        <span aria-hidden="true">·</span>
+        <span>c. 1002 AD — Before the Fall</span>
+        <span aria-hidden="true">·</span>
+        <span>c. 600 AD — The Warring Kingdoms</span>
+        <span aria-hidden="true">·</span>
+        <span>c. 900 AD — The Lady of the Mercians</span>
+        <span aria-hidden="true">·</span>
+        <span>c. 1002 AD — Before the Fall</span>
+        <span aria-hidden="true">·</span>
+      </div>
+    </div>
+
+  </main>
+
+    <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-wordmark">David Stokes</span>
+        <p class="footer-tagline">"The women history tried to erase. Restored."</p>
+      </div>
+      <div>
+        <p class="footer-section-label">Quick Links</p>
+        <ul class="footer-links" role="list">
+          <li><a href="../books.html">Books</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../media.html">Media</a></li>
+          <li><a href="../journal.html">Journal</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-section-label">Follow</p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="FACEBOOK_URL" class="footer-social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="TWITTER_URL" class="footer-social-link" target="_blank" rel="noopener noreferrer">Twitter/X</a>
+          <a href="INSTAGRAM_URL" class="footer-social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 David Stokes. All rights reserved.</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    (async function () {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+
+      if (!slug) {
+        document.getElementById('post-title').textContent = 'Post not found';
+        return;
+      }
+
+      try {
+        const res = await fetch('../data/journal-posts.json');
+        const data = await res.json();
+        const posts = data.posts || [];
+        const post = posts.find(p => p.slug === slug);
+
+        if (!post) {
+          document.getElementById('post-title').textContent = 'Post not found';
+          return;
+        }
+
+        // Update page title and meta
+        document.title = post.title + ' — David Stokes Journal';
+
+        // Hero
+        const heroImg = document.getElementById('post-hero-img');
+        heroImg.src = post.hero_image;
+        heroImg.alt = post.title;
+        heroImg.style.objectPosition = post.hero_image_position || 'center center';
+
+        document.getElementById('post-period-label').textContent = post.period_label;
+        document.getElementById('post-title').textContent = post.title;
+
+        // Body — render markdown to HTML
+        document.getElementById('post-body').innerHTML = marked.parse(post.body || '');
+
+      } catch (err) {
+        document.getElementById('post-title').textContent = 'Error loading post';
+        console.error(err);
+      }
+    })();
+  </script>
+  <script src="../js/theme.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal — David Stokes</title>
+  <meta name="description" content="Research notes, historical context, and dispatches from the places where England was made. The real stories behind the fiction.">
+  <meta property="og:title" content="Behind the History — David Stokes Journal">
+  <meta property="og:description" content="The real stories behind the fiction — research notes, historical context, and dispatches from the places where England was made.">
+  <meta property="og:type" content="website">
+  <!-- Typography: The Manuscript -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
+</head>
+<body class="journal">
+
+  <!-- SKIP NAV -->
+  <a href="#main" class="skip-nav">Skip to main content</a>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a href="index.html" class="nav-wordmark">David Stokes</a>
+    <ul class="nav-links" role="list">
+      <li><a href="books.html">Books</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="journal.html" aria-current="page">Journal</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
+      <span class="theme-icon" aria-hidden="true">☾</span>
+    </button>
+    <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <line x1="3" y1="8" x2="21" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="3" y1="16" x2="21" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="mobile-nav-close" aria-label="Close menu">&#x2715;</button>
+    <ul class="nav-links" role="list">
+      <li><a href="books.html">Books</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="media.html">Media</a></li>
+      <li><a href="journal.html" aria-current="page">Journal</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    
+  </div>
+
+
+  <!-- MAIN CONTENT -->
+  <main id="main">
+
+    <!-- PAGE HERO -->
+    <section class="section page-hero">
+      <div class="container">
+        <span class="period-label reveal">Journal</span>
+        <h1 class="reveal">Behind the History</h1>
+        <p class="reveal" style="max-width:var(--max-body-width); margin-top:1rem; font-size:1.125rem;">
+          The real stories behind the fiction — research notes, historical context, and dispatches from the places where England was made.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION: FINDING ÆTHELFLÆD SERIES + CARD GRID -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Series label -->
+        <div class="reveal" style="margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid var(--divider);">
+          <span class="period-label">Series: Finding Æthelflæd</span>
+          <p style="max-width:600px; color:var(--text-meta);">
+            A tour of the towns, churches, and monuments that still remember the woman history tried to erase.
+          </p>
+        </div>
+
+        <!-- 3-column journal card grid — populated by JS from journal-posts.json -->
+        <div class="journal-grid" id="journal-grid"></div>
+      </div><!-- /.container -->
+    </section>
+
+  
+    <!-- CHAPTER STRIP -->
+    <div class="chapter-strip" aria-hidden="true">
+      <div class="chapter-strip-inner">
+        <span>c. 600 AD — The Warring Kingdoms</span>
+        <span aria-hidden="true">·</span>
+        <span>c. 900 AD — The Lady of the Mercians</span>
+        <span aria-hidden="true">·</span>
+        <span>c. 1002 AD — Before the Fall</span>
+        <span aria-hidden="true">·</span>
+        <span>c. 600 AD — The Warring Kingdoms</span>
+        <span aria-hidden="true">·</span>
+        <span>c. 900 AD — The Lady of the Mercians</span>
+        <span aria-hidden="true">·</span>
+        <span>c. 1002 AD — Before the Fall</span>
+        <span aria-hidden="true">·</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+    <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-wordmark">David Stokes</span>
+        <p class="footer-tagline">"The women history tried to erase. Restored."</p>
+      </div>
+      <div>
+        <p class="footer-section-label">Quick Links</p>
+        <ul class="footer-links" role="list">
+          <li><a href="books.html">Books</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="media.html">Media</a></li>
+          <li><a href="journal.html">Journal</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-section-label">Follow</p>
+        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="FACEBOOK_URL" class="footer-social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="TWITTER_URL" class="footer-social-link" target="_blank" rel="noopener noreferrer">Twitter/X</a>
+          <a href="INSTAGRAM_URL" class="footer-social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 David Stokes. All rights reserved.</div>
+  </footer>
+
+  <script src="js/anime.min.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+  <script>
+  (async function () {
+    const grid = document.getElementById('journal-grid');
+    if (!grid) return;
+    try {
+      const res  = await fetch('data/journal-posts.json');
+      const data = await res.json();
+      const posts = (data.posts || []).sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      posts.forEach(post => {
+        const card = document.createElement('a');
+        card.href      = 'journal/' + post.slug + '.html';
+        card.className = 'journal-card';
+
+        card.innerHTML = `
+          <div class="journal-card-image">
+            <img src="${post.hero_image}" alt="${post.title}" style="object-position:${post.hero_image_position || 'center center'}">
+          </div>
+          <span class="period-label" style="display:inline-block;margin-top:0.75rem;">${post.period_label}</span>
+          <h3 class="journal-card-title">${post.title}</h3>
+          <p class="journal-card-excerpt">${post.excerpt}</p>
+        `;
+        grid.appendChild(card);
+      });
+
+      // Trigger anime.js stagger once cards are in the DOM
+      if (window.anime) {
+        const cards = grid.querySelectorAll('.journal-card');
+        window.anime.utils.set(cards, { opacity: 0, translateY: 30 });
+        window.anime.animate(cards, {
+          opacity: [0, 1],
+          y: [30, 0],
+          duration: 700,
+          delay: window.anime.stagger(70),
+          ease: 'out(3)',
+        });
+      }
+    } catch (err) {
+      console.error('Could not load posts:', err);
+    }
+  })();
+  </script>
+  <script src="js/theme.js"></script>
+
+</body>
+</html>
+

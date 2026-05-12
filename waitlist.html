@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sermon of the Wolf — Join the Waitlist · David Stokes</title>
+  <meta name="description" content="Be first in line for David Stokes' new novel Sermon of the Wolf. Join the waitlist for a free chapter, early access, and the signed launch edition." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #16110C;
+      --parchment:   #F0EBE3;
+      --white:       #FAFAF8;
+      --sage:        #4A6B5A;
+      --burg:        #6B2D3E;
+      --burg-hover:  #7D3549;
+      --muted:       rgba(250,250,248,0.5);
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'EB Garamond', Georgia, serif;
+    }
+
+    /* ── LAYOUT ── */
+    .wl-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* ── LEFT — ATMOSPHERIC PANEL ── */
+    .wl-left {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 60px 56px;
+      min-height: 100vh;
+    }
+
+    .wl-left-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(22,17,12,0.95) 0%, rgba(22,17,12,0.5) 50%, rgba(22,17,12,0.2) 100%),
+        linear-gradient(135deg, rgba(107,45,62,0.3) 0%, rgba(74,107,90,0.1) 100%);
+    }
+
+    .wl-left-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      filter: sepia(30%) contrast(1.05) brightness(0.7);
+      z-index: -1;
+    }
+
+    .wl-left-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .wl-back {
+      position: absolute;
+      top: 40px;
+      left: 56px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .wl-back:hover { color: var(--white); }
+
+    .wl-eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--sage);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .wl-book-title {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      line-height: 1.1;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0 60px rgba(107,45,62,0.3);
+      margin-bottom: 0.5rem;
+    }
+
+    .wl-author {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .wl-tagline {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: rgba(250,250,248,0.7);
+      max-width: 400px;
+      border-left: 2px solid var(--burg);
+      padding-left: 20px;
+    }
+
+    /* Countdown */
+    .wl-countdown {
+      display: flex;
+      gap: 24px;
+      margin-top: 2.5rem;
+    }
+
+    .wl-cd-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .wl-cd-num {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1;
+    }
+
+    .wl-cd-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    /* ── RIGHT — FORM PANEL ── */
+    .wl-right {
+      background: var(--parchment);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px;
+    }
+
+    .wl-right-eyebrow {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--burg);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .wl-right-heading {
+      font-family: 'Libre Caslon Display', Georgia, serif;
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 400;
+      color: #2C2C28;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .wl-right-sub {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #5A5550;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Perks */
+    .wl-perks {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 2.5rem;
+    }
+
+    .wl-perks li {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1rem;
+      color: #3A3A35;
+      line-height: 1.5;
+    }
+
+    .wl-perk-icon {
+      color: var(--burg);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    /* Form */
+    .wl-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .wl-input {
+      width: 100%;
+      padding: 14px 18px;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1rem;
+      color: #2C2C28;
+      background: #FAFAF8;
+      border: 1px solid #C4BDB3;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .wl-input:focus {
+      border-color: var(--burg);
+    }
+
+    .wl-input::placeholder {
+      color: #9A9490;
+    }
+
+    .wl-submit {
+      width: 100%;
+      padding: 16px;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--burg);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 4px;
+    }
+
+    .wl-submit:hover {
+      background: var(--burg-hover);
+      transform: translateY(-1px);
+    }
+
+    .wl-small {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      color: #9A9490;
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    .wl-success {
+      text-align: center;
+      padding: 32px 0;
+    }
+
+    .wl-success-icon {
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 2rem;
+      color: var(--sage);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .wl-success h3 {
+      font-family: 'Libre Caslon Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #2C2C28;
+      margin-bottom: 0.75rem;
+    }
+
+    .wl-success p {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 1rem;
+      color: #5A5550;
+      line-height: 1.6;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 800px) {
+      .wl-page { grid-template-columns: 1fr; }
+      .wl-left { min-height: 50vh; padding: 48px 28px 40px; }
+      .wl-back { left: 28px; top: 28px; }
+      .wl-right { padding: 48px 28px 64px; }
+      .wl-countdown { gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wl-page">
+
+  <!-- LEFT — atmospheric -->
+  <div class="wl-left">
+    <img
+      src="Img/Sermon-of-the-Wolf.jpg"
+      alt=""
+      class="wl-left-img"
+    />
+    <div class="wl-left-bg"></div>
+
+    <a href="index.html" class="wl-back">← davidstokesauthor.com</a>
+
+    <div class="wl-left-content">
+      <span class="wl-eyebrow">New Novel · October 2026</span>
+      <h1 class="wl-book-title">Sermon<br>of the Wolf</h1>
+      <p class="wl-author">by David Stokes</p>
+      <p class="wl-tagline">Twice queen. Never conquered. Emma of Normandy's story has waited a thousand years to be told.</p>
+
+      <div class="wl-countdown" id="wlCountdown">
+        <div class="wl-cd-unit">
+          <span class="wl-cd-num" id="wlDays">--</span>
+          <span class="wl-cd-label">days</span>
+        </div>
+        <div class="wl-cd-unit">
+          <span class="wl-cd-num" id="wlHours">--</span>
+          <span class="wl-cd-label">hours</span>
+        </div>
+        <div class="wl-cd-unit">
+          <span class="wl-cd-num" id="wlMins">--</span>
+          <span class="wl-cd-label">mins</span>
+        </div>
+        <div class="wl-cd-unit">
+          <span class="wl-cd-num" id="wlSecs">--</span>
+          <span class="wl-cd-label">secs</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT — form -->
+  <div class="wl-right">
+    <span class="wl-right-eyebrow">Waitlist</span>
+    <h2 class="wl-right-heading">Be the first<br>to read it.</h2>
+    <p class="wl-right-sub">Join the waitlist and get access before anyone else — a free chapter, the signed launch edition, and an invitation to the pre-launch event with David.</p>
+
+    <ul class="wl-perks">
+      <li><span class="wl-perk-icon">✦</span><span>Free opening chapter — sent immediately</span></li>
+      <li><span class="wl-perk-icon">✦</span><span>First access to the signed launch edition</span></li>
+      <li><span class="wl-perk-icon">✦</span><span>Invitation to the pre-launch webinar with David</span></li>
+      <li><span class="wl-perk-icon">✦</span><span>Launch-week price before general sale opens</span></li>
+    </ul>
+
+    <div id="wlFormWrap">
+      <form
+        class="wl-form"
+        action="https://YOURACCOUNT.us1.list-manage.com/subscribe/post?u=XXXXXXXXXXXXXXXXXXXXXXXX&amp;id=XXXXXXXXXX" method="post" target="_blank"
+        onsubmit="handleWaitlistSubmit(event)"
+      >
+        <input type="text" name="FNAME" placeholder="First name" required class="wl-input" />
+        <input type="email" name="EMAIL" placeholder="Email address" required class="wl-input" />
+        <!-- Mailchimp honeypot — prevents spam, do not remove -->
+        <div style="position:absolute;left:-5000px;" aria-hidden="true"><input type="text" name="b_XXXXXXXXXXXXXXXXXXXXXXXX_XXXXXXXXXX" tabindex="-1" value=""></div>
+        <button type="submit" class="wl-submit">Reserve my place →</button>
+        <p class="wl-small">No spam. One email when the book drops. Unsubscribe any time.</p>
+      </form>
+    </div>
+
+    <div class="wl-success" id="wlSuccess" style="display:none;">
+      <span class="wl-success-icon">✦</span>
+      <h3>You're on the list.</h3>
+      <p>Check your inbox — your free chapter is on its way. We'll be in touch before launch.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // ── COUNTDOWN ──────────────────────────────────────────────
+  // Change this date when the exact launch date is confirmed
+  var LAUNCH_DATE = new Date('2026-10-26T00:00:00');
+
+  function updateCountdown() {
+    var now = new Date();
+    var diff = LAUNCH_DATE - now;
+    if (diff <= 0) {
+      document.getElementById('wlCountdown').innerHTML = '<p style="color:var(--sage);font-family:Raleway,sans-serif;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;">Available now</p>';
+      return;
+    }
+    var days  = Math.floor(diff / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    var secs  = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('wlDays').textContent  = String(days).padStart(2, '0');
+    document.getElementById('wlHours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('wlMins').textContent  = String(mins).padStart(2, '0');
+    document.getElementById('wlSecs').textContent  = String(secs).padStart(2, '0');
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── FORM SUBMIT ────────────────────────────────────────────
+  // This sends to whatever URL is in data-action.
+  // Until a real email platform URL is added, it shows the success state.
+  function handleWaitlistSubmit(e) {
+    e.preventDefault();
+    var form = e.target;
+    var action = form.getAttribute('data-action');
+    var firstName = form.querySelector('[name="FNAME"]').value;
+    var email = form.querySelector('[name="EMAIL"]').value;
+
+    if (action && !action.includes('YOURACCOUNT') && action !== 'Paste Mailchimp form action URL (see instructions above)') {
+      // Real submission — POST to email platform
+      fetch(action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ firstName: firstName, email: email })
+      }).then(function() {
+        showSuccess(form);
+      }).catch(function() {
+        // Still show success — platform will confirm via their own email
+        showSuccess(form);
+      });
+    } else {
+      // Placeholder: just show success state
+      showSuccess(form);
+    }
+  }
+
+  function showSuccess(form) {
+    var wrap = document.getElementById('wlFormWrap');
+    var success = document.getElementById('wlSuccess');
+    if (wrap) wrap.style.display = 'none';
+    if (success) success.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

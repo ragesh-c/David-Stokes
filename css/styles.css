@@ -1,0 +1,4058 @@
+/* ============================================================
+   David Stokes — Author Website
+   styles.css
+   Single source of truth for all visual design
+   ============================================================ */
+
+/* ============================================================
+   GOOGLE FONTS — loaded via <link> tags in each HTML file
+   ============================================================ */
+
+
+/* ============================================================
+   DESIGN TOKENS — CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+  /* --- Colour palette --- */
+  /* Re-themed to a Suzy Welch style continuous warm cream */
+  --bg-primary:    #F6F3EC;
+  --bg-secondary:  #EFEBE2;
+  --text-heading:  #1A1A18; /* Darker, crisper contrast */
+  --text-body:     #333330;
+  --text-meta:     #77726D;
+  --accent-sage:   #425E4F; /* Darkened for light background contrast */
+  --accent-burg:   #923851; /* Deeper crimson */
+  --accent-hover:  #A1435D;
+  --divider:       #D8D3CC;
+  --white:         #FFFFFF;
+
+  /* --- Dark surface tokens (Muted/Repurposed for dark accents like buttons/footers) --- */
+  --dark:          #161513;
+  --dark-mid:      #2A2825;
+  --dark-surface:  rgba(0,0,0,0.04);
+  --dark-border:   rgba(0,0,0,0.08);
+  --dark-text:     #1A1A18;
+  --dark-muted:    rgba(0,0,0,0.55);
+
+  /* --- On-dark text tokens — for text sitting on permanently dark/ink backgrounds.
+         Defined in both :root (light mode) and [data-theme="dark"] so they respond
+         to the theme toggle without any hardcoded rgba values at the usage site.   --- */
+  --on-dark-primary:   rgba(250, 248, 242, 0.95);  /* headings, strong emphasis */
+  --on-dark-secondary: rgba(250, 248, 242, 0.70);  /* body copy */
+  --on-dark-muted:     rgba(250, 248, 242, 0.44);  /* labels, meta, period labels */
+  --on-dark-faint:     rgba(250, 248, 242, 0.25);  /* decorative, legal, very subtle */
+  --on-dark-border:    rgba(250, 248, 242, 0.09);  /* borders and dividers on dark bg */
+
+  /* --- Typography --- */
+  --font-serif:    'Libre Caslon Display', Georgia, serif;
+  --font-body:     'EB Garamond', Georgia, serif;
+  --font-sans:     'Raleway', sans-serif;
+
+  /* --- Spacing --- */
+  --section-padding-desktop: 140px;
+  --section-padding-tablet:  100px;
+  --section-padding-mobile:   72px;
+  --side-margin-desktop:      56px; /* Reduced from 80px */
+  --side-margin-tablet:       34px; /* Reduced from 48px */
+  --side-margin-mobile:       16px; /* Reduced from 24px */
+
+  /* --- Widths --- */
+  --max-width:       1200px;
+  --container-max:   1440px;
+  --max-body-width:   680px;
+}
+
+
+/* ============================================================
+   TYPOGRAPHY — The Manuscript
+   Libre Caslon Display / EB Garamond / Raleway
+   ============================================================ */
+
+/* Base body — EB Garamond for all reading text */
+body {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ALL headings — Libre Caslon Display */
+h1, h2, h3, h4 {
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-weight: 400; /* Caslon Display has no bold — this is correct */
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* Body paragraphs — EB Garamond, generous leading */
+p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.85;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Large intro/hook paragraphs — slightly bigger */
+.hero-subtext,
+.arc-book-hook,
+.book-panel-hook,
+.about-lead,
+.section-intro {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
+
+/* Pull quotes — EB Garamond italic, generous */
+blockquote,
+.pull-quote {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.375rem, 2vw, 2rem);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* ALL UI elements — Raleway */
+nav,
+.site-nav,
+.nav-links a,
+.nav-wordmark,
+.period-label,
+.btn,
+.book-panel-date,
+.book-panel-cta,
+.book-panel-buy,
+.book-panel-forthcoming,
+.arc-book-buy,
+.arc-book-number,
+.other-work-pill span,
+.journal-card-meta,
+.chapter-strip-inner span,
+.footer-bottom,
+.footer-links a,
+.newsletter-form button,
+.newsletter-form input,
+label,
+.form-group label,
+small,
+caption {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Period labels — Raleway, very spaced */
+.period-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-sage);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.bestseller-tag {
+  display: inline-block;
+  background-color: #4A6B5A;
+  color: var(--white);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1.25rem;
+}
+
+/* Nav links — Raleway, slightly spaced */
+.nav-links a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Buttons — Raleway medium */
+.btn {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Ghost text — Libre Caslon Display */
+.ghost-text {
+  font-family: 'Libre Caslon Display', Georgia, serif;
+}
+
+/* Book panel numbers — Libre Caslon Display, ghost opacity */
+.book-panel-number,
+.arc-book-number {
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-size: 5rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Brand line / tagline — EB Garamond italic */
+.brand-line-text {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+
+/* Footer wordmark — Libre Caslon Display */
+.footer-wordmark,
+.nav-wordmark {
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Chapter strip dates — Raleway very light */
+.chapter-strip-inner span {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+}
+
+/* Badge labels — Raleway */
+.book-panel-badge,
+.arc-book-badge {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+
+/* Paper grain texture — subtle noise over the entire page */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+
+/* Box model reset (supplement to reset.css) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  background-color: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--text-heading);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+h3 {
+  font-size: clamp(1.625rem, 2.5vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+/* --- Links --- */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- Focus states (accessibility) --- */
+:focus-visible {
+  outline: 2px solid var(--accent-burg);
+  outline-offset: 3px;
+}
+
+/* Remove focus ring for mouse users while keeping it for keyboard users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* --- Images --- */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Lists --- */
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* ============================================================
+   SKIP NAVIGATION (accessibility)
+   ============================================================ */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: var(--accent-burg);
+  color: var(--white);
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  z-index: 999;
+}
+
+.skip-nav:focus {
+  top: 1rem;
+}
+
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+
+/* Centred content wrapper */
+.container {
+  max-width: var(--container-max);
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--side-margin-desktop);
+}
+
+/* Hero containers go wider — no inner padding cap */
+.hero-section .container,
+.page-hero .container,
+.book-hero-section .container,
+.page-hero,
+.books-dark-header {
+  max-width: 100%;
+  padding-inline: var(--side-margin-desktop);
+}
+
+/* Book panels — full bleed, no max-width cap */
+.book-panel {
+  width: auto;
+  max-width: 100%;
+}
+
+.book-panel-content {
+  padding: 72px 80px;
+}
+
+/* Standard section vertical rhythm */
+.section {
+  padding-block: var(--section-padding-desktop);
+  background: var(--bg-primary);
+}
+
+/* Background variant — slightly darker */
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+/* Background variant — dark/inverted */
+.bg-dark {
+  background-color: var(--text-heading);
+  color: var(--white);
+}
+
+
+/* ============================================================
+   TYPOGRAPHY COMPONENTS
+   ============================================================ */
+
+
+/* Quote item wrapper */
+.quote-item {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3.5rem 0;
+  border-bottom: 1px solid var(--dark-border);
+  position: relative;
+  z-index: 1;
+}
+
+.quote-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.quote-item:first-child {
+  padding-top: 0;
+}
+
+/* Large decorative pull quote */
+.pull-quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.375rem, 2.5vw, 2rem);
+  line-height: 1.55;
+  color: var(--text-heading);
+  margin: 0 0 1.25rem 0;
+  /* Initial hidden state — anime.js IntersectionObserver animates these in */
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+/* Attribution line below a pull quote — styled per .quotes-section */
+
+/* Novel excerpt / block quotation */
+.novel-excerpt,
+blockquote.novel-excerpt {
+  border-left: 3px solid var(--accent-sage);
+  padding: 1.5rem 2rem;
+  margin: 2.5rem 0;
+  background-color: var(--bg-secondary);
+  font-style: italic;
+  color: var(--text-body);
+}
+
+
+/* ============================================================
+   IMAGE PLACEHOLDER
+   ============================================================ */
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  border: 1px dashed var(--divider);
+  color: var(--text-meta);
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  text-align: center;
+  padding: 1rem;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+/* Base button */
+.btn {
+  display: inline-block;
+  padding: 14px 40px;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease,
+              border-color 0.25s ease, transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+/* Primary filled button */
+.btn-primary {
+  background-color: var(--accent-burg);
+  color: var(--white);
+  border: 1px solid var(--accent-burg);
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(107, 45, 62, 0.25);
+}
+
+/* Secondary button (Sage accent) */
+.btn-secondary {
+  background-color: var(--accent-sage);
+  color: var(--white);
+  border: 1px solid var(--accent-sage);
+}
+
+.btn-secondary:hover {
+  background-color: #5c8470; /* Slightly darker sage */
+  border-color: #5c8470;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(74, 107, 90, 0.2);
+}
+
+/* Utility for rounded/pill buttons */
+.btn-rounded {
+  border-radius: 40px;
+}
+
+/* Ghost / outline button */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--accent-burg);
+  border: 1px solid var(--accent-burg);
+}
+
+.btn-ghost:hover {
+  background-color: var(--accent-burg);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(107, 45, 62, 0.2);
+}
+
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+/* Fixed top navigation bar */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 22px var(--side-margin-desktop);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* Scrolled — frosted dark glass */
+.site-nav.scrolled {
+  background-color: rgba(44,44,40,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+
+/* Site wordmark / logo text link */
+.nav-wordmark {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s ease;
+}
+
+.nav-wordmark:hover {
+  opacity: 0.75;
+}
+
+/* Desktop navigation link list */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.7);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--white);
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--white);
+}
+
+/* Hamburger toggle — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: rgba(250,250,248,0.7);
+  padding: 4px;
+}
+
+
+/* ============================================================
+   MOBILE NAV OVERLAY
+   ============================================================ */
+
+.mobile-nav-overlay {
+  display: flex !important; /* Must always be flex, visibility handled by transform */
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background-color: var(--accent-burg);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-nav-overlay.open {
+  transform: translateX(0);
+}
+
+.mobile-nav-overlay .nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+}
+
+.mobile-nav-overlay .nav-links li {
+  width: 100%;
+}
+
+.mobile-nav-overlay .nav-links a {
+  display: block;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-nav-overlay .nav-links li:last-child a {
+  border-bottom: none;
+}
+
+.mobile-nav-overlay .nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* Close button inside overlay */
+.mobile-nav-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  font-weight: 300;
+  cursor: pointer;
+  color: var(--white);
+  padding: 8px;
+  transition: opacity 0.2s ease;
+}
+
+.mobile-nav-close:hover {
+  opacity: 0.7;
+}
+
+
+/* ============================================================
+   BOOK CARDS
+   ============================================================ */
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  transition: transform 0.3s ease;
+}
+
+.book-card:hover {
+  transform: none; /* Container remains static, only inner elements animate */
+}
+
+/* Book cover image area */
+.book-card-cover {
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background-color: transparent;
+  margin-bottom: 1.25rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.book-card:hover .book-card-cover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.book-card-cover .img-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+/* Metadata row (badges) */
+.book-card-meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* Genre / status badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0 10px;
+  border-radius: 4px;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.badge-sage {
+  background-color: var(--accent-sage);
+}
+
+.badge-burg {
+  background-color: var(--accent-burg);
+}
+
+/* Purchase / info links row */
+.book-card-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.book-card-links a {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-burg);
+  text-decoration: none;
+}
+
+.book-card-links a:hover {
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   JOURNAL CARDS
+   ============================================================ */
+
+.journal-card {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  background: transparent;
+}
+
+.journal-card:hover {
+  transform: none; /* Card container remains static */
+}
+
+/* Thumbnail / featured image area */
+.journal-card-image {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background-color: var(--bg-secondary);
+  margin-bottom: 1.25rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.journal-card:hover .journal-card-image {
+  box-shadow: 0 24px 56px rgba(22,17,12,0.22);
+}
+
+.journal-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: sepia(8%) contrast(1.05);
+}
+
+.journal-card:hover .journal-card-image img {
+  transform: scale(1.04);
+  filter: sepia(4%) contrast(1.02);
+}
+
+.journal-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-heading);
+  transition: color 0.2s ease;
+}
+
+.journal-card:hover .journal-card-title {
+  color: var(--accent-burg);
+}
+
+.journal-card-excerpt {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--text-meta);
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   SCROLL REVEAL ANIMATION
+   ============================================================ */
+
+/* Base — always visible unless JS adds .animate */
+.reveal {
+  opacity: 1;
+  transform: none;
+  /* No CSS transition — anime.js owns all reveal animations */
+}
+
+/* Initial hidden state set by JS (main.js adds .animate to non-hero .reveal elements).
+   anime.js IntersectionObserver then animates from this state. */
+.reveal.animate {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+
+/* ============================================================
+   NEWSLETTER FORM
+   ============================================================ */
+
+.newsletter-form {
+  display: flex;
+  align-items: stretch;
+  max-width: 480px;
+  margin: 2rem auto 0;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  padding: 14px 20px;
+  border: 1px solid var(--divider);
+  border-right: none;
+  background: var(--bg-primary);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--text-body);
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.2s ease;
+}
+
+.newsletter-form input[type="email"]:focus {
+  border-color: var(--text-body);
+}
+
+.newsletter-form button {
+  flex-shrink: 0;
+  padding: 14px 28px;
+  background: var(--accent-burg);
+  color: var(--white);
+  border: 1px solid var(--accent-burg);
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  border-radius: 0;
+  white-space: nowrap;
+}
+
+.newsletter-form button:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-meta);
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--divider);
+  border-bottom-width: 2px;
+  background-color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-body);
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(26,26,24,0.35);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--accent-burg);
+  background-color: rgba(107,45,62,0.02);
+}
+
+/* Custom select — strip browser chrome, add own arrow */
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 44px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+}
+
+.form-group select:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b2d3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+}
+
+.form-group textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+  background:
+    radial-gradient(ellipse at 15% 0%, rgba(107,45,62,0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(74,107,90,0.12) 0%, transparent 50%),
+    linear-gradient(to bottom, #1E1510 0%, #16110C 100%);
+  color: var(--white);
+  padding: 80px var(--side-margin-desktop) 40px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Three-column footer layout */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.footer-wordmark {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  text-decoration: none;
+}
+
+.footer-tagline {
+  font-size: 1rem;
+  color: rgba(250,250,248,0.50);
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  color: rgba(250,250,248,0.60);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+/* Copyright / legal strip */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: rgba(250,250,248,0.28);
+  letter-spacing: 0.08em;
+}
+
+
+/* ============================================================
+   ARC TIMELINE  (books.html)
+   ============================================================ */
+
+.arc-timeline {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--divider);
+}
+
+.arc-timeline-item {
+  text-align: center;
+  flex: 1;
+}
+
+.arc-timeline-item .date {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--accent-sage);
+}
+
+.arc-timeline-item .title {
+  font-size: 0.8rem;
+  color: var(--text-meta);
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+/* Horizontal rule between timeline nodes */
+.arc-timeline-connector {
+  flex: 0 0 60px;
+  height: 1px;
+  background-color: var(--accent-sage);
+}
+
+
+/* ============================================================
+   GRID UTILITY CLASSES
+   ============================================================ */
+
+/* Hero — text + cover image */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* About — portrait + bio text */
+.about-grid {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Speaking — content + image/detail */
+.speaking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Book listings — three columns */
+.books-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+/* Book listings — two columns (constrained width) */
+.books-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 700px;
+}
+
+/* Journal listing — three columns */
+.journal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem 2rem;
+}
+
+
+/* ============================================================
+   PAGE HERO UTILITY
+   ============================================================ */
+
+/* ============================================================
+   INNER PAGE HERO — all non-homepage pages
+   ============================================================ */
+.page-hero {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(107,45,62,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(74,107,90,0.10) 0%, transparent 50%),
+    #16110C;
+  padding-top: 180px;
+  padding-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* All text inside any page hero goes white */
+.page-hero *,
+.page-hero h1,
+.page-hero h2,
+.page-hero p {
+  color: rgba(250,250,248,0.9);
+}
+
+.page-hero h1 {
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #FAFAF8;
+}
+
+.page-hero p {
+  color: rgba(250,250,248,0.55);
+  max-width: 600px;
+}
+
+/* Period label — light sage readable on dark hero background */
+.page-hero .period-label {
+  color: rgba(162, 205, 175, 0.88);
+}
+
+/* Subtle divider line below hero */
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: var(--side-margin-desktop, 120px);
+  right: var(--side-margin-desktop, 120px);
+  height: 1px;
+  background: rgba(250,250,248,0.08);
+}
+
+
+/* HERO — full viewport dark cinematic */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(ellipse at 15% 60%, rgba(107,45,62,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 30%, rgba(74,107,90,0.12) 0%, transparent 50%),
+    #16110C;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section .container {
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section .period-label {
+  color: var(--accent-sage);
+  margin-bottom: 1.5rem;
+}
+
+.hero-section h1 {
+  color: var(--white);
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtext {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--dark-muted);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-section .btn-primary {
+  background: var(--accent-burg);
+  border-color: var(--accent-burg);
+  color: var(--white);
+}
+
+.hero-section .btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(107,45,62,0.4);
+}
+
+.hero-section .btn-ghost {
+  border-color: rgba(250,250,248,0.3);
+  color: var(--white);
+}
+
+.hero-section .btn-ghost:hover {
+  background: rgba(250,250,248,0.08);
+  border-color: rgba(250,250,248,0.6);
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.hero-cover-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-cover-wrap img,
+.hero-cover-wrap .img-placeholder {
+  width: 100%;
+  max-width: 380px;
+  height: 520px;
+  object-fit: cover;
+  /* Removed rectangular box-shadow with highlight to allow natural blending */
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+  box-shadow: none !important;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.hero-cover-wrap:hover img {
+  transform: translateY(-6px) rotate(0.5deg);
+  box-shadow:
+    0 60px 100px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.08);
+}
+
+.hero-cover-wrap::before {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 40%;
+  background: radial-gradient(ellipse, rgba(107,45,62,0.3) 0%, transparent 70%);
+  filter: blur(30px);
+  z-index: -1;
+}
+
+
+/* ============================================================
+   SECTION HEADER UTILITY
+   ============================================================ */
+
+.section-header {
+  margin-bottom: 3rem;
+}
+
+
+/* ============================================================
+   BOOK DETAIL PAGE
+   ============================================================ */
+
+/* Two-column hero: cover on left, details on right */
+/* Base class for the dark hero section background/padding */
+.book-hero-section {
+  background:
+    radial-gradient(ellipse at 10% 70%, rgba(107,45,62,0.20) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 20%, rgba(74,107,90,0.10) 0%, transparent 50%),
+    #16110C;
+  padding-top: 160px;
+  padding-bottom: 80px;
+  padding-left: var(--side-margin-desktop);
+  padding-right: var(--side-margin-desktop);
+}
+
+/* Base class for the two-column grid layout */
+.book-hero-layout {
+  display: grid;
+  grid-template-columns: 40% 60%; /* Increased image column to 40% (approx 15% increase) */
+  gap: 5rem;
+  align-items: center; /* Vertically center text relative to book cover */
+}
+
+
+.book-hero-section h1,
+.book-hero-layout h1 {
+  color: var(--white) !important;
+  font-size: clamp(2.75rem, 5vw, 4.5rem);
+  line-height: 1.05;
+}
+
+.book-hero-section .period-label,
+.book-hero-layout .period-label {
+  color: var(--accent-sage) !important;
+}
+
+.book-hero-section p,
+.book-hero-layout p,
+.book-hero-layout .book-tagline {
+  color: rgba(250,250,248,0.6) !important;
+}
+
+/* Book cover in dark hero — shadow and depth */
+/* Book cover in dark hero — shadow and depth */
+.book-hero-section img,
+.book-hero-layout img,
+.book-detail-hero img {
+  /* Natural drop-shadow for transparent PNGs */
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+  box-shadow: none !important;
+}
+
+/* Floating shadow on cover image */
+
+
+
+/* ============================================================
+   ARTICLE / JOURNAL POST STYLES
+   ============================================================ */
+
+/* ── JOURNAL POST PAGE-HERO — image background + burgundy overlay ── */
+.journal-post-hero {
+  position: relative;
+  overflow: hidden;
+  background: #16110C;
+  padding-top: 180px;
+  padding-bottom: 100px;
+}
+
+/* Full-bleed background image, sepia'd like an old document */
+.journal-post-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  z-index: 0;
+  filter: sepia(30%) contrast(1.05) brightness(0.42) saturate(0.85);
+}
+
+/* Overlay — mirrors the landing page hero layers, less heavy */
+.journal-post-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    /* bottom dark — title reads cleanly over it */
+    linear-gradient(to top, rgba(22,17,12,0.90) 0%, rgba(22,17,12,0.60) 45%, rgba(22,17,12,0.20) 75%),
+    /* top veil — softens the raw image */
+    linear-gradient(to bottom, rgba(22,17,12,0.50) 0%, rgba(22,17,12,0.0) 45%),
+    /* burgundy signature wash — heavier than landing page for readability */
+    linear-gradient(135deg, rgba(107,45,62,0.65) 0%, rgba(74,107,90,0.20) 100%);
+  pointer-events: none;
+}
+
+/* Text layer above image and overlay */
+.journal-post-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.journal-post-hero h1 {
+  color: #FAFAF8;
+}
+
+.journal-post-hero .period-label {
+  color: rgba(162, 205, 175, 0.88); /* light sage — matches landing page feel on dark */
+}
+
+/* Constrained readable body column */
+.article-body {
+  max-width: var(--max-body-width);
+  margin-inline: auto;
+}
+
+.article-body p {
+  margin-bottom: 1.25rem;
+}
+
+.article-body h2,
+.article-body h3 {
+  margin-block: 2rem 1rem;
+}
+
+/* Journal Article Image Grid */
+.article-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-block: 2.5rem;
+  align-items: start;
+}
+
+/* All images render at natural proportions — no forced crop */
+.article-image-grid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease;
+}
+
+/* Solo or last-odd image spans full width */
+.article-image-grid img:only-child,
+.article-image-grid img:last-child:nth-child(odd):not(:only-child) {
+  grid-column: 1 / -1;
+}
+
+.article-image-grid img:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 600px) {
+  .article-image-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+
+/* ============================================================
+   BRAND LINE SECTION
+   ============================================================ */
+
+.section.brand-line {
+  /* Removed stark dark background for seamless flow */
+  background: var(--bg-primary);
+  padding-block: 100px;
+  text-align: center;
+  position: relative;
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+}
+
+.brand-line-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.3;
+  color: var(--text-heading); /* Now black/dark contrast */
+  max-width: 800px; /* Widened slightly */
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ============================================================
+   BOOKS SECTION — FULL BLEED LIGHT THEME
+   ============================================================ */
+
+.books-section-dark {
+  /* Renamed functionally, background aligns with standard layout */
+  background: var(--bg-primary);
+}
+
+.books-dark-header {
+  max-width: 100%;
+  padding: 120px var(--side-margin-desktop) 80px;
+}
+
+.books-dark-header h2 {
+  color: var(--text-heading); /* Fully contrasted dark heading */
+  font-size: clamp(3rem, 6vw, 4.5rem); /* Increased scale slightly matching Suzy Welch */
+  line-height: 1.1;
+  font-weight: 400;
+  margin: 1.5rem 0 2rem;
+}
+
+.books-dark-header p {
+  color: var(--text-body);
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin: 0;
+}
+
+/* Back button in hero */
+.hero-back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-sage);
+  text-decoration: none;
+  margin-bottom: 3.5rem;
+  transition: all 0.25s ease;
+  line-height: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-sage);
+}
+
+.hero-back-link:hover {
+  background-color: var(--accent-sage);
+  color: var(--bg-primary);
+  transform: scale(1.05);
+}
+
+.hero-back-link svg {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  right: 1px;
+}
+
+
+.book-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+  cursor: pointer;
+  border-top: 1px solid var(--divider); /* Soft divider */
+  margin: 0 var(--side-margin-desktop); /* Constrain to standard grid instead of full bleed edge running */
+  background: transparent;
+}
+
+
+.book-panel-image {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 60px; /* Increased top/bottom padding for breathing room */
+  background: transparent;
+}
+
+.book-panel-image img {
+  width: 100%;
+  max-width: 440px; 
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.book-panel:hover .book-panel-image img {
+  transform: translateY(-8px) scale(1.03);
+}
+
+.book-panel-image-overlay {
+  display: none; 
+}
+
+.book-panel-content {
+  padding: 64px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  color: var(--text-body); /* Changed from white to rich dark body text */
+}
+
+.book-panel-top {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-panel-number {
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--divider); /* Soft grey integer backing */
+  letter-spacing: -0.03em;
+  transition: color 0.4s ease;
+}
+
+.book-panel:hover .book-panel-number {
+  color: var(--text-heading); /* Darken aggressively on hover */
+}
+
+.book-panel-date {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sage);
+}
+
+.book-panel-badge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  height: 24px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--accent-sage);
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.book-panel-badge--burg {
+  background: var(--accent-burg);
+}
+
+.book-panel-content h3 {
+  font-size: 2.75rem;
+  line-height: 1.1;
+  color: var(--text-heading);
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.book-panel:hover .book-panel-content h3 {
+  color: var(--accent-burg);
+}
+
+.book-panel-hook {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-body);
+  max-width: 480px;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.book-panel:hover .book-panel-hook {
+  color: var(--text-heading);
+}
+
+.book-panel-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 0.75rem;
+}
+
+.book-panel-cta {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-heading); /* Updated to dark text */
+  text-decoration: none;
+  border-bottom: 1px solid var(--divider); /* Soft grey border */
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.book-panel-cta:hover {
+  border-color: var(--text-heading); /* Solid underline */
+  color: var(--accent-burg);
+}
+
+.book-panel-buy {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-burg);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.book-panel-buy:hover {
+  opacity: 0.75;
+}
+
+.book-panel-forthcoming {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--text-meta); /* Updated from translucent white */
+  font-style: italic;
+}
+
+.other-works-strip-wrapper {
+  margin: 0 var(--side-margin-desktop);
+  border-top: 1px solid var(--divider);
+}
+
+.other-works-strip {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 120px;
+}
+
+.other-works-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.other-works-view-all {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--accent-burg);
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  margin-bottom: 0.5rem; /* Align perfectly with h2 bottom */
+}
+
+.other-works-view-all:hover {
+  opacity: 0.7;
+}
+
+.other-works-carousel {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.carousel-arrow {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-heading);
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  color: var(--accent-burg);
+  transform: scale(1.1);
+}
+
+.other-works-grid {
+  display: flex;
+  justify-content: flex-start;
+  gap: 4rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.other-work-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  text-decoration: none;
+  color: var(--text-body);
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.3s ease;
+}
+
+.other-work-card:hover {
+  transform: none; /* Container remains static */
+}
+
+.other-work-cover {
+  width: 100%;
+  aspect-ratio: 1 / 1.45;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  background-color: transparent; /* Changed from #fff to allow multiply blend with page */
+}
+
+.other-work-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  mix-blend-mode: multiply;
+}
+
+.other-work-card:hover .other-work-cover img {
+  transform: scale(1.04);
+}
+
+.other-work-name {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.other-work-card:hover .other-work-name {
+  color: var(--accent-burg);
+}
+
+.other-work-author {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-body);
+  margin-bottom: 0.25rem;
+}
+
+.other-work-price {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+
+.section.about-section {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.about-section .about-grid img,
+.about-section .about-grid .img-placeholder {
+  width: 100%;
+  height: 580px;
+  object-fit: cover;
+  object-position: top;
+  filter: sepia(8%) contrast(1.05);
+}
+
+.about-section .period-label {
+  color: var(--accent-sage);
+}
+
+.about-section h2 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+
+/* ============================================================
+   QUOTES SECTION
+   ============================================================ */
+
+.section.quotes-section {
+  background: var(--bg-primary);
+  padding-block: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+.quotes-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(146, 56, 81, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.pull-quote-attr {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-sage);
+  margin: 0;
+  text-align: center;
+}
+
+
+/* ============================================================
+   SPEAKING SECTION
+   ============================================================ */
+
+.section.speaking-section {
+  background: var(--bg-secondary);
+  position: relative;
+  overflow: hidden;
+}
+
+.speaking-section::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: radial-gradient(ellipse at 100% 50%, rgba(66, 94, 79, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.speaking-section .period-label { color: var(--accent-sage); }
+.speaking-section h2 { color: var(--text-heading); }
+.speaking-section p  { color: var(--text-body); }
+
+.speaking-section .btn-primary {
+  background: var(--accent-sage);
+  border-color: var(--accent-sage);
+}
+
+.speaking-section .btn-primary:hover {
+  background: #3d5a4a;
+  border-color: #3d5a4a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(74,107,90,0.35);
+}
+
+.speaking-section .img-placeholder,
+.speaking-section img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  filter: sepia(15%) contrast(1.1) brightness(0.8);
+}
+
+
+/* ============================================================
+   NEWSLETTER SECTION
+   ============================================================ */
+
+.section.newsletter-section {
+  background: var(--accent-burg);
+  padding-block: 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.newsletter-section h2 {
+  color: var(--white);
+  font-size: clamp(1.875rem, 3vw, 2.75rem);
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.newsletter-section p {
+  color: rgba(250,250,248,0.65);
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.newsletter-section .newsletter-form {
+  position: relative;
+  z-index: 1;
+  max-width: 460px;
+  margin: 2rem auto 0;
+}
+
+.newsletter-section .newsletter-form input[type="email"] {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.25);
+  color: var(--white);
+}
+
+.newsletter-section .newsletter-form input[type="email"]::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+.newsletter-section .newsletter-form input[type="email"]:focus {
+  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.15);
+}
+
+.newsletter-section .newsletter-form button {
+  background: var(--dark);
+  border-color: var(--dark);
+  color: var(--white);
+}
+
+.newsletter-section .newsletter-form button:hover {
+  background: var(--text-body);
+  border-color: var(--text-body);
+}
+
+.newsletter-section small {
+  display: block;
+  color: rgba(250,250,248,0.4);
+  font-size: 0.75rem;
+  margin-top: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ============================================================
+   GHOST TEXT SCROLL EFFECT
+   ============================================================ */
+
+.ghost-text-section {
+  overflow: hidden;
+  padding: 0;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  background: #16110C;
+}
+
+.ghost-text {
+  font-family: var(--font-serif);
+  font-size: clamp(8rem, 20vw, 18rem);
+  font-weight: 600;
+  color: var(--white);
+  opacity: 0.04;
+  text-align: center;
+  white-space: nowrap;
+  transition: opacity 0.1s linear;
+  padding: 0 2rem;
+  line-height: 0.9;
+}
+
+.ghost-text.in-view {
+  animation: ghostReveal 1s ease forwards;
+}
+
+@keyframes ghostReveal {
+  from { opacity: 0.04; }
+  to   { opacity: 0.09; }
+}
+
+
+/* ============================================================
+   SCROLLING CHAPTER STRIP
+   ============================================================ */
+
+.chapter-strip {
+  overflow: hidden;
+  padding: 16px 0;
+  background: var(--dark);
+  border-top: 1px solid var(--dark-border);
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.chapter-strip-inner {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  animation: stripScroll 28s linear infinite;
+  white-space: nowrap;
+}
+
+.chapter-strip-inner span {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.25);
+}
+
+@keyframes stripScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+
+/* ============================================================
+   STRIPE PRESS STYLE BOOKS SECTION
+   ============================================================ */
+
+.section-intro {
+  max-width: 560px;
+  color: var(--text-meta);
+  margin-top: 0.75rem;
+  font-size: 1rem;
+}
+
+.arc-books {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 4rem;
+}
+
+.arc-book-row {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 0;
+  align-items: stretch;
+  border-top: 1px solid var(--divider);
+  padding: 5rem 0;
+  transition: background 0.3s ease;
+}
+
+.arc-book-row:last-child {
+  border-bottom: 1px solid var(--divider);
+}
+
+.arc-book-row--reverse {
+  grid-template-columns: 1fr 380px;
+}
+
+.arc-book-row--reverse .arc-book-cover {
+  order: 2;
+}
+
+.arc-book-row--reverse .arc-book-content {
+  order: 1;
+  padding-right: 6rem;
+  padding-left: 0;
+}
+
+.arc-book-cover {
+  position: relative;
+  overflow: hidden;
+}
+
+.arc-book-cover img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+  filter: sepia(15%) contrast(1.05);
+}
+
+.arc-book-row:hover .arc-book-cover img {
+  transform: scale(1.03);
+}
+
+.arc-book-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  color: var(--white);
+}
+
+.arc-book-content {
+  padding: 2rem 0 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.arc-book-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arc-book-number {
+  font-family: var(--font-serif);
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--text-heading);
+  opacity: 0.07;
+  line-height: 1;
+}
+
+.arc-book-content h3 {
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 1.15;
+}
+
+.arc-book-hook {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--text-body);
+  max-width: 520px;
+  margin: 0;
+}
+
+.arc-book-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.arc-book-buy {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--accent-burg);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+
+.arc-book-buy:hover {
+  opacity: 0.7;
+}
+
+.arc-book-forthcoming {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--text-meta);
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
+.other-works {
+  margin-top: 5rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--divider);
+}
+
+.other-works-row {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+
+.other-work-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.other-work-item:hover {
+  opacity: 0.7;
+}
+
+.other-work-item img {
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  filter: sepia(10%);
+}
+
+.other-work-item h4 {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-heading);
+}
+
+.other-work-item span {
+  font-size: 0.8125rem;
+  color: var(--text-meta);
+  letter-spacing: 0.04em;
+}
+
+
+/* ============================================================
+   ABOUT BIO SECTIONS (inner pages)
+   ============================================================ */
+
+.about-bio-section {
+  background: var(--bg-primary);
+}
+
+.about-bio-section h2,
+.about-bio-section h3 {
+  color: var(--text-heading);
+}
+
+/* Decorative section rule — Anglo-Saxon feel */
+.section-rule {
+  display: block;
+  width: 48px;
+  height: 1px;
+  background: var(--accent-sage);
+  margin-bottom: 2rem;
+}
+
+
+/* ============================================================
+   PAGE CONTENT SECTIONS (speaking, media, inner pages)
+   ============================================================ */
+
+.page-content-section {
+  background: var(--bg-primary);
+  padding-block: var(--section-padding-desktop);
+}
+
+.page-content-section.bg-alt {
+  background: var(--bg-secondary);
+}
+
+/* Topic list items — elegant, no bullets */
+.topic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.topic-list li {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  color: var(--text-heading);
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--divider);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.topic-list li::before {
+  content: '—';
+  color: var(--accent-sage);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  flex-shrink: 0;
+}
+
+.topic-list li:hover {
+  color: var(--accent-burg);
+  padding-left: 0.5rem;
+}
+
+
+/* ============================================================
+   FORM SECTION
+   ============================================================ */
+
+.form-section {
+  background: var(--bg-primary);
+  padding-block: var(--section-padding-desktop);
+}
+
+
+/* ============================================================
+   DARK BACKGROUNDS — exact class names from HTML
+   ============================================================ */
+
+.ghost-text-section {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(at 20% 80%, rgba(146, 56, 81, 0.05) 0%, transparent 55%),
+    radial-gradient(at 80% 20%, rgba(66, 94, 79, 0.05) 0%, transparent 50%);
+}
+
+
+
+.brand-line p,
+.brand-line blockquote {
+  color: var(--text-heading);
+}
+
+.quotes-section {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(at 30% 30%, rgba(146, 56, 81, 0.04) 0%, transparent 55%);
+}
+
+.quotes-section .pull-quote {
+  color: var(--text-heading);
+}
+
+.quotes-section .pull-quote-attr {
+  color: var(--accent-sage);
+}
+
+/* ============================================================
+   QUOTE CAROUSEL
+   ============================================================ */
+
+.quote-carousel {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+/* Fade edges */
+.quote-carousel::before,
+.quote-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.quote-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-primary), transparent);
+}
+.quote-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-primary), transparent);
+}
+
+.quote-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scroll-quotes 45s linear infinite;
+}
+
+.quote-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-quotes {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.quote-card {
+  flex: 0 0 520px;
+  background: var(--white); /* Premium white floating card */
+  border: 1px solid var(--divider);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03); /* Soft shadow */
+  padding: 3rem 3.5rem;
+  text-align: center;
+  position: relative;
+  border-radius: 4px; /* subtle premium curve */
+}
+
+.quote-card-mark {
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-size: 5rem;
+  line-height: 0.6;
+  color: var(--accent-burg);
+  opacity: 0.6;
+  margin-bottom: 1.5rem;
+  display: block;
+  user-select: none;
+}
+
+.quote-card-text {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  line-height: 1.65;
+  color: var(--text-heading); /* Completely dark crisp font */
+  margin: 0 0 1.5rem;
+}
+
+.quote-card-attr {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sage);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .quote-card {
+    flex: 0 0 min(420px, 85vw);
+    padding: 2.5rem 2rem;
+  }
+  .quote-carousel::before,
+  .quote-carousel::after {
+    width: 60px;
+  }
+}
+
+
+
+.speaking-section h2,
+.speaking-section p {
+  color: var(--text-heading);
+}
+
+.speaking-section .period-label {
+  color: var(--accent-sage);
+}
+
+.newsletter-section {
+  /* Retain dark aesthetic for newsletter as a footer anchor, but use deep burg/dark tokens */
+  background-color: var(--dark-mid);
+  background-image:
+    radial-gradient(at 50% 50%, rgba(146, 56, 81, 0.40) 0%, transparent 65%);
+}
+
+
+/* ============================================================
+   TYPOGRAPHY IN DARK HEROES — INNER PAGES
+   ============================================================ */
+
+.page-hero h1, .page-hero h2,
+.book-hero-grid h1 {
+  color: var(--white);
+}
+
+.page-hero p {
+  color: rgba(250,250,248,0.55);
+}
+
+.page-hero .period-label,
+.book-hero-grid .period-label {
+  color: rgba(162, 205, 175, 0.88);
+}
+
+
+/* ============================================================
+   SECTION LABELS / EYEBROWS
+   ============================================================ */
+
+.section-eyebrow,
+.arc-section-label,
+.books-dark-header .period-label,
+.about-section-label,
+.speaking-section-label {
+  font-size: 1rem !important;
+  letter-spacing: 0.18em !important;
+  margin-bottom: 1.25rem;
+}
+
+/* H2s that introduce sections — bump size meaningfully */
+.section h2,
+.page-content-section h2,
+.arc-book-content h2,
+.about-grid h2 {
+  font-size: clamp(2.25rem, 3.5vw, 3.5rem);
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+}
+
+/* Books dark section header H2 — the big statement */
+.books-dark-header h2 {
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.05;
+}
+
+
+/* ============================================================
+   INNER PAGE HEROES — body class ensures correct targeting
+   ============================================================ */
+
+.about main > section:first-child,
+.books main > section:first-child,
+.speaking main > section:first-child,
+.media main > section:first-child,
+.journal main > section:first-child,
+.contact main > section:first-child,
+.book-detail main > section:first-child {
+  background-color: #16110C;
+  background-image:
+    radial-gradient(at 20% 80%, rgba(107, 45, 62, 0.15) 0%, transparent 55%),
+    radial-gradient(at 80% 20%, rgba(74, 107, 90, 0.10) 0%, transparent 50%);
+  padding-top: 180px;
+  padding-bottom: 100px;
+}
+
+/* Per-page shimmer variations */
+.about main > section:first-child {
+  background-image:
+    radial-gradient(at 30% 70%, rgba(74, 107, 90, 0.18) 0%, transparent 55%),
+    radial-gradient(at 75% 20%, rgba(107, 45, 62, 0.08) 0%, transparent 50%);
+}
+.speaking main > section:first-child {
+  background-image:
+    radial-gradient(at 80% 60%, rgba(74, 107, 90, 0.20) 0%, transparent 55%),
+    radial-gradient(at 20% 20%, rgba(107, 45, 62, 0.08) 0%, transparent 50%);
+}
+.journal main > section:first-child {
+  background-image:
+    radial-gradient(at 25% 75%, rgba(107, 45, 62, 0.20) 0%, transparent 55%),
+    radial-gradient(at 80% 20%, rgba(74, 107, 90, 0.08) 0%, transparent 50%);
+}
+.contact main > section:first-child {
+  background-image:
+    radial-gradient(at 60% 40%, rgba(74, 107, 90, 0.15) 0%, transparent 55%),
+    radial-gradient(at 20% 80%, rgba(107, 45, 62, 0.10) 0%, transparent 50%);
+}
+.book-detail main > section:first-child {
+  background-image:
+    radial-gradient(at 10% 70%, rgba(107, 45, 62, 0.25) 0%, transparent 55%),
+    radial-gradient(at 85% 20%, rgba(74, 107, 90, 0.08) 0%, transparent 50%);
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+}
+
+/* All h1s inside inner page heroes */
+/* Removed excessive H1 and P overrides for inner page heroes that were clashing with the unified light theme. */
+
+/* Content sections below hero — warm parchment */
+.about main > section:not(:first-child),
+.books main > section:not(:first-child):not(.sotw-feature),
+.speaking main > section:not(:first-child),
+.media main > section:not(:first-child),
+.journal main > section:not(:first-child),
+.contact main > section:not(:first-child) {
+  background-color: var(--bg-primary);
+}
+
+/* Smooth dark → light bleed on second section */
+.about main > section:nth-child(2),
+.books main > section:nth-child(2):not(.sotw-feature),
+.speaking main > section:nth-child(2),
+.media main > section:nth-child(2),
+.journal main > section:nth-child(2),
+.contact main > section:nth-child(2) {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(22, 17, 12, 0.06) 0%,
+    rgba(22, 17, 12, 0) 80px
+  );
+}
+
+
+/* ============================================================
+   TYPOGRAPHY — Caslon-specific size corrections
+   Caslon Display is physically wider than Cormorant
+   ============================================================ */
+
+/* Hero H1 — Caslon fills more space, pull back slightly */
+.hero-section h1,
+body:not(.home) main > section:first-child h1 {
+  font-size: clamp(2.75rem, 5.5vw, 5.25rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+}
+
+/* Books dark header — full-width statement */
+.books-dark-header h2 {
+  font-size: clamp(1.5rem, 4.5vw, 5.5rem);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+
+/* Book panel titles */
+.book-panel-content h3 {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1.1;
+}
+
+/* About section H2 */
+.about-grid h2 {
+  font-size: clamp(1.875rem, 3vw, 2.75rem);
+}
+
+/* Pull quotes — EB Garamond italic is gorgeous, let it breathe */
+.pull-quote {
+  font-size: clamp(1.25rem, 2.2vw, 1.875rem);
+  line-height: 1.65;
+  max-width: 780px;
+  margin-inline: auto;
+}
+
+
+/* ============================================================
+   SERMON OF THE WOLF — FEATURE SECTION (books.html)
+   ============================================================ */
+
+.sotw-feature {
+  background: var(--dark);
+  overflow: hidden;
+  position: relative;
+  padding-block: 100px;
+}
+
+/* Scope all heading/text elements inside the dark section to on-dark tokens.
+   Using .sotw-feature h2 (specificity 0,1,1) beats the global h2 (0,0,1) rule,
+   so these tokens take effect in both light and dark mode without !important. */
+.sotw-feature h1,
+.sotw-feature h2,
+.sotw-feature h3 { color: var(--on-dark-primary); }
+
+.sotw-feature p   { color: var(--on-dark-secondary); }
+
+/* Burgundy radial glow on the right side */
+.sotw-feature::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 72% 50%, rgba(146,56,81,0.12) 0%, transparent 62%);
+  pointer-events: none;
+}
+
+.sotw-feature-inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 6rem;
+  align-items: center;
+  position: relative;
+}
+
+/* ── Cover image ── */
+.sotw-cover-wrap {
+  flex-shrink: 0;
+}
+
+.sotw-cover-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  object-position: top center;
+  border-top: 3px solid var(--accent-burg);
+}
+
+.sotw-cover-placeholder {
+  aspect-ratio: 2 / 3;
+  background: linear-gradient(155deg, #2C2420 0%, #191410 100%);
+  border: 1px solid var(--on-dark-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Inner border inset */
+.sotw-cover-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(146,56,81,0.28);
+  pointer-events: none;
+}
+
+/* Burgundy top bar */
+.sotw-cover-placeholder::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent-burg);
+}
+
+.sotw-cover-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--accent-burg);
+  display: block;
+  margin-bottom: 2.5rem;
+}
+
+.sotw-feature .sotw-cover-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  color: var(--on-dark-primary);
+  letter-spacing: -0.01em;
+  margin: 0 0 2.5rem;
+}
+
+.sotw-cover-year {
+  font-family: var(--font-sans);
+  font-size: 0.5625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--on-dark-faint);
+  display: block;
+}
+
+/* ── Content (right) ── */
+.sotw-badges {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.sotw-feature .sotw-badges .period-label {
+  color: var(--on-dark-muted);
+}
+
+.sotw-feature .sotw-title {
+  font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+  color: var(--on-dark-primary);
+  line-height: 1.05;
+  margin-bottom: 0.625rem;
+}
+
+.sotw-publisher {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-dark-faint);
+  margin-bottom: 2rem;
+}
+
+.sotw-feature .sotw-summary {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: var(--on-dark-secondary);
+  max-width: 52ch;
+  margin-bottom: 2.5rem;
+}
+
+.sotw-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Ghost button adapted for dark background */
+.sotw-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 14px 28px;
+  border: 1px solid var(--on-dark-border);
+  color: var(--on-dark-secondary);
+  background: transparent;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.sotw-btn-outline:hover {
+  border-color: var(--on-dark-muted);
+  color: var(--on-dark-primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .sotw-feature-inner {
+    grid-template-columns: 220px 1fr;
+    gap: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sotw-feature {
+    padding-block: 72px;
+  }
+
+  .sotw-feature-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .sotw-cover-wrap {
+    max-width: 180px;
+  }
+
+  .sotw-summary {
+    max-width: none;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   TABLET  ≤ 1024px
+   ---------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .container {
+    padding-inline: var(--side-margin-tablet);
+  }
+
+  .section {
+    padding-block: var(--section-padding-tablet);
+  }
+
+  .site-nav {
+    padding-inline: var(--side-margin-tablet);
+  }
+
+  /* Three-col book grid collapses to two */
+  .books-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Journal grid collapses to two */
+  .journal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer collapses to two columns */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ----------------------------------------------------------
+   MOBILE  ≤ 768px
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* --- Typography scale --- */
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.875rem;
+  }
+
+  h3 {
+    font-size: 1.375rem;
+  }
+
+  /* --- Layout --- */
+  .container {
+    padding-inline: var(--side-margin-mobile);
+  }
+
+  .section {
+    padding-block: var(--section-padding-mobile);
+  }
+
+  /* --- Navigation --- */
+  .site-nav {
+    padding-inline: var(--side-margin-mobile);
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-hamburger {
+    display: block;
+  }
+
+  /* --- Page grids → single column --- */
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .books-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .books-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .speaking-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .journal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Footer → single column --- */
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Arc timeline → stacked --- */
+  .arc-timeline {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .arc-timeline-connector {
+    display: none;
+  }
+
+  /* --- Book detail hero → single column --- */
+  .book-hero-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .book-hero-layout .book-cover-wrapper {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  /* --- Journal card title matches mobile H3 --- */
+  .journal-card-title {
+    font-size: 1.375rem;
+  }
+
+  /* --- Pull quote — smaller on mobile --- */
+  .pull-quote {
+    font-size: 1.25rem;
+  }
+
+  /* --- Brand line section text --- */
+  .brand-line-text {
+    font-size: 1.625rem;
+  }
+
+  /* --- Dark books section --- */
+  .books-dark-header {
+    padding: 80px 24px 48px;
+  }
+
+  .books-dark-header h2 {
+    font-size: clamp(2.5rem, 12vw, 5rem);
+  }
+
+  .book-panel {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .book-panel--accent .book-panel-image {
+    order: -1;
+  }
+
+  .book-panel-image img {
+    height: 260px;
+  }
+
+  .book-panel-image-overlay {
+    background: linear-gradient(to top, var(--text-heading) 0%, transparent 100%) !important;
+  }
+
+  .book-panel-content {
+    padding: 40px 24px;
+  }
+
+  .book-panel-content h3 {
+    font-size: 2rem;
+  }
+
+  .other-works-strip {
+    padding: 48px 24px;
+  }
+
+  .other-works-strip-row {
+    flex-direction: column;
+  }
+
+  /* --- Arc book rows → single column --- */
+  .arc-book-row,
+  .arc-book-row--reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .arc-book-row--reverse .arc-book-cover { order: 1; }
+  .arc-book-row--reverse .arc-book-content { order: 2; padding-right: 0; padding-left: 0; }
+  .arc-book-content { padding: 2rem 0; }
+  .arc-book-cover img { height: 300px; }
+  .other-works-row { flex-direction: column; }
+}
+
+
+/* ============================================================
+   RESPONSIVE OVERRIDES — full-width + period-label
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  :root {
+    --side-margin-desktop: 48px;
+  }
+  .book-panel-content {
+    padding: 48px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --side-margin-desktop: 24px;
+  }
+  .period-label {
+    font-size: 0.75rem !important;
+  }
+}
+
+
+/* ============================================================
+   HERO — SUZY WELCH-STYLE FULL PORTRAIT HERO
+   Portrait background · Cards bottom-right · Copy bottom-left
+   ============================================================ */
+
+/* Reset old hero layout */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 640px;
+  max-height: 960px;
+  overflow: hidden;
+  display: block;
+  padding: 0;
+  background: #16110C;
+}
+
+/* ── BACKGROUND PORTRAIT ── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%;
+  display: block;
+  transform: scale(1.0);
+  transition: transform 10s ease-out;
+  animation: heroImageReveal 2.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroImageReveal {
+  0% {
+    opacity: 0;
+    filter: sepia(60%) contrast(0.9) brightness(0.4) saturate(0.7) blur(6px);
+  }
+  60% {
+    opacity: 1;
+    filter: sepia(40%) contrast(1.0) brightness(0.65) saturate(1.0) blur(1px);
+  }
+  100% {
+    opacity: 1;
+    filter: sepia(30%) contrast(1.08) brightness(0.75) saturate(1.1) blur(0px);
+  }
+}
+
+body.loaded .hero-bg-img {
+  transform: scale(1.06); /* Ken Burns slow zoom on load */
+}
+
+/* ── Clip-reveal containers ──────────────────────────────────────────────────
+   overflow:hidden creates the hard edge from which .line-inner slides up.
+   padding-bottom prevents descender clipping on italic/cap glyphs.
+   ─────────────────────────────────────────────────────────────────────────── */
+.hero-section .hero-eyebrow,
+.hero-section .hero-title-line,
+.hero-section .hero-descriptor {
+  overflow: hidden;
+  padding-bottom: 0.14em;
+}
+
+/* Inner content — JS sets translateY(110%) before timeline fires */
+.hero-section .line-inner {
+  display: block;
+}
+
+/* Name inscription starts invisible — anime.js fades it in */
+.hero-section .hero-name-inscription {
+  opacity: 0;
+}
+
+/* Multi-layer overlay: dark at edges, lighter in centre where face is */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    /* left edge dark — copy reads over it */
+    linear-gradient(to right, rgba(22,17,12,0.85) 0%, rgba(22,17,12,0.40) 45%, rgba(22,17,12,0.15) 100%),
+    /* bottom dark — cards and copy read over it */
+    linear-gradient(to top, rgba(22,17,12,0.90) 0%, rgba(22,17,12,0.55) 35%, rgba(22,17,12,0.0) 70%),
+    /* burgundy tint across whole image — signature colour wash */
+    linear-gradient(135deg, rgba(107,45,62,0.35) 0%, rgba(74,107,90,0.15) 100%);
+  opacity: 0;
+  animation: heroOverlayIn 1.8s ease-out forwards 0.6s;
+}
+
+@keyframes heroOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── AUTHOR NAME INSCRIPTION ── mid-portrait, centred ── */
+.hero-name-inscription {
+  position: absolute;
+  top: 40%; /* Adjusted from 45% to prevent crowding with bottom copy */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  /* opacity: 0 kept here as FOUC guard; anime.js timeline animates to 1 */
+  opacity: 0;
+}
+
+.hero-name-runes {
+  display: block;
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(0.75rem, 1.1vw, 0.95rem);
+  font-weight: bold;
+  letter-spacing: 0.42em;
+  color: var(--accent-sage);
+  opacity: 1;
+  font-style: normal;
+  text-shadow: 0 0 18px rgba(74,107,90,0.55);
+}
+
+.hero-name-text {
+  display: block;
+  font-family: 'Cinzel', 'Libre Caslon Display', Georgia, serif;
+  font-size: clamp(2.75rem, 5vw, 5.5rem);
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 0.22em;
+  line-height: 1.0;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow:
+    0 2px 8px rgba(0,0,0,0.75),
+    0 0 60px rgba(107,45,62,0.38),
+    0 0 120px rgba(107,45,62,0.18);
+}
+
+
+/* ── BOTTOM-LEFT COPY ── */
+.hero-copy {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 720px;
+  z-index: 3;
+  padding: 0 0 52px 72px;
+}
+
+.hero-copy-inner {
+  /* Wrapper is always visible — anime.js animates the individual children */
+}
+
+.hero-eyebrow {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-sage);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-weight: 400;
+  line-height: 1.2; /* Increased from 1.1025 to prevent overlap */
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; /* Added gap to ensure separation */
+}
+
+.hero-title-line {
+  display: block;
+  font-size: clamp(2.63rem, 4.45vw, 4.68rem);
+  color: var(--white);
+  white-space: nowrap; /* Prevent wrapping on desktop */
+}
+
+.hero-title-italic {
+  font-style: italic;
+  color: rgba(250,250,248,0.75);
+  font-size: clamp(2.22rem, 3.74vw, 3.98rem);
+  white-space: nowrap;
+}
+
+.hero-descriptor {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  line-height: 1.7;
+  color: rgba(250,250,248,0.7);
+  max-width: 520px;
+}
+
+
+@media (max-width: 900px) {
+  .hero-section {
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+  }
+
+  .hero-bg {
+    height: 100%;
+    min-height: 100svh;
+  }
+
+  .hero-name-inscription {
+    top: 42%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hero-name-text {
+    font-size: clamp(1.8rem, 10vw, 3rem);
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+  }
+
+  .hero-title-line,
+  .hero-title-italic {
+    font-size: clamp(1.75rem, 7vw, 2.5rem);
+    white-space: normal;
+    display: inline;
+  }
+
+  .hero-copy {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 24px 56px;
+    text-align: center;
+  }
+}
+
+
+
+/* ============================================================
+   REVIEW CAROUSEL � What Readers Say
+   ============================================================ */
+
+.reviews-section {
+  background: #16110C;
+  padding: 80px 0 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.reviews-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(107,45,62,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(74,107,90,0.07) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.reviews-section .period-label {
+  color: var(--accent-sage);
+  padding-inline: var(--side-margin-desktop);
+  display: block;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.reviews-section-heading {
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--white);
+  padding-inline: var(--side-margin-desktop);
+  margin: 0 0 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.reviews-track-wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.reviews-track-wrap::before,
+.reviews-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.reviews-track-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, #16110C, transparent);
+}
+
+.reviews-track-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, #16110C, transparent);
+}
+
+.reviews-track {
+  display: flex;
+  gap: 20px;
+  padding: 8px var(--side-margin-desktop) 40px;
+  width: max-content;
+  animation: scroll-quotes 55s linear infinite;
+}
+
+.reviews-track:hover {
+  animation-play-state: paused;
+}
+
+.reviews-track::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews-track.is-dragging {
+  cursor: grabbing;
+}
+
+.review-card {
+  flex: 0 0 340px;
+  scroll-snap-align: start;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 32px 28px 28px;
+  position: relative;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.review-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.14);
+  transform: translateY(-3px);
+}
+
+.review-card::before {
+  content: '\201C';
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-size: 4rem;
+  line-height: 1;
+  color: var(--accent-burg);
+  opacity: 0.45;
+}
+
+.review-card-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 20px;
+  padding-top: 8px;
+}
+
+.review-card-stars span {
+  color: #C8956B;
+  font-size: 0.85rem;
+}
+
+.review-card-quote {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(250,250,248,0.82);
+  margin: 0 0 24px;
+  font-style: italic;
+}
+
+.review-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 18px;
+}
+
+.review-card-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.review-card-source {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--accent-sage);
+  text-transform: uppercase;
+}
+
+.reviews-dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding-inline: var(--side-margin-desktop);
+  margin-top: 4px;
+  position: relative;
+  z-index: 1;
+}
+
+.reviews-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s ease, width 0.25s ease;
+}
+
+.reviews-dot.active {
+  background: var(--accent-burg);
+  width: 20px;
+  border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .review-card { flex: 0 0 280px; }
+  .reviews-section { padding: 60px 0 80px; }
+  .reviews-section .period-label,
+  .reviews-section-heading,
+  .reviews-dots { padding-inline: 24px; }
+  .reviews-track { padding-inline: 24px; }
+  .reviews-track-wrap::before,
+  .reviews-track-wrap::after { width: 40px; }
+}
+
+
+.reviews-track.static-track { animation: none !important; justify-content: center; flex-wrap: wrap; width: 100%; overflow: visible; padding-bottom: 0; } .reviews-track-wrap.static-wrap::before, .reviews-track-wrap.static-wrap::after { display: none; }
+
+/* ── PRE-LAUNCH HUB (SERMON OF THE WOLF) ── */
+.book-hero-content {
+  padding: 80px 0 100px;
+  position: relative;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-meta);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 3rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: var(--accent-burg);
+}
+
+.book-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.book-hero-left h1 {
+  font-family: 'Cinzel', 'Libre Caslon Display', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--text-main);
+  margin-block: 0.5rem 1.5rem;
+}
+
+.book-hero-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-body);
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-cover-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.hero-cover-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .book-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .book-hero-left {
+    order: 2;
+  }
+  .book-hero-right {
+    order: 1;
+  }
+}
+
+/* ============================================================
+   WAITLIST SECTION — Homepage + Book pages
+   ============================================================ */
+
+.waitlist-section {
+  background: #16110C;
+  position: relative;
+  overflow: hidden;
+}
+
+.waitlist-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(107,45,62,0.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 30%, rgba(74,107,90,0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.waitlist-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.waitlist-text h2 {
+  font-family: 'Libre Caslon Display', Georgia, serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.waitlist-text h2 em {
+  font-style: italic;
+  color: rgba(250,250,248,0.75);
+}
+
+.waitlist-text > p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: rgba(250,250,248,0.6);
+  max-width: 440px;
+  margin-bottom: 2rem;
+}
+
+.waitlist-perks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.waitlist-perks li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  color: rgba(250,250,248,0.75);
+  line-height: 1.5;
+}
+
+.perk-icon {
+  color: var(--accent-burg);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+/* Form wrap */
+.waitlist-form-wrap {
+  background: rgba(240,235,227,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 40px;
+}
+
+.waitlist-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.waitlist-input {
+  width: 100%;
+  padding: 14px 18px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1rem;
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.waitlist-input:focus {
+  border-color: var(--accent-burg);
+  background: rgba(255,255,255,0.09);
+}
+
+.waitlist-input::placeholder {
+  color: rgba(250,250,248,0.35);
+}
+
+.waitlist-btn {
+  width: 100%;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.waitlist-small {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  color: rgba(250,250,248,0.3);
+  text-align: center;
+  margin-top: 12px;
+}
+
+.waitlist-success {
+  text-align: center;
+  padding: 16px 0;
+}
+
+.waitlist-success p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--accent-sage);
+  font-style: italic;
+}
+
+/* Chapter locked state */
+.chapter-preview-section .section-intro {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: rgba(250,250,248,0.6);
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+}
+
+.chapter-locked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 60px 40px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  max-width: 480px;
+  text-align: center;
+}
+
+.chapter-lock-icon {
+  font-size: 2rem;
+  color: var(--accent-burg);
+  opacity: 0.6;
+}
+
+.chapter-locked p {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  color: rgba(250,250,248,0.5);
+  font-style: italic;
+}
+
+/* Launch countdown — inside book hero */
+.launch-countdown {
+  margin: 2rem 0;
+}
+
+.countdown-label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sage);
+  margin-bottom: 0.75rem;
+}
+
+.countdown-grid {
+  display: flex;
+  gap: 24px;
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.countdown-num {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1;
+}
+
+.countdown-text {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.4);
+}
+
+/* Cover badge */
+.cover-badge {
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent-burg);
+  color: var(--white);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .waitlist-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* ============================================================
+   MEDIA PAGE — grids + download links
+   ============================================================ */
+
+.media-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.media-cover-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.media-video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.media-photo-grid img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.media-cover-grid img,
+.media-cover-grid .book-card-cover,
+.media-cover-grid .img-placeholder,
+.media-cover-grid .book-cover-wrapper {
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.media-cover-grid > div {
+  text-align: center;
+}
+
+.media-download-link {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-burg);
+  text-decoration: none;
+}
+
+.media-download-link:hover {
+  opacity: 0.75;
+}
+
+.media-cover-download {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-burg);
+  text-decoration: none;
+}
+
+.media-video-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-meta);
+  margin-bottom: 1rem;
+}
+
+/* Footer section label (repeated across all pages) */
+.footer-section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250,250,248,0.4);
+  margin-bottom: 1rem;
+}
+
+.footer-social-link {
+  color: rgba(250,250,248,0.7);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.footer-social-link:hover {
+  color: var(--white);
+}
+
+/* Mobile breakpoints */
+@media (max-width: 768px) {
+  .media-photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .media-cover-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .media-video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .media-cover-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

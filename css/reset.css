@@ -1,0 +1,78 @@
+/* ============================================================
+   CSS Reset
+   Modern minimal reset for the David Stokes author website
+   ============================================================ */
+
+/* Box-sizing: border-box on everything */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding on all elements */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scrolling at the document level */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base body defaults */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Block-level media elements with capped width */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Form elements inherit typography from their parent */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Prevent long words from overflowing headings and paragraphs */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  overflow-wrap: break-word;
+}
+
+/* Remove list styles when a list has an explicit ARIA list role.
+   Using role="list" signals intentional list semantics while
+   opting out of the default bullet / number presentation. */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
