@@ -1,0 +1,43 @@
+# local_backend: true enables local testing without Netlify auth
+# Set to false (or remove) before deploying to production
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: master
+
+# Where uploaded images are stored in the repo
+media_folder: "Img/Blogs"
+# Path used in HTML src attributes
+public_folder: "/Img/Blogs"
+
+collections:
+  - name: "journal"
+    label: "Journal Posts"
+    label_singular: "Journal Post"
+    files:
+      - name: "posts"
+        label: "All Posts"
+        file: "data/journal-posts.json"
+        fields:
+          - name: posts
+            label: Posts
+            label_singular: Post
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: slug,         label: "URL Slug",     widget: string,   hint: "URL-safe identifier, e.g. my-post-title" }
+              - { name: title,        label: "Title",        widget: string }
+              - { name: date,         label: "Date",         widget: datetime, date_format: "YYYY-MM-DD", time_format: false, default: "" }
+              - { name: period_label, label: "Period Label", widget: string,   hint: "e.g. Anglo-Saxon History | April 2023" }
+              - { name: excerpt,      label: "Excerpt",      widget: text,     hint: "Short summary shown on the journal listing page" }
+              - { name: hero_image,   label: "Hero Image",   widget: image }
+              - name: hero_image_position
+                label: "Hero Image Focus"
+                widget: select
+                options:
+                  - { label: "Top",    value: "center top" }
+                  - { label: "Centre", value: "center center" }
+                  - { label: "Bottom", value: "center bottom" }
+                default: "center center"
+              - { name: body,         label: "Body",         widget: markdown }

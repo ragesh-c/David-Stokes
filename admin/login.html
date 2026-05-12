@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login — David Stokes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: var(--ink);
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 380px;
+      padding: 2.5rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+
+    .login-wordmark {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-style: italic;
+      font-size: 1.8rem;
+      color: var(--parchment);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.3rem;
+    }
+
+    .login-subtitle {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 2rem;
+    }
+
+    .login-field {
+      margin-bottom: 1.1rem;
+      text-align: left;
+    }
+
+    .login-field label {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .login-field input {
+      width: 100%;
+      background: var(--input-bg);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius);
+      color: var(--parchment);
+      font-family: 'Raleway', sans-serif;
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
+      outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s;
+      letter-spacing: 0.08em;
+    }
+
+    .login-field input:focus {
+      border-color: var(--sage);
+      box-shadow: 0 0 0 3px rgba(74,107,90,0.15);
+    }
+
+    .login-btn {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.85rem;
+      font-size: 0.78rem;
+    }
+
+    .login-error {
+      font-size: 0.75rem;
+      color: #C0707A;
+      margin-top: 0.75rem;
+      min-height: 1.2em;
+      transition: opacity 0.2s;
+    }
+    .login-error:empty { opacity: 0; }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="login-wordmark">David Stokes</div>
+    <div class="login-subtitle">Journal Admin</div>
+
+    <form id="login-form" onsubmit="return false;">
+      <div class="login-field">
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter admin password" autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg login-btn" onclick="login()">
+        Enter Admin Panel
+      </button>
+      <div class="login-error" id="login-error"></div>
+    </form>
+  </div>
+
+  <script src="/admin/config.js"></script>
+  <script>
+    // If already logged in, go straight to admin
+    if (sessionStorage.getItem('admin_auth') === 'true') {
+      location.replace('/admin/index.html');
+    }
+
+    function login() {
+      const val = document.getElementById('password').value;
+      if (val === ADMIN_CONFIG.ADMIN_PASSWORD) {
+        sessionStorage.setItem('admin_auth', 'true');
+        location.replace('/admin/index.html');
+      } else {
+        const err = document.getElementById('login-error');
+        err.textContent = 'Incorrect password. Please try again.';
+        document.getElementById('password').value = '';
+        document.getElementById('password').focus();
+        setTimeout(() => { err.textContent = ''; }, 3000);
+      }
+    }
+
+    document.getElementById('password').addEventListener('keydown', e => {
+      if (e.key === 'Enter') login();
+    });
+
+    document.getElementById('password').focus();
+  </script>
+</body>
+</html>

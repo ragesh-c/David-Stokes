@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3)",
+      "Bash(git push *)",
+      "Bash(gh auth *)",
+      "Bash(ssh -T git@github.com)"
+    ]
+  }
+}

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Post — David Stokes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplemde@1.11.2/dist/simplemde.min.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loading">
+    <div class="wordmark">David Stokes</div>
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="admin-nav">
+    <div class="nav-brand">
+      <span class="wordmark">David Stokes</span>
+      <span class="pipe">|</span>
+      <span class="section-name" id="nav-label">New Post</span>
+    </div>
+    <div class="nav-actions">
+      <div class="autosave-bar" id="autosave-bar"></div>
+      <button class="btn btn-secondary" onclick="goBack()">&#8592; All Posts</button>
+      <button class="btn btn-primary" id="publish-btn" onclick="save()">Publish Post</button>
+    </div>
+  </nav>
+
+  <!-- Main editor -->
+  <main class="admin-container">
+    <form id="post-form" onsubmit="return false;">
+      <div class="editor-layout">
+
+        <!-- Left: main content -->
+        <div class="main-col">
+
+          <div class="form-section">
+            <div class="form-section-title">Post Details</div>
+            <div class="field">
+              <label>Title <span class="required">*</span></label>
+              <input type="text" id="title" placeholder="e.g. Chester — The Burh Æthelflæd Defended with Bees" autocomplete="off">
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label>Slug <span class="required">*</span></label>
+                <input type="text" id="slug" placeholder="auto-generated from title">
+                <div class="field-hint">URL-friendly ID. Auto-fills from title — edit if needed.</div>
+              </div>
+              <div class="field">
+                <label>Date <span class="required">*</span></label>
+                <input type="date" id="date">
+              </div>
+            </div>
+            <div class="field">
+              <label>Period Label</label>
+              <input type="text" id="period_label" placeholder="e.g. Anglo-Saxon History | April 2023">
+              <div class="field-hint">Appears above the title in small caps.</div>
+            </div>
+            <div class="field">
+              <label>Excerpt</label>
+              <textarea id="excerpt" rows="3" placeholder="A short summary shown on the journal listing page…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Post Body</div>
+            <div class="field">
+              <label>Content <span class="required">*</span></label>
+              <textarea id="body"></textarea>
+              <div class="field-hint" style="margin-top:0.5rem;">
+                Use the toolbar for <strong>bold</strong>, <em>italic</em>, headings, links and images.
+                Switch to &ldquo;Preview&rdquo; to see how it will look.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right: sidebar -->
+        <aside class="sidebar">
+
+          <div class="form-section">
+            <div class="form-section-title">Publish</div>
+            <div class="publish-status">
+              <span class="status-dot draft" id="status-dot"></span>
+              <span id="status-label">Draft</span>
+            </div>
+            <button type="button" class="btn btn-primary" style="width:100%;" onclick="save()">
+              &#10003; Publish Post
+            </button>
+            <div class="autosave-bar" id="autosave-bar-side" style="margin-top:0.75rem;text-align:left;"></div>
+            <div class="field-hint" style="margin-top:0.75rem;" id="deploy-note"></div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title">Hero Image</div>
+            <div class="field">
+              <div class="image-upload-area" id="upload-area">
+                <input type="file" id="hero-file" accept="image/*">
+                <div class="upload-icon">&#128247;</div>
+                <div class="upload-label"><strong>Click or drag</strong> to upload<br>JPG, PNG, WebP</div>
+              </div>
+              <div class="image-preview" id="image-preview" style="display:none;">
+                <img id="preview-img" src="" alt="Hero preview">
+                <button type="button" class="remove-img" onclick="removeImage()" title="Remove">&#215;</button>
+              </div>
+              <input type="hidden" id="hero_image" value="">
+            </div>
+            <div class="field" style="margin-top:0.75rem;">
+              <label>Image Focus</label>
+              <div class="radio-group" id="focus-group">
+                <label class="radio-btn"><input type="radio" name="focus" value="center top"> Top</label>
+                <label class="radio-btn checked"><input type="radio" name="focus" value="center" checked> Centre</label>
+                <label class="radio-btn"><input type="radio" name="focus" value="center bottom"> Bottom</label>
+              </div>
+              <div class="field-hint">Which part of the image stays visible on the listing page.</div>
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </form>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast hide" id="toast"></div>
+
+  <script src="/admin/config.js"></script>
+  <script src="/admin/github-api.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simplemde@1.11.2/dist/simplemde.min.js"></script>
+  <script>
+    // Auth guard
+    if (sessionStorage.getItem('admin_auth') !== 'true') {
+      location.replace('/admin/login.html');
+    }
+
+    let editingSlug = null;
+    let mde;
+
+    function goBack() {
+      if (window.opener) window.close();
+      else location.replace('/admin/index.html');
+    }
+
+    function showToast(msg, type = 'success') {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast ' + type;
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.add('hide'), 3500);
+    }
+
+    function setAutosave(msg, cls = '') {
+      ['autosave-bar', 'autosave-bar-side'].forEach(id => {
+        const el = document.getElementById(id);
+        el.textContent = msg;
+        el.className = 'autosave-bar ' + cls;
+      });
+    }
+
+    function slugify(str) {
+      return str
+        .toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[æ]/g, 'ae').replace(/[œ]/g, 'oe').replace(/[ð]/g, 'd').replace(/[þ]/g, 'th')
+        .replace(/[^a-z0-9\s-]/g, '')
+        .trim().replace(/\s+/g, '-').replace(/-+/g, '-');
+    }
+
+    function getFormData() {
+      return {
+        slug:                document.getElementById('slug').value.trim(),
+        title:               document.getElementById('title').value.trim(),
+        date:                document.getElementById('date').value,
+        period_label:        document.getElementById('period_label').value.trim(),
+        excerpt:             document.getElementById('excerpt').value.trim(),
+        hero_image:          document.getElementById('hero_image').value,
+        hero_image_position: document.querySelector('input[name="focus"]:checked')?.value || 'center',
+        body:                mde ? mde.value() : document.getElementById('body').value,
+      };
+    }
+
+    // title → slug
+    let slugTouched = false;
+    document.getElementById('title').addEventListener('input', function() {
+      document.title = (this.value || 'New Post') + ' — David Stokes Admin';
+      if (!slugTouched) document.getElementById('slug').value = slugify(this.value);
+    });
+    document.getElementById('slug').addEventListener('input', () => { slugTouched = true; });
+
+    // radio buttons
+    document.querySelectorAll('input[name="focus"]').forEach(r => {
+      r.addEventListener('change', () => {
+        document.querySelectorAll('.radio-btn').forEach(l => l.classList.remove('checked'));
+        r.closest('.radio-btn').classList.add('checked');
+      });
+    });
+
+    // image upload
+    const uploadArea = document.getElementById('upload-area');
+    uploadArea.addEventListener('dragover',  e => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
+    uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
+    uploadArea.addEventListener('drop', e => {
+      e.preventDefault(); uploadArea.classList.remove('drag-over');
+      if (e.dataTransfer?.files[0]) uploadFile(e.dataTransfer.files[0]);
+    });
+    document.getElementById('hero-file').addEventListener('change', function() {
+      if (this.files[0]) uploadFile(this.files[0]);
+    });
+
+    async function uploadFile(file) {
+      setAutosave('Uploading image…');
+      try {
+        const url = await GitHubAPI.uploadHeroImage(file);
+        setImagePreview(url);
+        setAutosave('Image uploaded ✓', 'saved');
+        setTimeout(() => setAutosave(''), 2500);
+      } catch (e) {
+        showToast('Image upload failed: ' + e.message, 'error');
+        setAutosave('');
+      }
+    }
+
+    function setImagePreview(url) {
+      document.getElementById('hero_image').value            = url;
+      document.getElementById('preview-img').src             = url;
+      document.getElementById('image-preview').style.display = 'block';
+      document.getElementById('upload-area').style.display   = 'none';
+    }
+
+    function removeImage() {
+      document.getElementById('hero_image').value            = '';
+      document.getElementById('hero-file').value             = '';
+      document.getElementById('image-preview').style.display = 'none';
+      document.getElementById('upload-area').style.display   = 'block';
+    }
+
+    // save / publish
+    async function save() {
+      const post = getFormData();
+      if (!post.title) { showToast('Please enter a title.', 'error'); document.getElementById('title').focus(); return; }
+      if (!post.slug)  { showToast('Please enter a slug.',  'error'); document.getElementById('slug').focus();  return; }
+      if (!post.body)  { showToast('Please write some content.', 'error'); return; }
+
+      setAutosave('Saving…');
+      document.getElementById('publish-btn').disabled = true;
+
+      try {
+        const data  = await GitHubAPI.loadPosts();
+        const posts = data.posts || [];
+
+        if (editingSlug) {
+          const idx = posts.findIndex(p => p.slug === editingSlug);
+          if (idx !== -1) posts[idx] = post; else posts.unshift(post);
+          editingSlug = post.slug;
+        } else {
+          if (posts.find(p => p.slug === post.slug)) {
+            showToast('A post with this slug already exists — please change it.', 'error');
+            setAutosave(''); document.getElementById('publish-btn').disabled = false;
+            return;
+          }
+          posts.unshift(post);
+          editingSlug = post.slug;
+        }
+
+        await GitHubAPI.savePosts({ posts }, `Admin: ${editingSlug ? 'update' : 'add'} post "${post.slug}"`);
+
+        document.getElementById('status-dot').className    = 'status-dot live';
+        document.getElementById('status-label').textContent = 'Published';
+        document.getElementById('nav-label').textContent   = 'Editing';
+        document.getElementById('publish-btn').textContent = 'Update Post';
+        document.title = post.title + ' — David Stokes Admin';
+        setAutosave('Saved ✓', 'saved');
+        showToast('Post published successfully!');
+
+        // Show deploy note for production
+        if (!ADMIN_CONFIG.isLocal) {
+          document.getElementById('deploy-note').textContent =
+            'Netlify is rebuilding the site — your post will be live in about 1 minute.';
+        }
+
+        setTimeout(() => setAutosave(''), 3500);
+      } catch (e) {
+        showToast('Save failed: ' + e.message, 'error');
+        setAutosave('Save failed', 'error');
+      } finally {
+        document.getElementById('publish-btn').disabled = false;
+      }
+    }
+
+    // load existing post for editing
+    async function loadForEdit(slug) {
+      try {
+        const data = await GitHubAPI.loadPosts();
+        const post = (data.posts || []).find(p => p.slug === slug);
+        if (!post) { showToast('Post not found.', 'error'); return; }
+
+        editingSlug = slug;
+        slugTouched = true;
+        document.getElementById('title').value        = post.title || '';
+        document.getElementById('slug').value         = post.slug  || '';
+        document.getElementById('date').value         = post.date  || '';
+        document.getElementById('period_label').value = post.period_label || '';
+        document.getElementById('excerpt').value      = post.excerpt || '';
+        if (mde) mde.value(post.body || '');
+        if (post.hero_image) setImagePreview(post.hero_image);
+
+        const focus = post.hero_image_position || 'center';
+        const radio = document.querySelector(`input[name="focus"][value="${focus}"]`);
+        if (radio) {
+          radio.checked = true;
+          document.querySelectorAll('.radio-btn').forEach(l => l.classList.remove('checked'));
+          radio.closest('.radio-btn').classList.add('checked');
+        }
+
+        document.getElementById('status-dot').className    = 'status-dot live';
+        document.getElementById('status-label').textContent = 'Published';
+        document.getElementById('nav-label').textContent   = 'Editing';
+        document.getElementById('publish-btn').textContent = 'Update Post';
+        document.title = post.title + ' — Edit — David Stokes Admin';
+      } catch (e) {
+        showToast('Could not load post: ' + e.message, 'error');
+      }
+    }
+
+    // init
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('date').value = new Date().toISOString().slice(0, 10);
+
+      mde = new SimpleMDE({
+        element: document.getElementById('body'),
+        spellChecker: false,
+        autofocus: false,
+        placeholder: 'Write your journal entry here…',
+        toolbar: [
+          'bold', 'italic', 'heading-2', 'heading-3', '|',
+          'unordered-list', 'ordered-list', '|',
+          'link', 'image', 'quote', '|',
+          'preview', 'side-by-side', 'fullscreen', '|',
+          'guide'
+        ],
+        status: false,
+      });
+
+      const slug = new URLSearchParams(window.location.search).get('slug');
+      if (slug) {
+        loadForEdit(slug).finally(() => document.getElementById('loading').classList.add('hidden'));
+      } else {
+        document.getElementById('loading').classList.add('hidden');
+      }
+    });
+
+    // Ctrl/Cmd+S to save
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') { e.preventDefault(); save(); }
+    });
+  </script>
+
+</body>
+</html>

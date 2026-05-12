@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Journal Admin — David Stokes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+
+  <!-- Loading overlay -->
+  <div class="loading-overlay" id="loading">
+    <div class="wordmark">David Stokes</div>
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="admin-nav">
+    <div class="nav-brand">
+      <span class="wordmark">David Stokes</span>
+      <span class="pipe">|</span>
+      <span class="section-name">Journal Admin</span>
+    </div>
+    <div class="nav-actions">
+      <a href="/" class="btn-back">&#8592; View Site</a>
+      <button class="btn btn-ghost" onclick="logout()" title="Log out" style="font-size:0.7rem;letter-spacing:0.14em;">Log out</button>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main class="admin-container">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Journal Posts</h1>
+        <p class="page-subtitle" id="post-count">Loading…</p>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="newPost()">
+        <span>&#43;</span> Write New Post
+      </button>
+    </div>
+
+    <div id="posts-container"></div>
+  </main>
+
+  <!-- Delete confirmation modal -->
+  <div class="modal-backdrop" id="delete-modal">
+    <div class="modal">
+      <h3>Delete this post?</h3>
+      <p>This cannot be undone. The post will be removed from the journal immediately.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-danger" id="confirm-delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast hide" id="toast"></div>
+
+  <script src="/admin/config.js"></script>
+  <script src="/admin/github-api.js"></script>
+  <script>
+    // Auth guard
+    if (sessionStorage.getItem('admin_auth') !== 'true') {
+      location.replace('/admin/login.html');
+    }
+
+    let allPosts = [];
+    let pendingDeleteSlug = null;
+
+    function logout() {
+      sessionStorage.removeItem('admin_auth');
+      location.replace('/admin/login.html');
+    }
+
+    function formatDate(str) {
+      if (!str) return '';
+      const d = new Date(str + 'T12:00:00');
+      return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    function showToast(msg, type = 'success') {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast ' + type;
+      clearTimeout(t._timer);
+      t._timer = setTimeout(() => t.classList.add('hide'), 3000);
+    }
+
+    function newPost() {
+      window.open('/admin/post.html', '_blank');
+    }
+
+    function editPost(slug) {
+      window.open('/admin/post.html?slug=' + encodeURIComponent(slug), '_blank');
+    }
+
+    function openDeleteModal(slug) {
+      pendingDeleteSlug = slug;
+      document.getElementById('delete-modal').classList.add('open');
+    }
+
+    function closeModal() {
+      document.getElementById('delete-modal').classList.remove('open');
+      pendingDeleteSlug = null;
+    }
+
+    document.getElementById('confirm-delete-btn').addEventListener('click', async () => {
+      if (!pendingDeleteSlug) return;
+      const slug = pendingDeleteSlug;
+      closeModal();
+      showToast('Deleting…');
+      try {
+        await GitHubAPI.deletePost(slug);
+        allPosts = allPosts.filter(p => p.slug !== slug);
+        renderPosts(allPosts);
+        showToast('Post deleted.');
+      } catch (e) {
+        showToast('Could not delete: ' + e.message, 'error');
+      }
+    });
+
+    document.getElementById('delete-modal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    function renderPosts(posts) {
+      const container = document.getElementById('posts-container');
+      const count     = document.getElementById('post-count');
+      count.textContent = posts.length + (posts.length === 1 ? ' post' : ' posts');
+
+      if (!posts.length) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="icon">&#128221;</div>
+            <h3>No posts yet</h3>
+            <p>Click &ldquo;Write New Post&rdquo; to publish your first journal entry.</p>
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = '<div class="posts-grid">' +
+        posts.map(post => {
+          const thumb = post.hero_image
+            ? `<img class="card-thumb" src="${post.hero_image}" alt="" loading="lazy" style="object-position:${post.hero_image_position || 'center'}">`
+            : `<div class="card-thumb-placeholder">&#128247;</div>`;
+          return `
+            <article class="post-card">
+              ${thumb}
+              <div class="card-body">
+                <p class="card-period">${post.period_label || ''}</p>
+                <h2 class="card-title">${post.title}</h2>
+                <p class="card-excerpt">${post.excerpt || ''}</p>
+                <div class="card-footer">
+                  <span class="card-date">${formatDate(post.date)}</span>
+                  <div class="card-actions">
+                    <button class="btn btn-ghost" onclick="editPost('${post.slug}')">&#9998; Edit</button>
+                    <button class="btn btn-danger" onclick="openDeleteModal('${post.slug}')">&#128465;</button>
+                  </div>
+                </div>
+              </div>
+            </article>`;
+        }).join('') +
+      '</div>';
+    }
+
+    async function load() {
+      try {
+        const data = await GitHubAPI.loadPosts();
+        allPosts   = (data.posts || []).slice().sort((a, b) => b.date > a.date ? 1 : -1);
+        renderPosts(allPosts);
+      } catch (e) {
+        document.getElementById('posts-container').innerHTML =
+          `<div class="empty-state"><div class="icon">&#9888;</div><h3>Could not load posts</h3><p>${e.message}</p></div>`;
+      } finally {
+        document.getElementById('loading').classList.add('hidden');
+      }
+    }
+
+    load();
+  </script>
+
+</body>
+</html>
