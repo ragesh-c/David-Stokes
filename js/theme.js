@@ -45,8 +45,47 @@
 
     var btn = document.getElementById('theme-toggle');
     if (!btn) return;
-    btn.addEventListener('click', function () {
-      applyTheme(currentTheme() === 'dark' ? 'light' : 'dark');
+    btn.addEventListener('click', function (event) {
+      var current = currentTheme();
+      var next = current === 'dark' ? 'light' : 'dark';
+
+      // If View Transitions are not supported, just apply and return
+      if (!document.startViewTransition) {
+        applyTheme(next);
+        return;
+      }
+
+      // View Transition for circular reveal animation
+      // Capture click position
+      var x = event.clientX;
+      var y = event.clientY;
+
+      // Calculate distance to the farthest corner
+      var endRadius = Math.hypot(
+        Math.max(x, innerWidth - x),
+        Math.max(y, innerHeight - y)
+      );
+
+      var transition = document.startViewTransition(function () {
+        applyTheme(next);
+      });
+
+      transition.ready.then(function () {
+        // Grow the new theme state from the click point
+        document.documentElement.animate(
+          {
+            clipPath: [
+              'circle(0px at ' + x + 'px ' + y + 'px)',
+              'circle(' + endRadius + 'px at ' + x + 'px ' + y + 'px)'
+            ]
+          },
+          {
+            duration: 650,
+            easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+            pseudoElement: '::view-transition-new(root)'
+          }
+        );
+      });
     });
   });
 })();
