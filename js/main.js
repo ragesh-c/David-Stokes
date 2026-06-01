@@ -3,7 +3,7 @@
 // ============================================================
 
 // 1. PAGE LOAD FADE-IN
-window.addEventListener('load', () => {
+document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('loaded');
 });
 
@@ -98,7 +98,7 @@ window.handleWaitlistSubmit = function(e) {
     if (success) {
       success.style.display = 'block';
       if (window.anime) {
-        window.anime.animate(success, { opacity: [0, 1], y: [10, 0], duration: 600, ease: 'out(3)' });
+        window.anime.animate(success, { opacity: [0, 1], y: [10, 0], duration: 600, ease: 'outExpo' });
       }
     }
   };
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     utils.set('.hero-section .line-inner',         { translateY: '110%' });
     utils.set('.hero-section .hero-name-inscription', { opacity: 0 });
 
-    createTimeline({ defaults: { ease: 'out(3)', duration: 1000 } })
+    createTimeline({ defaults: { ease: 'outExpo', duration: 1000 } })
       .add('.hero-section .hero-eyebrow .line-inner',
            { y: ['110%', '0%'] }, 300)
       .add('.hero-section .hero-title-line .line-inner',
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroEls = pageHero.querySelectorAll('.period-label, h1, p');
     heroEls.forEach(el => el.classList.remove('animate'));
     if (heroEls.length) {
-      createTimeline({ defaults: { ease: 'out(3)', duration: 700 } })
+      createTimeline({ defaults: { ease: 'outExpo', duration: 700 } })
         .add(heroEls, { opacity: [0, 1], y: [20, 0], delay: stagger(100) }, 200)
         .init();
     }
@@ -164,12 +164,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Track elements handled by grid/batch observers (skip individual observer)
   const handledByBatch = new Set();
 
-  // Book grids (.books-grid-3.reveal) — stagger .book-card children
-  document.querySelectorAll('.books-grid-3.reveal').forEach(grid => {
+  // Batch grids — stagger child cards / columns
+  document.querySelectorAll('.books-grid-3.reveal, .other-works-grid.reveal, .underpinnings-editorial-grid.reveal').forEach(grid => {
     grid.classList.remove('animate');
     utils.set(grid, { opacity: 1, translateY: 0 });
 
-    const cards = Array.from(grid.querySelectorAll('.book-card'));
+    const cards = Array.from(grid.querySelectorAll('.book-card, .other-work-card, .underpinnings-col'));
     cards.forEach(c => {
       handledByBatch.add(c);
       utils.set(c, { opacity: 0, translateY: 40 });
@@ -180,12 +180,12 @@ document.addEventListener('DOMContentLoaded', () => {
       animate(cards, {
         opacity: [0, 1],
         y: [40, 0],
-        duration: 800,
+        duration: 900,
         delay: stagger(130),
-        ease: 'out(3)',
+        ease: 'outExpo',
       });
       gridObs.disconnect();
-    }, { threshold: 0.08 });
+    }, { threshold: 0.05 });
 
     gridObs.observe(grid);
   });
@@ -199,9 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
       animate(el, {
         opacity: [0, 1],
         y: [28, 0],
-        duration: 700,
+        duration: 800,
         delay: parseInt(el.dataset.delay || '0'),
-        ease: 'out(3)',
+        ease: 'outExpo',
       });
       revealObs.unobserve(el);
     });
@@ -220,8 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
       animate(entry.target, {
         opacity: [0, 1],
         y: [16, 0],
-        duration: 900,
-        ease: 'out(3)',
+        duration: 1000,
+        ease: 'outExpo',
       });
       pullQuoteObs.unobserve(entry.target);
     });
@@ -271,9 +271,9 @@ document.addEventListener('DOMContentLoaded', () => {
         {
           opacity: [0, 1],
           x: [-18, 0],
-          duration: 400,
+          duration: 500,
           delay: window.anime.stagger(60, { start: 150 }),
-          ease: 'out(3)',
+          ease: 'outExpo',
         }
       );
     }

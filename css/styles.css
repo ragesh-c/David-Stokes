@@ -1949,14 +1949,14 @@ blockquote.novel-excerpt {
 }
 
 .other-works-strip-wrapper {
-  margin: 0 var(--side-margin-desktop);
   border-top: 1px solid var(--divider);
 }
 
 .other-works-strip {
-  max-width: 1200px;
+  max-width: var(--container-max);
+  width: 100%;
   margin: 0 auto;
-  padding: 80px 120px;
+  padding: 80px var(--side-margin-desktop);
 }
 
 .other-works-header {
@@ -1968,14 +1968,14 @@ blockquote.novel-excerpt {
 
 .other-works-view-all {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   color: var(--accent-burg);
   text-transform: uppercase;
   text-decoration: none;
   transition: opacity 0.2s ease;
-  margin-bottom: 0.5rem; /* Align perfectly with h2 bottom */
+  margin-bottom: 0.25rem; /* Align perfectly with h2 bottom */
 }
 
 .other-works-view-all:hover {
@@ -2007,11 +2007,9 @@ blockquote.novel-excerpt {
 }
 
 .other-works-grid {
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: repeat(2, 312px);
   gap: 4rem;
-  flex: 1;
-  flex-wrap: wrap;
 }
 
 .other-work-card {
@@ -2022,7 +2020,6 @@ blockquote.novel-excerpt {
   text-decoration: none;
   color: var(--text-body);
   width: 100%;
-  max-width: 300px;
   transition: transform 0.3s ease;
 }
 
@@ -2030,9 +2027,21 @@ blockquote.novel-excerpt {
   transform: none; /* Container remains static */
 }
 
+@media (max-width: 750px) {
+  .other-works-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 3rem;
+  }
+  .other-work-card {
+    max-width: 312px;
+    margin: 0 auto;
+  }
+}
+
 .other-work-cover {
   width: 100%;
-  aspect-ratio: 1 / 1.45;
+  aspect-ratio: 2 / 3;
   margin-bottom: 1.5rem;
   overflow: hidden;
   background-color: transparent; /* Changed from #fff to allow multiply blend with page */
@@ -2052,11 +2061,13 @@ blockquote.novel-excerpt {
 
 .other-work-name {
   display: block;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 700;
+  font-family: var(--font-serif);
+  font-size: 1.35rem; /* Increased size to look prominent and elegant */
+  font-weight: 400;
+  line-height: 1.25;
   color: var(--text-heading);
-  margin-bottom: 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   transition: color 0.2s ease;
 }
 
@@ -2067,18 +2078,20 @@ blockquote.novel-excerpt {
 .other-work-author {
   display: block;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--text-body);
-  margin-bottom: 0.25rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-meta);
+  margin-bottom: 0.35rem;
 }
 
 .other-work-price {
   display: block;
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--text-heading);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent-sage);
 }
 
 
@@ -2972,7 +2985,6 @@ body:not(.home) main > section:first-child h1 {
   aspect-ratio: 2 / 3;
   object-fit: cover;
   object-position: top center;
-  border-top: 3px solid var(--accent-burg);
 }
 
 .sotw-cover-placeholder {
@@ -3578,7 +3590,7 @@ body.loaded .hero-bg-img {
   .hero-title-italic {
     font-size: clamp(1.75rem, 7vw, 2.5rem);
     white-space: normal;
-    display: inline;
+    display: block;
   }
 
   .hero-copy {
@@ -4244,4 +4256,137 @@ body.loaded .hero-bg-img {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ============================================================
+   HISTORICAL UNDERPINNINGS SECTION — EDITORIAL TYPE LAYOUT
+   ============================================================ */
+.underpinnings-section {
+  border-bottom: 1px solid var(--divider);
+  padding-block: 100px;
+}
+
+.underpinnings-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.underpinnings-header-row {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.underpinnings-header-row h2 {
+  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-serif);
+}
+
+.underpinnings-header-row .lead-text {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+
+/* 3-Column Editorial Grid */
+.underpinnings-editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem;
+  position: relative;
+}
+
+.underpinnings-col {
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Elegant Roman Numerals acting as the focus anchors */
+.underpinnings-col .col-num {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--accent-sage);
+  opacity: 0.8;
+  margin-bottom: 1.25rem;
+  transition: 
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+    color 0.3s ease;
+}
+
+.underpinnings-col h3 {
+  font-size: 1.35rem;
+  font-family: 'Cinzel', 'Libre Caslon Display', serif;
+  color: var(--text-heading);
+  margin-bottom: 1rem;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+}
+
+.underpinnings-col p {
+  font-size: 1.025rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  margin: 0;
+  max-width: 35ch;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+/* Thin vertical dividers between columns on desktop */
+.underpinnings-col:not(:first-child)::before {
+  content: '';
+  position: absolute;
+  left: -1.75rem;
+  top: 10%;
+  bottom: 10%;
+  width: 1px;
+  background: var(--divider);
+}
+
+/* Hover micro-interactions */
+.underpinnings-col:hover {
+  transform: translateY(-4px);
+}
+
+.underpinnings-col:hover .col-num {
+  color: var(--accent-burg);
+  transform: scale(1.1) translateY(-2px);
+}
+
+.underpinnings-col:hover p {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .underpinnings-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .underpinnings-col:not(:first-child)::before {
+    display: none;
+  }
+
+  /* Add horizontal separator for mobile */
+  .underpinnings-col:not(:first-child) {
+    border-top: 1px solid var(--divider);
+    padding-top: 3rem;
+  }
+}
+
+
 
