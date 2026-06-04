@@ -53,8 +53,7 @@
 </head>
 <body>
   <a href="#main" class="skip-nav">Skip to main content</a>
-
-  <nav class="site-nav" aria-label="Main navigation">
+  <nav class="site-nav" aria-label="Primary navigation">
     <a href="../index.html" class="nav-wordmark">David Stokes</a>
     <ul class="nav-links" role="list">
       <li><a href="../books.html">Books</a></li>
@@ -63,27 +62,25 @@
       <li><a href="../journal.html" aria-current="page">Journal</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
-    
     <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
       <span class="theme-icon" aria-hidden="true">☾</span>
     </button>
     <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+        <line x1="3" y1="8" x2="21" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <line x1="3" y1="16" x2="21" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </button>
   </nav>
-
   <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
     <button class="mobile-nav-close" aria-label="Close menu">&#x2715;</button>
     <ul class="nav-links" role="list">
       <li><a href="../books.html">Books</a></li>
       <li><a href="../about.html">About</a></li>
       <li><a href="../media.html">Media</a></li>
-      <li><a href="../journal.html">Journal</a></li>
+      <li><a href="../journal.html" aria-current="page">Journal</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
-    
   </div>
 
   <main id="main">
@@ -157,33 +154,82 @@
     </div>
 
   </main>
-
   <footer class="site-footer">
-    <div class="footer-grid">
-      <div>
-        <span class="footer-wordmark">David Stokes</span>
-        <p class="footer-tagline">"History is dramatic enough without making things up."</p>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="../index.html" class="footer-logo">David Stokes</a>
+        <p class="footer-email"><a href="mailto:david@davidstokesauthor.com">david@davidstokesauthor.com</a></p>
       </div>
-      <div>
-        <p class="footer-section-label">Quick Links</p>
-        <ul class="footer-links" role="list">
-          <li><a href="../books.html">Books</a></li>
-          <li><a href="../about.html">About</a></li>
-          <li><a href="../media.html">Media</a></li>
-          <li><a href="../journal.html">Journal</a></li>
-          <li><a href="../contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="footer-section-label">Follow</p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a href="FACEBOOK_URL" class="footer-social-link" target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href="TWITTER_URL" class="footer-social-link" target="_blank" rel="noopener noreferrer">Twitter/X</a>
-          <a href="INSTAGRAM_URL" class="footer-social-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+      
+      <div class="footer-nav-columns">
+        <div class="footer-col">
+          <p class="footer-label">Visit</p>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../books.html">The Books</a></li>
+            <li><a href="../about.html">About David</a></li>
+            <li><a href="../media.html">Media Kit</a></li>
+            <li><a href="../journal.html">Journal</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-label">The Novels</p>
+          <ul class="footer-links">
+            <li><a href="../books/angles-or-angels.html">Angles or Angels?</a></li>
+            <li><a href="../books/king-alfreds-daughter.html">King Alfred's Daughter</a></li>
+            <li><a href="../books/sermon-of-the-wolf.html">Sermon of the Wolf</a></li>
+            <li><a href="../books/the-happy-ending.html">The Happy Ending</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p class="footer-label">Useful Links</p>
+          <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 David Stokes. All rights reserved.</div>
+
+    <div class="footer-middle">
+      <div class="footer-info-cols">
+        <div class="footer-info-col">
+          <p class="footer-label">Representation</p>
+          <p class="footer-info-text">Represented by<br>Foreshore Books<br>London, UK</p>
+          <a href="mailto:david@davidstokesauthor.com" class="footer-small-link">Inquiries &rarr;</a>
+        </div>
+        <div class="footer-info-col">
+          <p class="footer-label">The Series</p>
+          <p class="footer-info-text">Join the waitlist for<br><em>Sermon of the Wolf</em></p>
+          <a href="../index.html#waitlist" class="footer-small-link">Join now &rarr;</a>
+        </div>
+      </div>
+
+      <div class="footer-social-wrap">
+        <div class="footer-social-icons">
+          <a href="#" class="footer-social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          </a>
+          <a href="#" class="footer-social-link" aria-label="X">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-badges">
+        <span style="font-family:'Cinzel',serif; font-size:0.8rem; opacity:0.4; letter-spacing:0.1em; border:1px solid rgba(255,255,255,0.2); padding:4px 10px;">AMAZON BESTSELLER</span>
+        <span style="font-family:'Cinzel',serif; font-size:0.8rem; opacity:0.4; letter-spacing:0.1em; border:1px solid rgba(255,255,255,0.2); padding:4px 10px;">FORESHORE BOOKS</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 David Stokes. All rights reserved. Registered in England & Wales.</p>
+    </div>
   </footer>
 
   <script src="../js/main.js" defer></script>

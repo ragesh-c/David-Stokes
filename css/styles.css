@@ -4540,5 +4540,70 @@ body.loaded .hero-bg-img {
   }
 }
 
+/* ============================================================
+   RESPONSIVE OVERFLOW AND ALIGNMENT CORRECTIONS
+   ============================================================ */
+
+/* Global text wrapping safety rules to prevent offscreen overflow of long words */
+body, p, span, a, li, blockquote, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  /* Scale down massive hero/banner headings on mobile viewports */
+  .hero-section h1,
+  body:not(.home) main > section:first-child h1,
+  .page-hero h1,
+  .journal-post-hero h1,
+  .book-hero-section h1,
+  .book-hero-layout h1,
+  .book-hero-left h1,
+  .book-hero-grid h1,
+  .books-dark-header h2 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  /* Make sure the author name text and runes fit without blowing out the page */
+  .hero-name-text {
+    font-size: clamp(1.4rem, 8vw, 2.2rem) !important;
+    letter-spacing: 0.12em !important;
+  }
+  .hero-name-runes {
+    letter-spacing: 0.25em !important;
+  }
+
+  /* Scale down footer brand logo to prevent text container blowout */
+  .footer-logo {
+    font-size: clamp(2rem, 10vw, 3.2rem) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* scale down further for tiny screens like iPhone SE (320px) */
+  .hero-section h1,
+  body:not(.home) main > section:first-child h1,
+  .page-hero h1,
+  .journal-post-hero h1,
+  .book-hero-section h1,
+  .book-hero-layout h1,
+  .book-hero-left h1,
+  .book-hero-grid h1,
+  .books-dark-header h2 {
+    font-size: 1.65rem !important;
+  }
+
+  .hero-name-text {
+    font-size: 1.35rem !important;
+    letter-spacing: 0.08em !important;
+  }
+
+  .footer-logo {
+    font-size: 1.85rem !important;
+  }
+}
+
+
 
 
