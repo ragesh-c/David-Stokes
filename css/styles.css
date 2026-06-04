@@ -290,14 +290,14 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  font-size: clamp(2.125rem, 3.5vw, 3.375rem);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.025em;
 }
 
 h3 {
-  font-size: clamp(1.625rem, 2.5vw, 2.5rem);
+  font-size: clamp(1.75rem, 2.5vw, 2.625rem);
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
@@ -1704,8 +1704,6 @@ blockquote.novel-excerpt {
   padding-block: 100px;
   text-align: center;
   position: relative;
-  border-top: 1px solid var(--divider);
-  border-bottom: 1px solid var(--divider);
 }
 
 .brand-line-text {
@@ -1877,7 +1875,7 @@ blockquote.novel-excerpt {
 }
 
 .book-panel-content h3 {
-  font-size: 2.75rem;
+  font-size: 2.875rem;
   line-height: 1.1;
   color: var(--text-heading);
   margin: 0;
@@ -2322,10 +2320,8 @@ blockquote.novel-excerpt {
 
 .chapter-strip {
   overflow: hidden;
-  padding: 16px 0;
+  padding: 20px 0;
   background: var(--dark);
-  border-top: 1px solid var(--dark-border);
-  border-bottom: 1px solid var(--dark-border);
 }
 
 .chapter-strip-inner {
@@ -2451,7 +2447,7 @@ blockquote.novel-excerpt {
 }
 
 .arc-book-content h3 {
-  font-size: 2.5rem;
+  font-size: 2.625rem;
   margin: 0;
   line-height: 1.15;
 }
@@ -2807,14 +2803,14 @@ blockquote.novel-excerpt {
 .page-content-section h2,
 .arc-book-content h2,
 .about-grid h2 {
-  font-size: clamp(2.25rem, 3.5vw, 3.5rem);
+  font-size: clamp(2.375rem, 3.5vw, 3.625rem);
   line-height: 1.1;
   margin-bottom: 1.25rem;
 }
 
 /* Books dark section header H2 — the big statement */
 .books-dark-header h2 {
-  font-size: clamp(3rem, 5vw, 5rem);
+  font-size: clamp(3.125rem, 5vw, 5.125rem);
   line-height: 1.05;
 }
 
@@ -2918,13 +2914,13 @@ body:not(.home) main > section:first-child h1 {
 
 /* Book panel titles */
 .book-panel-content h3 {
-  font-size: clamp(2rem, 3vw, 2.75rem);
+  font-size: clamp(2.125rem, 3vw, 2.875rem);
   line-height: 1.1;
 }
 
 /* About section H2 */
 .about-grid h2 {
-  font-size: clamp(1.875rem, 3vw, 2.75rem);
+  font-size: clamp(2rem, 3vw, 2.875rem);
 }
 
 /* Pull quotes — EB Garamond italic is gorgeous, let it breathe */
@@ -3189,11 +3185,11 @@ body:not(.home) main > section:first-child h1 {
   }
 
   h2 {
-    font-size: 1.875rem;
+    font-size: 2rem;
   }
 
   h3 {
-    font-size: 1.375rem;
+    font-size: 1.5rem;
   }
 
   /* --- Layout --- */
@@ -3290,7 +3286,7 @@ body:not(.home) main > section:first-child h1 {
   }
 
   .books-dark-header h2 {
-    font-size: clamp(2.5rem, 12vw, 5rem);
+    font-size: clamp(2.625rem, 12vw, 5.125rem);
   }
 
   .book-panel {
@@ -3379,6 +3375,8 @@ body:not(.home) main > section:first-child h1 {
   display: block;
   padding: 0;
   background: #16110C;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* ── BACKGROUND PORTRAIT ── */
@@ -3544,14 +3542,14 @@ body.loaded .hero-bg-img {
   display: block;
   font-size: clamp(2.63rem, 4.45vw, 4.68rem);
   color: var(--white);
-  white-space: nowrap; /* Prevent wrapping on desktop */
+  white-space: normal;
 }
 
 .hero-title-italic {
   font-style: italic;
   color: rgba(250,250,248,0.75);
   font-size: clamp(2.22rem, 3.74vw, 3.98rem);
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .hero-descriptor {
@@ -3904,6 +3902,18 @@ body.loaded .hero-bg-img {
   overflow: hidden;
 }
 
+.waitlist-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, var(--bg-primary), transparent);
+  pointer-events: none;
+  z-index: 2;
+}
+
 .waitlist-section::before {
   content: '';
   position: absolute;
@@ -3925,7 +3935,7 @@ body.loaded .hero-bg-img {
 
 .waitlist-text h2 {
   font-family: 'Libre Caslon Display', Georgia, serif;
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-size: clamp(2.125rem, 3.5vw, 3.125rem);
   font-weight: 400;
   color: var(--white);
   line-height: 1.15;
@@ -4262,7 +4272,6 @@ body.loaded .hero-bg-img {
    HISTORICAL UNDERPINNINGS SECTION — EDITORIAL TYPE LAYOUT
    ============================================================ */
 .underpinnings-section {
-  border-bottom: 1px solid var(--divider);
   padding-block: 100px;
 }
 
@@ -4279,7 +4288,7 @@ body.loaded .hero-bg-img {
 }
 
 .underpinnings-header-row h2 {
-  font-size: clamp(2.25rem, 4vw, 3.5rem);
+  font-size: clamp(2.375rem, 4vw, 3.625rem);
   font-weight: 400;
   line-height: 1.15;
   margin-top: 0.5rem;
@@ -4327,7 +4336,7 @@ body.loaded .hero-bg-img {
 }
 
 .underpinnings-col h3 {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-family: 'Cinzel', 'Libre Caslon Display', serif;
   color: var(--text-heading);
   margin-bottom: 1rem;
@@ -4385,6 +4394,148 @@ body.loaded .hero-bg-img {
   .underpinnings-col:not(:first-child) {
     border-top: 1px solid var(--divider);
     padding-top: 3rem;
+  }
+}
+
+/* ============================================================
+   QUICK WAITLIST CTA SECTION (Homepage upper fold)
+   ============================================================ */
+.quick-waitlist-section {
+  padding-block: 40px 100px; /* Thinner top padding since it follows brand-line */
+  background: var(--bg-primary);
+}
+
+.quick-waitlist-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+  padding: 48px 56px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle accent background glow for the card */
+.quick-waitlist-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 10% 20%, rgba(146, 56, 81, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.quick-waitlist-text {
+  position: relative;
+  z-index: 1;
+}
+
+.quick-waitlist-text .period-label {
+  color: var(--accent-burg);
+  margin-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.quick-waitlist-text h2 {
+  font-size: clamp(1.8rem, 3vw, 2.375rem);
+  line-height: 1.15;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.quick-waitlist-text p {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  color: var(--text-body);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.quick-waitlist-form-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* Form Styling overrides for Light Background */
+.quick-waitlist-section .waitlist-fields {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.quick-waitlist-section .waitlist-input {
+  flex: 1;
+  padding: 14px 18px;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: var(--text-heading);
+  background: var(--bg-primary);
+  border: 1px solid var(--divider);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.quick-waitlist-section .waitlist-input:focus {
+  border-color: var(--accent-burg);
+  background: var(--white);
+}
+
+.quick-waitlist-section .waitlist-input::placeholder {
+  color: var(--text-meta);
+  opacity: 0.65;
+}
+
+.quick-waitlist-section .waitlist-btn {
+  width: auto;
+  margin-top: 0;
+  padding-inline: 28px;
+  white-space: nowrap;
+}
+
+.quick-waitlist-section .waitlist-small {
+  color: var(--text-meta);
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.quick-waitlist-section .waitlist-success {
+  padding: 10px 0;
+  text-align: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .quick-waitlist-card {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 40px 32px;
+  }
+
+  .quick-waitlist-text {
+    text-align: center;
+  }
+
+  .quick-waitlist-section .waitlist-fields {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .quick-waitlist-section .waitlist-btn {
+    width: 100%;
+  }
+
+  .quick-waitlist-section .waitlist-small {
+    text-align: center;
+  }
+  
+  .quick-waitlist-section .waitlist-success {
+    text-align: center;
   }
 }
 
