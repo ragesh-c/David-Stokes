@@ -4186,6 +4186,7 @@ body.loaded .hero-bg-img {
   width: 100%;
   aspect-ratio: 2/3;
   object-fit: contain;
+  object-position: bottom;
   margin-bottom: 0.75rem;
   display: block;
 }
