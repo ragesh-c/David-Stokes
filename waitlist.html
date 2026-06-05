@@ -305,6 +305,12 @@
       line-height: 1.6;
     }
 
+    /* Safety wrapping rules */
+    body, p, span, a, li, blockquote, h1, h2, h3, h4, h5, h6 {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
     /* ── MOBILE ── */
     @media (max-width: 800px) {
       .wl-page { grid-template-columns: 1fr; }
@@ -312,6 +318,40 @@
       .wl-back { left: 28px; top: 28px; }
       .wl-right { padding: 48px 28px 64px; }
       .wl-countdown { gap: 16px; }
+
+      .wl-book-title {
+        font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .wl-right-heading {
+        font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+        line-height: 1.15 !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .wl-tagline {
+        font-size: 1.05rem !important;
+        line-height: 1.5 !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .wl-left { padding: 40px 16px 32px; }
+      .wl-right { padding: 40px 16px 48px; }
+      .wl-back { left: 16px; top: 24px; }
+      
+      .wl-book-title,
+      .wl-right-heading {
+        font-size: 1.65rem !important;
+      }
+      
+      .wl-countdown {
+        gap: 12px !important;
+        margin-top: 1.5rem !important;
+      }
+      .wl-cd-num {
+        font-size: 1.5rem !important;
+      }
     }
   </style>
 </head>

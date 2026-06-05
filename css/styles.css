@@ -3164,6 +3164,10 @@ body:not(.home) main > section:first-child h1 {
     padding-inline: var(--side-margin-tablet);
   }
 
+  .nav-links {
+    gap: 1.5rem;
+  }
+
   /* Three-col book grid collapses to two */
   .books-grid-3 {
     grid-template-columns: repeat(2, 1fr);
