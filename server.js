@@ -9,7 +9,7 @@ const fs     = require('fs');
 const path   = require('path');
 const url    = require('url');
 
-const PORT    = 8080;
+const PORT    = process.env.PORT || 8080;
 const ROOT    = __dirname;
 const DATA    = path.join(ROOT, 'data', 'journal-posts.json');
 const IMG_DIR = path.join(ROOT, 'Img', 'Blogs');
