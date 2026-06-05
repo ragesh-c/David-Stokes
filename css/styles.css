@@ -1322,7 +1322,7 @@ blockquote.novel-excerpt {
   display: grid;
   grid-template-columns: 45% 55%;
   gap: 5rem;
-  align-items: center;
+  align-items: start;
   max-width: 1100px;
   margin-inline: auto;
 }
