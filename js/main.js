@@ -85,9 +85,7 @@ setInterval(updateSiteCountdowns, 1000);
 window.handleWaitlistSubmit = function(e) {
   e.preventDefault();
   var form = e.target;
-  var action = form.getAttribute('data-action');
-  var firstName = form.querySelector('[name="FNAME"]') ? form.querySelector('[name="FNAME"]').value : '';
-  var email = form.querySelector('[name="EMAIL"]') ? form.querySelector('[name="EMAIL"]').value : '';
+  var action = form.getAttribute('action') || form.getAttribute('data-action');
 
   var showDone = function() {
     var fields  = form.querySelector('.waitlist-fields');
@@ -103,12 +101,19 @@ window.handleWaitlistSubmit = function(e) {
     }
   };
 
-  if (action && !action.includes('YOURACCOUNT') && action !== 'Paste Mailchimp form action URL (see instructions above)') {
+  if (action && !action.includes('YOURACCOUNT')) {
+    var formData = new FormData(form);
     fetch(action, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ firstName: firstName, email: email })
-    }).then(showDone).catch(showDone);
+      body: formData
+    })
+    .then(function(res) { return res.json(); })
+    .then(function(data) {
+      showDone();
+    })
+    .catch(function(err) {
+      showDone();
+    });
   } else {
     showDone();
   }
