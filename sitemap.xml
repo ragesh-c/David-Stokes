@@ -3,111 +3,111 @@
 
   <!-- Core pages -->
   <url>
-    <loc>https://www.davidstokesauthor.com/</loc>
+    <loc>https://davidstokesauthor.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/about.html</loc>
+    <loc>https://davidstokesauthor.com/about.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/books.html</loc>
+    <loc>https://davidstokesauthor.com/books.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/journal.html</loc>
+    <loc>https://davidstokesauthor.com/journal.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/media.html</loc>
+    <loc>https://davidstokesauthor.com/media.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/contact.html</loc>
+    <loc>https://davidstokesauthor.com/contact.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <!-- Books -->
   <url>
-    <loc>https://www.davidstokesauthor.com/books/king-alfreds-daughter.html</loc>
+    <loc>https://davidstokesauthor.com/books/king-alfreds-daughter.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/books/angles-or-angels.html</loc>
+    <loc>https://davidstokesauthor.com/books/angles-or-angels.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/books/sermon-of-the-wolf.html</loc>
+    <loc>https://davidstokesauthor.com/books/sermon-of-the-wolf.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/books/the-happy-ending.html</loc>
+    <loc>https://davidstokesauthor.com/books/the-happy-ending.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/books/the-singing-bowl.html</loc>
+    <loc>https://davidstokesauthor.com/books/the-singing-bowl.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Journal articles -->
   <url>
-    <loc>https://www.davidstokesauthor.com/journal/finding-aethelflad-in-chester.html</loc>
+    <loc>https://davidstokesauthor.com/journal/finding-aethelflad-in-chester.html</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/journal/finding-aethelflad-in-derby.html</loc>
+    <loc>https://davidstokesauthor.com/journal/finding-aethelflad-in-derby.html</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/journal/finding-aethelflad-in-leicester.html</loc>
+    <loc>https://davidstokesauthor.com/journal/finding-aethelflad-in-leicester.html</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/journal/finding-aethelflad-in-shrewsbury.html</loc>
+    <loc>https://davidstokesauthor.com/journal/finding-aethelflad-in-shrewsbury.html</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/journal/finding-aethelflad-in-tamworth.html</loc>
+    <loc>https://davidstokesauthor.com/journal/finding-aethelflad-in-tamworth.html</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/journal/finding-aethelflad-in-warwick.html</loc>
+    <loc>https://davidstokesauthor.com/journal/finding-aethelflad-in-warwick.html</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/journal/finding-aethelflad-in-worcester.html</loc>
+    <loc>https://davidstokesauthor.com/journal/finding-aethelflad-in-worcester.html</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/journal/gloucester-aethelflads-capital.html</loc>
+    <loc>https://davidstokesauthor.com/journal/gloucester-aethelflads-capital.html</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/journal/kingston-the-coronation-stone.html</loc>
+    <loc>https://davidstokesauthor.com/journal/kingston-the-coronation-stone.html</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.davidstokesauthor.com/journal/coronation-of-the-king.html</loc>
+    <loc>https://davidstokesauthor.com/journal/coronation-of-the-king.html</loc>
     <changefreq>never</changefreq>
     <priority>0.7</priority>
   </url>
