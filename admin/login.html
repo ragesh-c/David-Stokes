@@ -120,13 +120,18 @@
     }
 
     function login() {
-      const val = document.getElementById('password').value;
-      if (val === ADMIN_CONFIG.ADMIN_PASSWORD) {
+      const val = document.getElementById('password').value.trim();
+      const pass = ADMIN_CONFIG.ADMIN_PASSWORD || sessionStorage.getItem('admin_pass') || '';
+      
+      if ((pass && val === pass) || val.startsWith('ghp_')) {
         sessionStorage.setItem('admin_auth', 'true');
+        if (val.startsWith('ghp_')) {
+          sessionStorage.setItem('github_token', val);
+        }
         location.replace('/admin/index.html');
       } else {
         const err = document.getElementById('login-error');
-        err.textContent = 'Incorrect password. Please try again.';
+        err.textContent = 'Incorrect password or invalid token. Please try again.';
         document.getElementById('password').value = '';
         document.getElementById('password').focus();
         setTimeout(() => { err.textContent = ''; }, 3000);
