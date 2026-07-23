@@ -9,6 +9,21 @@ const fs     = require('fs');
 const path   = require('path');
 const url    = require('url');
 
+// ── Load .env file automatically ──────────────────────────────────────────────
+const envPath = path.join(__dirname, '.env');
+if (fs.existsSync(envPath)) {
+  const envLines = fs.readFileSync(envPath, 'utf8').split('\n');
+  envLines.forEach(line => {
+    const trimmed = line.trim();
+    if (trimmed && !trimmed.startsWith('#')) {
+      const [key, ...vals] = trimmed.split('=');
+      if (key && vals.length) {
+        process.env[key.trim()] = vals.join('=').trim();
+      }
+    }
+  });
+}
+
 const PORT    = process.env.PORT || 8080;
 const ROOT    = __dirname;
 const DATA    = path.join(ROOT, 'data', 'journal-posts.json');

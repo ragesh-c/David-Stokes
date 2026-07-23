@@ -5,8 +5,9 @@
 
 const GitHubAPI = (() => {
   function headers() {
+    const token = ADMIN_CONFIG.GITHUB_TOKEN || sessionStorage.getItem('github_token') || '';
     return {
-      'Authorization': 'token ' + ADMIN_CONFIG.GITHUB_TOKEN,
+      'Authorization': 'token ' + token,
       'Accept': 'application/vnd.github.v3+json',
       'Content-Type': 'application/json',
     };

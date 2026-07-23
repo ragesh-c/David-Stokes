@@ -9,9 +9,10 @@
  */
 
 const ADMIN_CONFIG = {
-  // ── FILL THESE IN ───────────────────────────────────────────────────────────
-  GITHUB_TOKEN:   'PASTE_YOUR_GITHUB_TOKEN_HERE',
-  ADMIN_PASSWORD: 'PASTE_YOUR_CHOSEN_PASSWORD_HERE',
+  // ── ENVIRONMENT CONFIGURATION ──────────────────────────────────────────────
+  // Secrets are loaded from environment / .env file or session token
+  GITHUB_TOKEN:   process?.env?.GITHUB_TOKEN || '',
+  ADMIN_PASSWORD: process?.env?.ADMIN_PASSWORD || '',
   // ────────────────────────────────────────────────────────────────────────────
 
   // GitHub repo details (already correct for this project)

@@ -1,0 +1,10 @@
+# Security & Environment Variables
+.env
+.env.local
+*.env
+
+# Operating System & Temporary Files
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
