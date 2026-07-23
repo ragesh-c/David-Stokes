@@ -91,6 +91,17 @@ html.no-transition *::after {
   outline: 2px solid #923851;
   outline-offset: 2px;
 }
+
+/* On mobile screens, push theme-toggle to the right next to the hamburger button */
+@media (max-width: 768px) {
+  .theme-toggle {
+    margin-left: auto;
+    margin-right: 0.75rem;
+    padding: 5px 10px;
+    font-size: 1.1rem;
+    min-width: 44px;
+  }
+}
 /* --- View Transitions (Circular Reveal) --- */
 
 ::view-transition-old(root),
