@@ -4786,9 +4786,9 @@ p, .hero-subtext, .about-lead, .book-panel-hook, .arc-book-hook, .section-intro 
 
 .insta-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 960px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  max-width: 1140px;
   margin-inline: auto;
 }
 
