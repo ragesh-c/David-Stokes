@@ -1012,10 +1012,12 @@ blockquote.novel-excerpt {
   padding: 14px 18px;
   border: 1px solid var(--divider);
   border-bottom-width: 2px;
-  background-color: #fff;
+  background-color: #FFFFFF !important;
   font-family: inherit;
   font-size: 1rem;
-  color: var(--text-body);
+  color: #1C1A18 !important;
+  -webkit-text-fill-color: #1C1A18 !important;
+  caret-color: #1C1A18 !important;
   outline: none;
   transition: border-color 0.2s ease, background 0.2s ease;
   border-radius: 12px;
@@ -1024,14 +1026,18 @@ blockquote.novel-excerpt {
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(26,26,24,0.35);
+  color: #666666 !important;
+  -webkit-text-fill-color: #666666 !important;
+  opacity: 1 !important;
 }
 
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  border-color: var(--accent-burg);
-  background-color: rgba(107,45,62,0.02);
+  border-color: var(--accent-burg) !important;
+  background-color: #FFFFFF !important;
+  color: #1C1A18 !important;
+  -webkit-text-fill-color: #1C1A18 !important;
 }
 
 /* Custom select — strip browser chrome, add own arrow */
@@ -4079,21 +4085,27 @@ body.loaded .hero-bg-img {
   padding: 14px 18px;
   font-family: 'EB Garamond', Georgia, serif;
   font-size: 1rem;
-  color: var(--white);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
+  color: #1C1A18 !important;
+  -webkit-text-fill-color: #1C1A18 !important;
+  caret-color: #1C1A18 !important;
+  background: #FFFFFF !important;
+  border: 1px solid rgba(0,0,0,0.18) !important;
   border-radius: 12px;
   outline: none;
   transition: border-color 0.2s, background 0.2s;
 }
 
 .waitlist-input:focus {
-  border-color: var(--accent-burg);
-  background: rgba(255,255,255,0.09);
+  border-color: var(--accent-burg) !important;
+  background: #FFFFFF !important;
+  color: #1C1A18 !important;
+  -webkit-text-fill-color: #1C1A18 !important;
 }
 
 .waitlist-input::placeholder {
-  color: rgba(250,250,248,0.35);
+  color: #666666 !important;
+  -webkit-text-fill-color: #666666 !important;
+  opacity: 1 !important;
 }
 
 .waitlist-btn {

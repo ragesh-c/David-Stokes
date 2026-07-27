@@ -118,3 +118,47 @@ html.no-transition *::after {
 ::view-transition-new(root) {
   z-index: 9999;
 }
+
+/* ── Universal Input Dark Font Color Fix ────────────────────────────────────
+   Ensures text typed into text boxes is ALWAYS crisp dark font (#1C1A18)
+   on a white background across light mode, dark mode, and iOS/Android mobile.
+   ─────────────────────────────────────────────────────────────────────────── */
+input,
+textarea,
+select,
+.waitlist-input,
+.wl-input,
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background-color: #FFFFFF !important;
+  color: #1C1A18 !important;
+  -webkit-text-fill-color: #1C1A18 !important;
+  caret-color: #1C1A18 !important;
+}
+
+input::placeholder,
+textarea::placeholder,
+select::placeholder,
+.waitlist-input::placeholder,
+.wl-input::placeholder,
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #666666 !important;
+  -webkit-text-fill-color: #666666 !important;
+  opacity: 1 !important;
+}
+
+/* Chrome / Safari / iOS Mobile Autofill fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #FFFFFF inset !important;
+  -webkit-text-fill-color: #1C1A18 !important;
+  caret-color: #1C1A18 !important;
+}
