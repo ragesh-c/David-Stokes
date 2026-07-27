@@ -92,14 +92,36 @@ html.no-transition *::after {
   outline-offset: 2px;
 }
 
-/* On mobile screens, push theme-toggle to the right next to the hamburger button */
+/* On mobile screens (≤ 768px), hide theme switcher and enforce dark theme at all times */
 @media (max-width: 768px) {
   .theme-toggle {
-    margin-left: auto;
-    margin-right: 0.75rem;
-    padding: 5px 10px;
-    font-size: 1.1rem;
-    min-width: 44px;
+    display: none !important;
+  }
+
+  :root,
+  [data-theme="light"],
+  [data-theme="dark"] {
+    --bg-primary:    #1C1A18 !important;
+    --bg-secondary:  #252220 !important;
+    --text-heading:  #EDE8E0 !important;
+    --text-body:     #C8C0B8 !important;
+    --text-meta:     #8A8480 !important;
+    --accent-sage:   #6B9A7E !important;
+    --divider:       rgba(255,255,255,0.09) !important;
+    --dark-surface:  rgba(255,255,255,0.04) !important;
+    --dark-border:   rgba(255,255,255,0.08) !important;
+    --surface-card:  #252220 !important;
+
+    --on-dark-primary:   rgba(250, 248, 242, 0.88) !important;
+    --on-dark-secondary: rgba(250, 248, 242, 0.63) !important;
+    --on-dark-muted:     rgba(250, 248, 242, 0.38) !important;
+    --on-dark-faint:     rgba(250, 248, 242, 0.20) !important;
+    --on-dark-border:    rgba(250, 248, 242, 0.07) !important;
+  }
+
+  body {
+    background-color: #1C1A18 !important;
+    color: #C8C0B8 !important;
   }
 }
 /* --- View Transitions (Circular Reveal) --- */
