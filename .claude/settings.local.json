@@ -10,7 +10,11 @@
       "Bash(git -C /Users/bindurajesh/David-Stokes-master add about.html books.html contact.html index.html journal.html media.html books/angles-or-angels.html books/king-alfreds-daughter.html books/sermon-of-the-wolf.html books/the-happy-ending.html books/the-singing-bowl.html journal/coronation-of-the-king.html journal/finding-aethelflad-in-chester.html journal/finding-aethelflad-in-derby.html journal/finding-aethelflad-in-leicester.html journal/finding-aethelflad-in-shrewsbury.html journal/finding-aethelflad-in-tamworth.html journal/finding-aethelflad-in-warwick.html journal/finding-aethelflad-in-worcester.html journal/gloucester-aethelflads-capital.html journal/kingston-the-coronation-stone.html css/styles.css css/theme.css js/theme.js Img/David-Portrait.jpg robots.txt sitemap.xml)",
       "Bash(git -C /Users/bindurajesh/David-Stokes-master status --short)",
       "Bash(git -C /Users/bindurajesh/David-Stokes-master commit -m ' *)",
-      "Bash(git -C /Users/bindurajesh/David-Stokes-master push origin main)"
+      "Bash(git -C /Users/bindurajesh/David-Stokes-master push origin main)",
+      "Bash(ps -p 53666 -o pid,command)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8080/)",
+      "Bash(python3 -)",
+      "Bash(python3 /private/tmp/claude-501/-Users-bindurajesh-David-Stokes-master/c8c5b31b-c7ab-4c1b-887f-30471e1101fc/scratchpad/ftp_deploy.py)"
     ]
   }
 }
