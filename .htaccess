@@ -1,11 +1,12 @@
-DirectoryIndex index.html index.php
+DirectoryIndex index.php index.html
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Force root / to serve index.html directly, bypassing stale directory cache
-    RewriteRule ^$ index.html [L]
-    
+    # HTTP 302 redirect root / to /index.html to bypass Nginx root proxy cache completely
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /\ HTTP/ [NC]
+    RewriteRule ^$ /index.html [R=302,L]
+
     RewriteRule ^api/posts/?$ api/index.php?action=posts [L,QSA]
     RewriteRule ^api/upload/?$ api/index.php?action=upload [L,QSA]
     RewriteRule ^api/post/(.+)$ api/index.php?action=delete&slug=$1 [L,QSA]
@@ -16,10 +17,4 @@ DirectoryIndex index.html index.php
     Header set Pragma "no-cache"
     Header set Expires "Thu, 01 Jan 1970 00:00:00 GMT"
     Header set X-Accel-Expires "0"
-    <FilesMatch "\.(html|htm|php)$">
-        Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0"
-        Header set Pragma "no-cache"
-        Header set Expires "Thu, 01 Jan 1970 00:00:00 GMT"
-        Header set X-Accel-Expires "0"
-    </FilesMatch>
 </IfModule>
