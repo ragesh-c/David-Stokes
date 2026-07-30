@@ -77,7 +77,7 @@
   <script>
     // Auth guard
     if (sessionStorage.getItem('admin_auth') !== 'true') {
-      location.replace('/admin/login.html');
+      location.replace('login.html');
     }
 
     let allPosts = [];
@@ -85,7 +85,7 @@
 
     function logout() {
       sessionStorage.removeItem('admin_auth');
-      location.replace('/admin/login.html');
+      location.replace('login.html');
     }
 
     function formatDate(str) {

@@ -129,19 +129,23 @@
   <script>
     // If already logged in, go straight to admin
     if (sessionStorage.getItem('admin_auth') === 'true') {
-      location.replace('/admin/index.html');
+      location.replace('index.html');
     }
 
     function login() {
-      const val = document.getElementById('password').value.trim();
+      const inputEl = document.getElementById('password');
+      const val = (inputEl ? inputEl.value : '').trim();
       const pass = ADMIN_CONFIG.ADMIN_PASSWORD || sessionStorage.getItem('admin_pass') || 'davidstokes';
       const token = ADMIN_CONFIG.GITHUB_TOKEN || (typeof DEFAULT_TOKEN !== 'undefined' ? DEFAULT_TOKEN : '');
       
-      if ((pass && val === pass) || val.startsWith('ghp_') || val === 'davidstokes') {
+      const cleanVal = val.toLowerCase();
+      const cleanPass = pass.toLowerCase();
+      
+      if (cleanVal === cleanPass || cleanVal === 'davidstokes' || val.startsWith('ghp_')) {
         sessionStorage.setItem('admin_auth', 'true');
-        sessionStorage.setItem('admin_pass', val === 'davidstokes' ? pass : val);
+        sessionStorage.setItem('admin_pass', val.startsWith('ghp_') ? pass : val);
         sessionStorage.setItem('github_token', val.startsWith('ghp_') ? val : token);
-        location.replace('/admin/index.html');
+        location.replace('index.html');
       } else {
         const err = document.getElementById('login-error');
         err.textContent = 'Incorrect password. Please try again.';

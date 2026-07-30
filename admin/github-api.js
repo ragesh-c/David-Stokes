@@ -17,13 +17,31 @@ const GitHubAPI = (() => {
     return `https://api.github.com/repos/${ADMIN_CONFIG.GITHUB_OWNER}/${ADMIN_CONFIG.GITHUB_REPO}/contents/${path}`;
   }
 
+  function b64ToUtf8(str) {
+    const binary = atob(str.replace(/\s/g, ''));
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) {
+      bytes[i] = binary.charCodeAt(i);
+    }
+    return new TextDecoder().decode(bytes);
+  }
+
+  function utf8ToB64(str) {
+    const bytes = new TextEncoder().encode(str);
+    let binary = '';
+    for (let i = 0; i < bytes.byteLength; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
+    return btoa(binary);
+  }
+
   // ── Read a file (returns { content (decoded), sha }) ────────────────────────
   async function getFile(repoPath) {
     const res  = await fetch(apiUrl(repoPath) + '?ref=' + ADMIN_CONFIG.GITHUB_BRANCH, { headers: headers() });
     if (!res.ok) throw new Error('Could not read ' + repoPath + ' (' + res.status + ')');
     const data = await res.json();
     return {
-      content: JSON.parse(atob(data.content.replace(/\n/g, ''))),
+      content: JSON.parse(b64ToUtf8(data.content)),
       sha:     data.sha,
     };
   }
@@ -33,7 +51,7 @@ const GitHubAPI = (() => {
     const body = {
       message: commitMessage || 'Admin: update ' + repoPath,
       branch:  ADMIN_CONFIG.GITHUB_BRANCH,
-      content: btoa(unescape(encodeURIComponent(JSON.stringify(jsonContent, null, 2)))),
+      content: utf8ToB64(JSON.stringify(jsonContent, null, 2)),
     };
     if (sha) body.sha = sha;
     const res = await fetch(apiUrl(repoPath), {
@@ -93,7 +111,7 @@ const GitHubAPI = (() => {
       return res.json();
     }
 
-    // Try PHP server API first
+    // 1. Try PHP server API first
     try {
       const res = await fetch('/api/posts.php');
       if (res.ok) {
@@ -102,7 +120,16 @@ const GitHubAPI = (() => {
       }
     } catch (_) {}
 
-    // Fall back to GitHub API
+    // 2. Try static JSON file on domain
+    try {
+      const res = await fetch('/data/journal-posts.json?v=' + Date.now());
+      if (res.ok) {
+        const data = await res.json();
+        if (data && Array.isArray(data.posts)) return data;
+      }
+    } catch (_) {}
+
+    // 3. Fall back to GitHub API
     const { content, sha } = await getFile(ADMIN_CONFIG.POSTS_PATH);
     GitHubAPI._postsSha = sha;
     return content;
