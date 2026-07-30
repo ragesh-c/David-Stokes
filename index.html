@@ -3,7 +3,17 @@
 <head>
   <script>
     (function() {
-      var BUILD_VER = '20260730_v12';
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(rs) {
+          for (var r of rs) r.unregister();
+        });
+      }
+      if ('caches' in window) {
+        caches.keys().then(function(ns) {
+          for (var n of ns) caches.delete(n);
+        });
+      }
+      var BUILD_VER = '20260730_v15';
       if (!sessionStorage.getItem('ver_' + BUILD_VER)) {
         sessionStorage.setItem('ver_' + BUILD_VER, 'true');
         if (!location.search.includes('v=')) {
