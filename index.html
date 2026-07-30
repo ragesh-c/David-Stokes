@@ -68,9 +68,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/reset.css?v=3.0">
-  <link rel="stylesheet" href="css/styles.css?v=3.0">
-  <link rel="stylesheet" href="css/theme.css?v=3.0">
+  <link rel="stylesheet" href="css/reset.css?v=4.0">
+  <link rel="stylesheet" href="css/styles.css?v=4.0">
+  <link rel="stylesheet" href="css/theme.css?v=4.0">
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
   <link rel="icon" type="image/png" href="Img/favicon.png" />
   <link rel="shortcut icon" href="favicon.ico" />
@@ -179,21 +179,21 @@
           <div class="quick-waitlist-form-container">
             <form
               class="waitlist-form"
-              action="https://YOURACCOUNT.us1.list-manage.com/subscribe/post?u=XXXXXXXXXXXXXXXXXXXXXXXX&amp;id=XXXXXXXXXX"
-              method="post"
-              target="_blank"
+              action="https://api.web3forms.com/submit"
+              method="POST"
               onsubmit="handleWaitlistSubmit(event)"
             >
+              <input type="hidden" name="access_key" value="f52d3d91-6dd4-4767-b673-4eb5693d924d">
+              <input type="hidden" name="from_name" value="David Stokes Homepage Quick Waitlist">
+              <input type="hidden" name="subject" value="New Sermon of the Wolf Waitlist Signup!">
               <div class="waitlist-fields">
                 <input
                   type="email"
-                  name="EMAIL"
+                  name="email"
                   placeholder="Enter your email address"
                   required
                   class="waitlist-input"
                 />
-                <!-- Mailchimp honeypot — prevents spam, do not remove -->
-                <div style="position:absolute;left:-5000px;" aria-hidden="true"><input type="text" name="b_XXXXXXXXXXXXXXXXXXXXXXXX_XXXXXXXXXX" tabindex="-1" value=""></div>
                 <button type="submit" class="btn btn-primary waitlist-btn">
                   Join the Waitlist &rarr;
                 </button>
@@ -603,8 +603,8 @@
   </footer>
 
   <script src="js/anime.min.js" defer></script>
-  <script src="js/main.js?v=3.0" defer></script>
-  <script src="js/theme.js?v=3.0"></script>
+  <script src="js/main.js?v=4.0" defer></script>
+  <script src="js/theme.js?v=4.0"></script>
 
 </body>
 </html>
