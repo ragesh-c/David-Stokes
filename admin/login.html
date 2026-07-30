@@ -16,7 +16,7 @@
   <title>Admin Login — David Stokes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/admin/admin.css">
+  <link rel="stylesheet" href="admin.css">
   <style>
     body {
       display: flex;
@@ -104,9 +104,9 @@
     }
     .login-error:empty { opacity: 0; }
   </style>
-  <link rel="icon" type="image/png" href="Img/favicon.png" />
-  <link rel="shortcut icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" href="Img/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="../Img/favicon.png" />
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <link rel="apple-touch-icon" href="../Img/apple-touch-icon.png" />
 </head>
 <body>
   <div class="login-box">
@@ -125,7 +125,7 @@
     </form>
   </div>
 
-  <script src="/admin/config.js"></script>
+  <script src="config.js"></script>
   <script>
     // If already logged in, go straight to admin
     if (sessionStorage.getItem('admin_auth') === 'true') {
