@@ -7,7 +7,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-KDMF25YN0J');
   </script>
 
@@ -16,7 +15,7 @@
   <title>Journal Admin — David Stokes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin.css?v=3.5">
   <link rel="icon" type="image/png" href="../Img/favicon.png" />
   <link rel="shortcut icon" href="../favicon.ico" />
   <link rel="apple-touch-icon" href="../Img/apple-touch-icon.png" />
@@ -37,8 +36,8 @@
       <span class="section-name">Journal Admin</span>
     </div>
     <div class="nav-actions">
-      <a href="/" class="btn-back">&#8592; View Site</a>
-      <button class="btn btn-ghost" onclick="logout()" title="Log out" style="font-size:0.7rem;letter-spacing:0.14em;">Log out</button>
+      <a href="../journal.html" target="_blank" class="btn-back">&#128065; View Live Journal</a>
+      <button class="btn btn-ghost" onclick="logout()" title="Log out" style="font-size:0.75rem;letter-spacing:0.14em;">Log out</button>
     </div>
   </nav>
 
@@ -47,11 +46,27 @@
     <div class="page-header">
       <div>
         <h1 class="page-title">Journal Posts</h1>
-        <p class="page-subtitle" id="post-count">Loading…</p>
+        <p class="page-subtitle" id="post-count">Loading journal entries…</p>
       </div>
       <button class="btn btn-primary btn-lg" onclick="newPost()">
         <span>&#43;</span> Write New Post
       </button>
+    </div>
+
+    <!-- Search & Filter Controls -->
+    <div class="controls-bar">
+      <div class="search-wrap">
+        <span class="search-icon">&#128099;</span>
+        <input type="text" id="search-input" placeholder="Search posts by title, date, or topic…" oninput="filterPosts()">
+      </div>
+      <div class="sort-wrap">
+        <label for="sort-select">Sort:</label>
+        <select id="sort-select" onchange="filterPosts()">
+          <option value="date-desc">Newest First</option>
+          <option value="date-asc">Oldest First</option>
+          <option value="title-asc">Title (A-Z)</option>
+        </select>
+      </div>
     </div>
 
     <div id="posts-container"></div>
@@ -60,11 +75,11 @@
   <!-- Delete confirmation modal -->
   <div class="modal-backdrop" id="delete-modal">
     <div class="modal">
-      <h3>Delete this post?</h3>
-      <p>This cannot be undone. The post will be removed from the journal immediately.</p>
+      <h3>Delete this journal post?</h3>
+      <p>This post will be permanently removed from your website journal. This action cannot be undone.</p>
       <div class="modal-actions">
         <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-        <button class="btn btn-danger" id="confirm-delete-btn">Delete</button>
+        <button class="btn btn-danger" id="confirm-delete-btn">Delete Post</button>
       </div>
     </div>
   </div>
@@ -72,8 +87,8 @@
   <!-- Toast -->
   <div class="toast hide" id="toast"></div>
 
-  <script src="config.js?v=3.0"></script>
-  <script src="github-api.js?v=3.0"></script>
+  <script src="config.js?v=3.5"></script>
+  <script src="github-api.js?v=3.5"></script>
   <script>
     // Auth guard
     if (sessionStorage.getItem('admin_auth') !== 'true') {
@@ -99,15 +114,15 @@
       t.textContent = msg;
       t.className = 'toast ' + type;
       clearTimeout(t._timer);
-      t._timer = setTimeout(() => t.classList.add('hide'), 3000);
+      t._timer = setTimeout(() => t.classList.add('hide'), 3200);
     }
 
     function newPost() {
-      window.open('/admin/post.html', '_blank');
+      location.href = 'post.html';
     }
 
     function editPost(slug) {
-      window.open('/admin/post.html?slug=' + encodeURIComponent(slug), '_blank');
+      location.href = 'post.html?slug=' + encodeURIComponent(slug);
     }
 
     function openDeleteModal(slug) {
@@ -124,12 +139,12 @@
       if (!pendingDeleteSlug) return;
       const slug = pendingDeleteSlug;
       closeModal();
-      showToast('Deleting…');
+      showToast('Deleting post…');
       try {
         await GitHubAPI.deletePost(slug);
         allPosts = allPosts.filter(p => p.slug !== slug);
-        renderPosts(allPosts);
-        showToast('Post deleted.');
+        filterPosts();
+        showToast('Post deleted successfully.');
       } catch (e) {
         showToast('Could not delete: ' + e.message, 'error');
       }
@@ -139,17 +154,40 @@
       if (e.target === this) closeModal();
     });
 
+    function filterPosts() {
+      const query = (document.getElementById('search-input').value || '').toLowerCase().trim();
+      const sort = document.getElementById('sort-select').value;
+
+      let filtered = allPosts.filter(p => {
+        const title = (p.title || '').toLowerCase();
+        const period = (p.period_label || '').toLowerCase();
+        const excerpt = (p.excerpt || '').toLowerCase();
+        const date = (p.date || '').toLowerCase();
+        return title.includes(query) || period.includes(query) || excerpt.includes(query) || date.includes(query);
+      });
+
+      if (sort === 'date-desc') {
+        filtered.sort((a, b) => (b.date || '') > (a.date || '') ? 1 : -1);
+      } else if (sort === 'date-asc') {
+        filtered.sort((a, b) => (a.date || '') > (b.date || '') ? 1 : -1);
+      } else if (sort === 'title-asc') {
+        filtered.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+      }
+
+      renderPosts(filtered);
+    }
+
     function renderPosts(posts) {
       const container = document.getElementById('posts-container');
       const count     = document.getElementById('post-count');
-      count.textContent = posts.length + (posts.length === 1 ? ' post' : ' posts');
+      count.textContent = posts.length + (posts.length === 1 ? ' post found' : ' posts found');
 
       if (!posts.length) {
         container.innerHTML = `
           <div class="empty-state">
             <div class="icon">&#128221;</div>
-            <h3>No posts yet</h3>
-            <p>Click &ldquo;Write New Post&rdquo; to publish your first journal entry.</p>
+            <h3>No journal posts found</h3>
+            <p>Click &ldquo;Write New Post&rdquo; to publish a new entry or adjust your search.</p>
           </div>`;
         return;
       }
@@ -163,14 +201,15 @@
             <article class="post-card">
               ${thumb}
               <div class="card-body">
-                <p class="card-period">${post.period_label || ''}</p>
+                <p class="card-period">${post.period_label || 'Journal Entry'}</p>
                 <h2 class="card-title">${post.title}</h2>
                 <p class="card-excerpt">${post.excerpt || ''}</p>
                 <div class="card-footer">
                   <span class="card-date">${formatDate(post.date)}</span>
                   <div class="card-actions">
-                    <button class="btn btn-ghost" onclick="editPost('${post.slug}')">&#9998; Edit</button>
-                    <button class="btn btn-danger" onclick="openDeleteModal('${post.slug}')">&#128465;</button>
+                    <a href="../journal.html#${post.slug}" target="_blank" class="btn btn-ghost btn-sm" title="View live post on site">&#128065; Live</a>
+                    <button class="btn btn-secondary btn-sm" onclick="editPost('${post.slug}')">&#9998; Edit</button>
+                    <button class="btn btn-danger btn-sm" onclick="openDeleteModal('${post.slug}')" title="Delete">&#128465;</button>
                   </div>
                 </div>
               </div>
@@ -182,8 +221,8 @@
     async function load() {
       try {
         const data = await GitHubAPI.loadPosts();
-        allPosts   = (data.posts || []).slice().sort((a, b) => b.date > a.date ? 1 : -1);
-        renderPosts(allPosts);
+        allPosts   = (data.posts || []).slice();
+        filterPosts();
       } catch (e) {
         document.getElementById('posts-container').innerHTML =
           `<div class="empty-state"><div class="icon">&#9888;</div><h3>Could not load posts</h3><p>${e.message}</p></div>`;

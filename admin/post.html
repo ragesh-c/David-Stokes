@@ -39,6 +39,7 @@
     </div>
     <div class="nav-actions">
       <div class="autosave-bar" id="autosave-bar"></div>
+      <a href="../journal.html" target="_blank" class="btn btn-ghost" id="live-link" style="display:none;">&#128065; View Live</a>
       <button class="btn btn-secondary" onclick="goBack()">&#8592; All Posts</button>
       <button class="btn btn-primary" id="publish-btn" onclick="save()">Publish Post</button>
     </div>
@@ -144,8 +145,8 @@
   <!-- Toast -->
   <div class="toast hide" id="toast"></div>
 
-  <script src="config.js?v=3.0"></script>
-  <script src="github-api.js?v=3.0"></script>
+  <script src="config.js?v=3.5"></script>
+  <script src="github-api.js?v=3.5"></script>
   <script src="https://cdn.jsdelivr.net/npm/simplemde@1.11.2/dist/simplemde.min.js"></script>
   <script>
     // Auth guard
@@ -334,8 +335,15 @@
 
         document.getElementById('status-dot').className    = 'status-dot live';
         document.getElementById('status-label').textContent = 'Published';
-        document.getElementById('nav-label').textContent   = 'Editing';
+        document.getElementById('nav-label').textContent   = 'Editing Post';
         document.getElementById('publish-btn').textContent = 'Update Post';
+        
+        const liveBtn = document.getElementById('live-link');
+        if (liveBtn) {
+          liveBtn.href = '../journal.html#' + encodeURIComponent(slug);
+          liveBtn.style.display = 'inline-flex';
+        }
+
         document.title = post.title + ' — Edit — David Stokes Admin';
       } catch (e) {
         showToast('Could not load post: ' + e.message, 'error');
