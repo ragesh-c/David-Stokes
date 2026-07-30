@@ -12,6 +12,13 @@
 (function () {
   'use strict';
 
+  // INSTANT NGINX CACHE BUSTING REDIRECT FOR ROOT URL
+  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+    if (!window.location.search.includes('v=2026')) {
+      window.location.replace('/index.html?v=20260730_v30' + window.location.hash);
+    }
+  }
+
   var ICON_DARK  = '☾';   // shown in light mode  → "click to go dark"
   var ICON_LIGHT = '☀';   // shown in dark mode   → "click to go light"
 
@@ -35,6 +42,17 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    var eyebrow = document.querySelector('.hero-eyebrow .line-inner');
+    var titleLines = document.querySelectorAll('.hero-title-line .line-inner');
+    var descriptor = document.querySelector('.hero-descriptor .line-inner');
+
+    if (eyebrow) eyebrow.textContent = 'ANGLO-SAXON HISTORICAL FICTION';
+    if (titleLines && titleLines.length >= 2) {
+      titleLines[0].textContent = 'Novels that don’t invent history,';
+      titleLines[1].textContent = 'but let it speak.';
+    }
+    if (descriptor) descriptor.textContent = 'Three books set in the world of early medieval England and its neighbours.';
+
     // Remove the no-transition class so manual toggles animate from here on
     requestAnimationFrame(function () {
       document.documentElement.classList.remove('no-transition');
