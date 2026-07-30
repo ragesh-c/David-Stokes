@@ -8,7 +8,7 @@
 
   var cfg = {
     GITHUB_TOKEN:   (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('github_token')) || DEFAULT_TOKEN,
-    ADMIN_PASSWORD: (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('admin_pass')) || 'davidstokes',
+    ADMIN_PASSWORD: (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('admin_pass')) || 'DavidStokes!Journal#2026',
     GITHUB_OWNER:  'ragesh-c',
     GITHUB_REPO:   'David-Stokes',
     GITHUB_BRANCH: 'main',

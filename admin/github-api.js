@@ -12,7 +12,7 @@ const GitHubAPI = (() => {
     if (typeof ADMIN_CONFIG !== 'undefined') return ADMIN_CONFIG;
     return {
       GITHUB_TOKEN: DEFAULT_TOKEN,
-      ADMIN_PASSWORD: 'davidstokes',
+      ADMIN_PASSWORD: 'DavidStokes!Journal#2026',
       GITHUB_OWNER: 'ragesh-c',
       GITHUB_REPO: 'David-Stokes',
       GITHUB_BRANCH: 'main',
@@ -162,7 +162,7 @@ const GitHubAPI = (() => {
   // Save all posts
   async function savePosts(data, commitMsg) {
     const cfg  = getConfig();
-    const pass = cfg.ADMIN_PASSWORD || sessionStorage.getItem('admin_pass') || 'davidstokes';
+    const pass = cfg.ADMIN_PASSWORD || sessionStorage.getItem('admin_pass') || 'DavidStokes!Journal#2026';
 
     // Try PHP server API first
     try {

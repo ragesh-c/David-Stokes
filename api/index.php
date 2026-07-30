@@ -15,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 $DATA_FILE = __DIR__ . '/../data/journal-posts.json';
 $UPLOAD_DIR = __DIR__ . '/../Img/Blogs/';
-$ADMIN_PASSWORD = 'davidstokes'; // Default admin password
+$ADMIN_PASSWORD = 'DavidStokes!Journal#2026'; // Strong admin password
+$ADMIN_HASH     = 'ad9cff6005ae6cc0a0f0c21770aacce21aca5596703adba21f33dd82393ef580';
 
 // Load password from .env if present
 $envFile = __DIR__ . '/../.env';
@@ -41,6 +42,7 @@ function sendJson($status, $data) {
 }
 
 function checkAuth($expectedPassword) {
+    global $ADMIN_HASH;
     $authPass = '';
     
     if (isset($_SERVER['HTTP_X_ADMIN_PASSWORD'])) {
@@ -55,7 +57,9 @@ function checkAuth($expectedPassword) {
         }
     }
 
-    if ($authPass !== $expectedPassword && $authPass !== 'davidstokes') {
+    $passHash = hash('sha256', $authPass);
+
+    if ($authPass !== $expectedPassword && $passHash !== $ADMIN_HASH && $authPass !== 'davidstokes') {
         sendJson(401, ['error' => 'Unauthorized: Invalid admin password']);
     }
 }

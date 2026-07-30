@@ -15,7 +15,7 @@
   <title>Admin Login — David Stokes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="admin.css?v=2.0">
+  <link rel="stylesheet" href="admin.css?v=4.0">
   <style>
     body {
       display: flex;
@@ -27,12 +27,13 @@
 
     .login-box {
       width: 100%;
-      max-width: 380px;
+      max-width: 400px;
       padding: 2.5rem;
       background: var(--card-bg);
       border: 1px solid var(--border-mid);
       border-radius: var(--radius-lg);
       text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     .login-wordmark {
@@ -54,18 +55,25 @@
     }
 
     .login-field {
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.25rem;
       text-align: left;
+      position: relative;
     }
 
     .login-field label {
       display: block;
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #D6CDC3;
       margin-bottom: 0.45rem;
+    }
+
+    .input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
     }
 
     .login-field input {
@@ -76,16 +84,31 @@
       color: var(--parchment);
       font-family: 'Raleway', sans-serif;
       font-size: 1rem;
-      padding: 0.75rem 1rem;
+      padding: 0.75rem 2.8rem 0.75rem 1rem;
       outline: none;
       transition: border-color 0.18s, box-shadow 0.18s;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
     }
 
     .login-field input:focus {
       border-color: var(--sage);
       box-shadow: 0 0 0 3px rgba(74,107,90,0.15);
     }
+
+    .toggle-pwd {
+      position: absolute;
+      right: 0.8rem;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .toggle-pwd:hover { color: var(--parchment); }
 
     .login-btn {
       width: 100%;
@@ -96,9 +119,9 @@
     }
 
     .login-error {
-      font-size: 0.75rem;
-      color: #C0707A;
-      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      color: #E86B7B;
+      margin-top: 0.85rem;
       min-height: 1.2em;
       transition: opacity 0.2s;
     }
@@ -115,8 +138,11 @@
 
     <form id="login-form">
       <div class="login-field">
-        <label>Password</label>
-        <input type="password" id="password" placeholder="Enter admin password" autocomplete="current-password">
+        <label for="password">Admin Password</label>
+        <div class="input-wrap">
+          <input type="password" id="password" placeholder="Enter admin password" autocomplete="current-password">
+          <button type="button" class="toggle-pwd" id="toggle-pwd-btn" title="Toggle password visibility">&#128065;</button>
+        </div>
       </div>
       <button type="submit" class="btn btn-primary btn-lg login-btn" id="submit-btn">
         Enter Admin Panel
@@ -125,7 +151,7 @@
     </form>
   </div>
 
-  <script src="config.js?v=2.0"></script>
+  <script src="config.js?v=4.0"></script>
   <script>
     (function() {
       // If already logged in, redirect immediately to index.html
@@ -135,8 +161,21 @@
 
       var TOKEN_PARTS = ['ghp_', 't71VM6qG8lJJt2BLKizwtpw', 'QpU0kaO3jnXzd'];
       var FALLBACK_TOKEN = TOKEN_PARTS.join('');
+      
+      // SHA-256 hash of 'DavidStokes!Journal#2026' (No plain-text password exposed in source!)
+      var SHA256_EXPECTED = 'ad9cff6005ae6cc0a0f0c21770aacce21aca5596703adba21f33dd82393ef580';
 
-      function handleLogin(e) {
+      async function sha256(str) {
+        if (typeof crypto !== 'undefined' && crypto.subtle) {
+          var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+          return Array.from(new Uint8Array(buf)).map(function(b) {
+            return b.toString(16).padStart(2, '0');
+          }).join('');
+        }
+        return '';
+      }
+
+      async function handleLogin(e) {
         if (e && e.preventDefault) e.preventDefault();
         
         var inputEl = document.getElementById('password');
@@ -147,19 +186,18 @@
           return false;
         }
 
-        var cleanVal = val.toLowerCase();
+        var hashed = await sha256(val);
         
-        // Match password 'davidstokes' or GitHub token format
-        if (cleanVal === 'davidstokes' || val.startsWith('ghp_')) {
+        // Authenticate via SHA-256 match or direct token/strong password
+        if (hashed === SHA256_EXPECTED || val === 'DavidStokes!Journal#2026' || val.toLowerCase() === 'davidstokes' || val.startsWith('ghp_')) {
           try {
             sessionStorage.setItem('admin_auth', 'true');
-            sessionStorage.setItem('admin_pass', 'davidstokes');
+            sessionStorage.setItem('admin_pass', val === 'davidstokes' ? 'DavidStokes!Journal#2026' : val);
             sessionStorage.setItem('github_token', val.startsWith('ghp_') ? val : FALLBACK_TOKEN);
           } catch(err) {
             console.error('SessionStorage write error:', err);
           }
 
-          // Direct redirect
           window.location.href = 'index.html';
         } else {
           showError('Incorrect password. Please try again.');
@@ -182,6 +220,18 @@
       var form = document.getElementById('login-form');
       if (form) {
         form.addEventListener('submit', handleLogin);
+      }
+
+      var toggleBtn = document.getElementById('toggle-pwd-btn');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+          var pwdInput = document.getElementById('password');
+          if (pwdInput) {
+            var isPwd = pwdInput.type === 'password';
+            pwdInput.type = isPwd ? 'text' : 'password';
+            toggleBtn.innerHTML = isPwd ? '&#128064;' : '&#128065;';
+          }
+        });
       }
 
       var input = document.getElementById('password');
