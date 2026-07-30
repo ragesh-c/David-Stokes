@@ -150,7 +150,7 @@
   <script>
     // Auth guard
     if (sessionStorage.getItem('admin_auth') !== 'true') {
-      location.replace('/admin/login.html');
+      location.replace('login.html');
     }
 
     let editingSlug = null;
@@ -158,7 +158,7 @@
 
     function goBack() {
       if (window.opener) window.close();
-      else location.replace('/admin/index.html');
+      else location.replace('index.html');
     }
 
     function showToast(msg, type = 'success') {
