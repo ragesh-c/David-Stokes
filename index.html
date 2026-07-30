@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
   <script>
-    if (window.location.search.includes('v=')) {
-      window.history.replaceState({}, document.title, window.location.pathname);
-    }
+    (function() {
+      var BUILD_VER = '20260730_v12';
+      if (!sessionStorage.getItem('ver_' + BUILD_VER)) {
+        sessionStorage.setItem('ver_' + BUILD_VER, 'true');
+        if (!location.search.includes('v=')) {
+          location.replace(location.pathname + '?v=' + BUILD_VER + location.hash);
+        }
+      }
+    })();
   </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KDMF25YN0J"></script>
@@ -12,27 +18,30 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-KDMF25YN0J');
   </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>David Stokes — Historical Fiction Author</title>
-  <meta name="description" content="David Stokes is a British historical fiction author whose Anglo-Saxon novels bring history's dramatic reality to life. Based closely on early medieval documents, chronicles, and charters.">
-  <meta property="og:title" content="David Stokes — Historical Fiction Author">
-  <meta property="og:description" content="History is dramatic enough without making things up. Novels based strictly on the early medieval record.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <title>David Stokes — Anglo-Saxon Historical Fiction Author</title>
+  <meta name="description" content="Official website of David Stokes, author of Anglo-Saxon historical fiction. Novels that don't invent history, but let it speak. Three books set in the world of early medieval England and its neighbours.">
+  <meta property="og:title" content="David Stokes — Anglo-Saxon Historical Fiction Author">
+  <meta property="og:description" content="Novels that don't invent history, but let it speak. Three books set in the world of early medieval England and its neighbours.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.davidstokesauthor.com/">
   <meta property="og:site_name" content="David Stokes">
   <meta property="og:image" content="https://www.davidstokesauthor.com/Img/David-Hero.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="800">
-  <meta property="og:image:alt" content="David Stokes — Historical Fiction Author">
+  <meta property="og:image:alt" content="David Stokes — Anglo-Saxon Historical Fiction Author">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="David Stokes — Historical Fiction Author">
-  <meta name="twitter:description" content="David Stokes is a British historical fiction author whose Anglo-Saxon novels bring history's dramatic reality to life. Based closely on early medieval documents, chronicles, and charters.">
+  <meta name="twitter:title" content="David Stokes — Anglo-Saxon Historical Fiction Author">
+  <meta name="twitter:description" content="Novels that don't invent history, but let it speak. Three books set in the world of early medieval England and its neighbours.">
   <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/David-Hero.jpg">
   <link rel="canonical" href="https://www.davidstokesauthor.com/">
   <!-- Structured data -->
