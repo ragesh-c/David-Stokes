@@ -1,6 +1,7 @@
-// ============================================================
-// DAVID STOKES — main.js  (anime.js v4)
-// ============================================================
+// AUTOMATIC EDGE-CACHE BUSTER FOR ROOT DOMAIN
+if (window.location.pathname === '/' && !window.location.search.includes('v=4')) {
+  window.location.replace('/index.html?v=4.0');
+}
 
 // 1. PAGE LOAD FADE-IN
 document.addEventListener('DOMContentLoaded', () => {
