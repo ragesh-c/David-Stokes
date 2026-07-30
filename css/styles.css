@@ -3769,7 +3769,7 @@ body.loaded .hero-bg-img {
 
 .hero-title-line {
   display: block;
-  font-size: clamp(1.05rem, 2.0vw + 0.2rem, 2.35rem);
+  font-size: clamp(0.95rem, 1.65vw + 0.1rem, 1.85rem);
   color: var(--white);
   white-space: normal;
   line-height: 1.25;
@@ -3778,17 +3778,17 @@ body.loaded .hero-bg-img {
 .hero-title-italic {
   font-style: italic;
   color: rgba(250,250,248,0.85);
-  font-size: clamp(1.0rem, 1.9vw + 0.2rem, 2.2rem);
+  font-size: clamp(0.9rem, 1.55vw + 0.1rem, 1.75rem);
   white-space: normal;
   line-height: 1.25;
 }
 
 .hero-descriptor {
   font-family: 'EB Garamond', Georgia, serif;
-  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
-  line-height: 1.6;
+  font-size: clamp(1.1rem, 1.4vw, 1.25rem);
+  line-height: 1.7;
   color: rgba(250,250,248,0.75);
-  max-width: 540px;
+  max-width: 560px;
 }
 
 
@@ -3816,14 +3816,14 @@ body.loaded .hero-bg-img {
   }
 
   .hero-title-line {
-    font-size: clamp(0.95rem, 3.8vw, 1.6rem);
+    font-size: clamp(0.85rem, 3.2vw, 1.35rem);
     white-space: normal;
     display: block;
     line-height: 1.25;
   }
 
   .hero-title-italic {
-    font-size: clamp(0.9rem, 3.5vw, 1.5rem);
+    font-size: clamp(0.82rem, 3.0vw, 1.30rem);
     white-space: normal;
     display: block;
     line-height: 1.25;
