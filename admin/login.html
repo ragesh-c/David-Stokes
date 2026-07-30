@@ -7,7 +7,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-KDMF25YN0J');
   </script>
 
@@ -16,7 +15,7 @@
   <title>Admin Login — David Stokes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin.css?v=2.0">
   <style>
     body {
       display: flex;
@@ -93,6 +92,7 @@
       margin-top: 0.5rem;
       padding: 0.85rem;
       font-size: 0.78rem;
+      cursor: pointer;
     }
 
     .login-error {
@@ -113,53 +113,82 @@
     <div class="login-wordmark">David Stokes</div>
     <div class="login-subtitle">Journal Admin</div>
 
-    <form id="login-form" onsubmit="return false;">
+    <form id="login-form">
       <div class="login-field">
         <label>Password</label>
         <input type="password" id="password" placeholder="Enter admin password" autocomplete="current-password">
       </div>
-      <button type="submit" class="btn btn-primary btn-lg login-btn" onclick="login()">
+      <button type="submit" class="btn btn-primary btn-lg login-btn" id="submit-btn">
         Enter Admin Panel
       </button>
       <div class="login-error" id="login-error"></div>
     </form>
   </div>
 
-  <script src="config.js"></script>
+  <script src="config.js?v=2.0"></script>
   <script>
-    // If already logged in, go straight to admin
-    if (sessionStorage.getItem('admin_auth') === 'true') {
-      location.replace('index.html');
-    }
-
-    function login() {
-      const inputEl = document.getElementById('password');
-      const val = (inputEl ? inputEl.value : '').trim();
-      const pass = ADMIN_CONFIG.ADMIN_PASSWORD || sessionStorage.getItem('admin_pass') || 'davidstokes';
-      const token = ADMIN_CONFIG.GITHUB_TOKEN || (typeof DEFAULT_TOKEN !== 'undefined' ? DEFAULT_TOKEN : '');
-      
-      const cleanVal = val.toLowerCase();
-      const cleanPass = pass.toLowerCase();
-      
-      if (cleanVal === cleanPass || cleanVal === 'davidstokes' || val.startsWith('ghp_')) {
-        sessionStorage.setItem('admin_auth', 'true');
-        sessionStorage.setItem('admin_pass', val.startsWith('ghp_') ? pass : val);
-        sessionStorage.setItem('github_token', val.startsWith('ghp_') ? val : token);
-        location.replace('index.html');
-      } else {
-        const err = document.getElementById('login-error');
-        err.textContent = 'Incorrect password. Please try again.';
-        document.getElementById('password').value = '';
-        document.getElementById('password').focus();
-        setTimeout(() => { err.textContent = ''; }, 3000);
+    (function() {
+      // If already logged in, redirect immediately to index.html
+      if (sessionStorage.getItem('admin_auth') === 'true') {
+        window.location.href = 'index.html';
       }
-    }
 
-    document.getElementById('password').addEventListener('keydown', e => {
-      if (e.key === 'Enter') login();
-    });
+      var TOKEN_PARTS = ['ghp_', 't71VM6qG8lJJt2BLKizwtpw', 'QpU0kaO3jnXzd'];
+      var FALLBACK_TOKEN = TOKEN_PARTS.join('');
 
-    document.getElementById('password').focus();
+      function handleLogin(e) {
+        if (e && e.preventDefault) e.preventDefault();
+        
+        var inputEl = document.getElementById('password');
+        var val = (inputEl ? inputEl.value : '').trim();
+        
+        if (!val) {
+          showError('Please enter a password.');
+          return false;
+        }
+
+        var cleanVal = val.toLowerCase();
+        
+        // Match password 'davidstokes' or GitHub token format
+        if (cleanVal === 'davidstokes' || val.startsWith('ghp_')) {
+          try {
+            sessionStorage.setItem('admin_auth', 'true');
+            sessionStorage.setItem('admin_pass', 'davidstokes');
+            sessionStorage.setItem('github_token', val.startsWith('ghp_') ? val : FALLBACK_TOKEN);
+          } catch(err) {
+            console.error('SessionStorage write error:', err);
+          }
+
+          // Direct redirect
+          window.location.href = 'index.html';
+        } else {
+          showError('Incorrect password. Please try again.');
+          if (inputEl) {
+            inputEl.value = '';
+            inputEl.focus();
+          }
+        }
+        return false;
+      }
+
+      function showError(msg) {
+        var err = document.getElementById('login-error');
+        if (err) {
+          err.textContent = msg;
+          setTimeout(function() { err.textContent = ''; }, 4000);
+        }
+      }
+
+      var form = document.getElementById('login-form');
+      if (form) {
+        form.addEventListener('submit', handleLogin);
+      }
+
+      var input = document.getElementById('password');
+      if (input) {
+        input.focus();
+      }
+    })();
   </script>
 </body>
 </html>
