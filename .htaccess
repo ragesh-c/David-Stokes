@@ -1,5 +1,12 @@
 DirectoryIndex index.html
 
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^api/posts/?$ api/index.php?action=posts [L,QSA]
+    RewriteRule ^api/upload/?$ api/index.php?action=upload [L,QSA]
+    RewriteRule ^api/post/(.+)$ api/index.php?action=delete&slug=$1 [L,QSA]
+</IfModule>
+
 <IfModule mod_headers.c>
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"

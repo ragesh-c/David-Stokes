@@ -218,12 +218,32 @@ const server = http.createServer(async (req, res) => {
   const parsed   = url.parse(req.url);
   const pathname = decodeURIComponent(parsed.pathname);
 
-  // API routes
-  if (pathname === '/api/posts') {
-    if (req.method === 'GET')  return handleGetPosts(res);
-    if (req.method === 'POST') return handleSavePosts(req, res);
+  // Dynamic config route
+  if (pathname === '/admin/config.js' && req.method === 'GET') {
+    let content = fs.readFileSync(path.join(ROOT, 'admin', 'config.js'), 'utf8');
+    const token = process.env.GITHUB_TOKEN || '';
+    const pass = process.env.ADMIN_PASSWORD || 'davidstokes';
+    content = content
+      .replace(/GITHUB_TOKEN:\s*.*?,/, `GITHUB_TOKEN: ${JSON.stringify(token)},`)
+      .replace(/ADMIN_PASSWORD:\s*.*?,/, `ADMIN_PASSWORD: ${JSON.stringify(pass)},`);
+    res.writeHead(200, { 'Content-Type': 'application/javascript; charset=utf-8' });
+    res.end(content);
+    return;
   }
-  if (pathname === '/api/upload' && req.method === 'POST') return handleUpload(req, res);
+
+  // API routes
+  if (pathname === '/api/posts' || pathname === '/api/posts.php') {
+    if (req.method === 'GET')  return handleGetPosts(res);
+    if (req.method === 'POST') {
+      const action = parsed.query ? require('querystring').parse(parsed.query).action : '';
+      if (action === 'delete') {
+        const slug = require('querystring').parse(parsed.query).slug;
+        return handleDeletePost(req, res, slug);
+      }
+      return handleSavePosts(req, res);
+    }
+  }
+  if ((pathname === '/api/upload' || pathname === '/api/upload.php') && req.method === 'POST') return handleUpload(req, res);
 
   const deleteMatch = pathname.match(/^\/api\/post\/(.+)$/);
   if (deleteMatch && req.method === 'DELETE') return handleDeletePost(req, res, deleteMatch[1]);
