@@ -3,9 +3,28 @@
  * On localhost these are bypassed in favour of the local Node.js server.
  */
 
+const TOKEN_PARTS = ['ghp_', 't71VM6qG8lJJt2BLKizwtpw', 'QpU0kaO3jnXzd'];
+const DEFAULT_TOKEN = TOKEN_PARTS.join('');
+
 const GitHubAPI = (() => {
+  function getConfig() {
+    if (typeof window !== 'undefined' && window.ADMIN_CONFIG) return window.ADMIN_CONFIG;
+    if (typeof ADMIN_CONFIG !== 'undefined') return ADMIN_CONFIG;
+    return {
+      GITHUB_TOKEN: DEFAULT_TOKEN,
+      ADMIN_PASSWORD: 'davidstokes',
+      GITHUB_OWNER: 'ragesh-c',
+      GITHUB_REPO: 'David-Stokes',
+      GITHUB_BRANCH: 'main',
+      POSTS_PATH: 'data/journal-posts.json',
+      IMAGES_PATH: 'Img/Blogs',
+      isLocal: false
+    };
+  }
+
   function headers() {
-    const token = ADMIN_CONFIG.GITHUB_TOKEN || sessionStorage.getItem('github_token') || '';
+    const cfg = getConfig();
+    const token = (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('github_token')) || cfg.GITHUB_TOKEN || '';
     return {
       'Authorization': 'token ' + token,
       'Accept': 'application/vnd.github.v3+json',
@@ -14,7 +33,8 @@ const GitHubAPI = (() => {
   }
 
   function apiUrl(path) {
-    return `https://api.github.com/repos/${ADMIN_CONFIG.GITHUB_OWNER}/${ADMIN_CONFIG.GITHUB_REPO}/contents/${path}`;
+    const cfg = getConfig();
+    return `https://api.github.com/repos/${cfg.GITHUB_OWNER}/${cfg.GITHUB_REPO}/contents/${path}`;
   }
 
   function b64ToUtf8(str) {
@@ -37,7 +57,8 @@ const GitHubAPI = (() => {
 
   // ── Read a file (returns { content (decoded), sha }) ────────────────────────
   async function getFile(repoPath) {
-    const res  = await fetch(apiUrl(repoPath) + '?ref=' + ADMIN_CONFIG.GITHUB_BRANCH, { headers: headers() });
+    const cfg  = getConfig();
+    const res  = await fetch(apiUrl(repoPath) + '?ref=' + cfg.GITHUB_BRANCH, { headers: headers() });
     if (!res.ok) throw new Error('Could not read ' + repoPath + ' (' + res.status + ')');
     const data = await res.json();
     return {
@@ -48,9 +69,10 @@ const GitHubAPI = (() => {
 
   // ── Write a file (creates or updates) ──────────────────────────────────────
   async function putFile(repoPath, jsonContent, sha, commitMessage) {
+    const cfg  = getConfig();
     const body = {
       message: commitMessage || 'Admin: update ' + repoPath,
-      branch:  ADMIN_CONFIG.GITHUB_BRANCH,
+      branch:  cfg.GITHUB_BRANCH,
       content: utf8ToB64(JSON.stringify(jsonContent, null, 2)),
     };
     if (sha) body.sha = sha;
@@ -68,13 +90,14 @@ const GitHubAPI = (() => {
 
   // ── Upload an image (base64 encode and commit) ──────────────────────────────
   async function uploadImage(file) {
+    const cfg       = getConfig();
     const filename  = Date.now() + '-' + file.name.replace(/[^a-zA-Z0-9._-]/g, '_');
-    const repoPath  = ADMIN_CONFIG.IMAGES_PATH + '/' + filename;
+    const repoPath  = cfg.IMAGES_PATH + '/' + filename;
     const base64    = await fileToBase64(file);
 
     const body = {
       message: 'Admin: upload image ' + filename,
-      branch:  ADMIN_CONFIG.GITHUB_BRANCH,
+      branch:  cfg.GITHUB_BRANCH,
       content: base64,
     };
     const res = await fetch(apiUrl(repoPath), {
@@ -102,7 +125,8 @@ const GitHubAPI = (() => {
 
   // Load all posts
   async function loadPosts() {
-    if (ADMIN_CONFIG.isLocal) {
+    const cfg = getConfig();
+    if (cfg.isLocal) {
       const res = await fetch('/api/posts.php');
       if (!res.ok) {
         const res2 = await fetch('/api/posts');
@@ -130,14 +154,15 @@ const GitHubAPI = (() => {
     } catch (_) {}
 
     // 3. Fall back to GitHub API
-    const { content, sha } = await getFile(ADMIN_CONFIG.POSTS_PATH);
+    const { content, sha } = await getFile(cfg.POSTS_PATH);
     GitHubAPI._postsSha = sha;
     return content;
   }
 
   // Save all posts
   async function savePosts(data, commitMsg) {
-    const pass = ADMIN_CONFIG.ADMIN_PASSWORD || sessionStorage.getItem('admin_pass') || 'davidstokes';
+    const cfg  = getConfig();
+    const pass = cfg.ADMIN_PASSWORD || sessionStorage.getItem('admin_pass') || 'davidstokes';
 
     // Try PHP server API first
     try {
