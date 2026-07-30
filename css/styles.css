@@ -3817,17 +3817,23 @@ body.loaded .hero-bg-img {
   }
 
   .hero-title-line {
-    font-size: clamp(0.95rem, 4.0vw, 1.6rem);
+    font-size: clamp(0.95rem, 4.0vw, 1.65rem);
     white-space: nowrap;
     display: block;
     line-height: 1.25;
   }
 
   .hero-title-italic {
-    font-size: clamp(0.9rem, 3.8vw, 1.5rem);
+    font-size: clamp(0.9rem, 3.8vw, 1.55rem);
     white-space: nowrap;
     display: block;
     line-height: 1.25;
+  }
+
+  .hero-descriptor {
+    margin: 0.75rem auto 0;
+    max-width: 480px;
+    font-size: clamp(0.95rem, 3.2vw, 1.15rem);
   }
 
   .hero-copy {
@@ -3839,6 +3845,31 @@ body.loaded .hero-bg-img {
     max-width: 100%;
     padding: 0 24px 56px;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.65rem;
+  }
+
+  .hero-title-line {
+    font-size: clamp(0.85rem, 4.5vw, 1.25rem);
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  .hero-title-italic {
+    font-size: clamp(0.8rem, 4.2vw, 1.2rem);
+    white-space: normal;
+    word-break: keep-all;
+  }
+
+  .hero-descriptor {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
 }
 
