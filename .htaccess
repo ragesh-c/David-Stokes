@@ -1,7 +1,11 @@
-DirectoryIndex index.html
+DirectoryIndex index.html index.php
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+    
+    # Force root / to serve index.html directly, bypassing stale directory cache
+    RewriteRule ^$ index.html [L]
+    
     RewriteRule ^api/posts/?$ api/index.php?action=posts [L,QSA]
     RewriteRule ^api/upload/?$ api/index.php?action=upload [L,QSA]
     RewriteRule ^api/post/(.+)$ api/index.php?action=delete&slug=$1 [L,QSA]
@@ -10,10 +14,12 @@ DirectoryIndex index.html
 <IfModule mod_headers.c>
     Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0"
     Header set Pragma "no-cache"
-    Header set Expires "0"
-    <FilesMatch "\.(html|htm)$">
+    Header set Expires "Thu, 01 Jan 1970 00:00:00 GMT"
+    Header set X-Accel-Expires "0"
+    <FilesMatch "\.(html|htm|php)$">
         Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0, s-maxage=0"
         Header set Pragma "no-cache"
         Header set Expires "Thu, 01 Jan 1970 00:00:00 GMT"
+        Header set X-Accel-Expires "0"
     </FilesMatch>
 </IfModule>
