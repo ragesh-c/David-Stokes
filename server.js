@@ -184,6 +184,16 @@ function serveStatic(req, res, pathname) {
     }
   } catch (_) { /* doesn't exist — let readFile return ENOENT */ }
 
+  // Pages live as name.page + name.php on production (PHP serves name.page
+  // with no-cache headers so Nginx's static-file cache can't touch it — see
+  // .htaccess). Mirror that here: if name.html doesn't exist, fall back to
+  // name.page so local dev keeps working without a PHP interpreter.
+  const requestExt = path.extname(filepath).toLowerCase();
+  if (requestExt === '.html' && !fs.existsSync(filepath)) {
+    const pageFile = filepath.slice(0, -'.html'.length) + '.page';
+    if (fs.existsSync(pageFile)) filepath = pageFile;
+  }
+
   fs.readFile(filepath, (err, data) => {
     if (err) {
       if (err.code === 'ENOENT' || err.code === 'EISDIR') {
@@ -194,8 +204,7 @@ function serveStatic(req, res, pathname) {
       }
       return;
     }
-    const ext  = path.extname(filepath).toLowerCase();
-    const mime = MIME[ext] || 'application/octet-stream';
+    const mime = MIME[requestExt] || 'application/octet-stream';
     res.writeHead(200, { 'Content-Type': mime });
     res.end(data);
   });

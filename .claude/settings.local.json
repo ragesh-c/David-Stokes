@@ -14,7 +14,22 @@
       "Bash(ps -p 53666 -o pid,command)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8080/)",
       "Bash(python3 -)",
-      "Bash(python3 /private/tmp/claude-501/-Users-bindurajesh-David-Stokes-master/c8c5b31b-c7ab-4c1b-887f-30471e1101fc/scratchpad/ftp_deploy.py)"
+      "Bash(python3 /private/tmp/claude-501/-Users-bindurajesh-David-Stokes-master/c8c5b31b-c7ab-4c1b-887f-30471e1101fc/scratchpad/ftp_deploy.py)",
+      "Bash(curl -s -D - -o /dev/null \"https://davidstokesauthor.com/index.html\")",
+      "Bash(curl -s -D - -o /dev/null \"https://davidstokesauthor.com/\")",
+      "Bash(curl -s -D - -o /dev/null \"https://davidstokesauthor.com/css/style.css\")",
+      "Bash(curl -s -D - -o /dev/null \"https://davidstokesauthor.com/index.html?cachebust=$\\(date +%s\\)\")",
+      "Bash(curl -s -D - -o /dev/null \"https://davidstokesauthor.com/?cachebust=$\\(date +%s\\)\")",
+      "Bash(curl -s -D - -o /dev/null -H \"Cache-Control: no-cache\" \"https://davidstokesauthor.com/\")",
+      "Bash(dig +short davidstokesauthor.com)",
+      "Bash(curl -s -D - \"https://davidstokesauthor.com/captest/captest.html?x=$\\(date +%s\\)\")",
+      "Bash(curl -s -D - \"https://davidstokesauthor.com/captest2/captest2.html?x=$\\(date +%s\\)\")",
+      "Bash(curl -s -D - -o /dev/null \"https://davidstokesauthor.com/?zz=$\\(date +%s%N\\)\")",
+      "Bash(kill 53666)",
+      "Bash(nohup node server.js)",
+      "Bash(echo \"started, pid $!\")",
+      "Bash(curl -s -o /dev/null -w \"root /: %{http_code}\\\\n\" http://localhost:8080/)",
+      "Bash(curl -s -o /dev/null -w \"/about.html: %{http_code}\\\\n\" http://localhost:8080/about.html)"
     ]
   }
 }
