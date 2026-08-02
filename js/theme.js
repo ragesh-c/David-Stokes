@@ -12,6 +12,19 @@
 (function () {
   'use strict';
 
+  // One-time bridge for a known stuck edge-cache entry: the bare "/" URL
+  // has an old cached snapshot at the host that predates this file's
+  // no-cache fix and can't be purged without control-panel access (FTP
+  // only). That frozen snapshot still loads this exact file (its own
+  // Cache-Control is fine), so this is the only place able to detect and
+  // correct it. /index.html itself is already fixed and always fresh.
+  // Self-neutralizing: once the stale entry expires or is purged, "/" will
+  // include the cache-fresh meta tag and this stops running for good.
+  if (window.location.pathname === '/' && !document.querySelector('meta[name="cache-fresh"]')) {
+    window.location.replace('/index.html?_bust=' + Date.now() + window.location.hash);
+    return;
+  }
+
   var ICON_DARK  = '☾';   // shown in light mode  → "click to go dark"
   var ICON_LIGHT = '☀';   // shown in dark mode   → "click to go light"
 

@@ -56,9 +56,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/reset.css?v=10.0">
-  <link rel="stylesheet" href="../css/styles.css?v=10.0">
-  <link rel="stylesheet" href="../css/theme.css?v=10.0">
+  <link rel="stylesheet" href="../css/reset.css?v=77459efcb2">
+  <link rel="stylesheet" href="../css/styles.css?v=f85d5c922e">
+  <link rel="stylesheet" href="../css/theme.css?v=dd85e925f6">
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
   <link rel="icon" type="image/png" href="../Img/favicon.png" />
   <link rel="shortcut icon" href="../favicon.ico" />
@@ -239,8 +239,8 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=10.0" defer></script>
-  <script src="../js/theme.js?v=10.0"></script>
+  <script src="../js/main.js?v=1eb835df51" defer></script>
+  <script src="../js/theme.js?v=2a6cdd6964"></script>
 </body>
 </html>
 
