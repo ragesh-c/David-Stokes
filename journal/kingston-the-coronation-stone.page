@@ -13,39 +13,32 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Singing Bowl — David Stokes</title>
-  <meta name="description" content="Three teenagers fight climate change on a planet where the dinosaurs were never wiped out. Written in support of COP26. All profits to Zero Carbon Guildford.">
-  <meta property="og:title" content="The Singing Bowl — David Stokes">
-  <meta property="og:description" content="Three teenagers fight climate change on a planet where the dinosaurs were never wiped out. Written in support of COP26.">
-  <meta property="og:type" content="book">
-  <meta property="og:url" content="https://www.davidstokesauthor.com/books/the-singing-bowl.html">
+  <title>Kingston's Coronation Stone — Where England Began — David Stokes Journal</title>
+  <meta name="description" content="Seven Anglo-Saxon kings were crowned at Kingston-upon-Thames, including Æthelflæd's nephew Æthelstan, who became the first King of England. The stone sits today in a market square — history in plain, unheroic sight.">
+  <meta property="og:title" content="Kingston's Coronation Stone — Where England Began">
+  <meta property="og:description" content="Seven Anglo-Saxon kings were crowned at Kingston-upon-Thames, including Æthelflæd's nephew Æthelstan — the first King of England. The stone sits today in a market square, history in plain, unheroic sight.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/kingston-the-coronation-stone.html">
   <meta property="og:site_name" content="David Stokes">
-  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/David-Hero.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="800">
-  <meta property="og:image:alt" content="The Singing Bowl — David Stokes">
+  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/Kingston-Stone-3-new.png">
+  <meta property="og:image:alt" content="The Kingston Coronation Stone, where seven Anglo-Saxon kings were crowned">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Singing Bowl — David Stokes">
-  <meta name="twitter:description" content="Three teenagers fight climate change on a planet where the dinosaurs were never wiped out. Written in support of COP26. All profits to Zero Carbon Guildford.">
-  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/David-Hero.jpg">
-  <link rel="canonical" href="https://www.davidstokesauthor.com/books/the-singing-bowl.html">
-  <!-- Schema.org Book structured data -->
+  <meta name="twitter:title" content="Kingston's Coronation Stone — Where England Began">
+  <meta name="twitter:description" content="Seven Anglo-Saxon kings were crowned at Kingston, including Æthelstan — the first King of England. The stone sits today in a market square.">
+  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/Kingston-Stone-3-new.png">
+  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/kingston-the-coronation-stone.html">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Book",
-    "name": "The Singing Bowl",
-    "author": {
-      "@type": "Person",
-      "name": "David Stokes",
-      "url": "https://www.davidstokesauthor.com/about.html"
-    },
-    "datePublished": "2021",
-    "genre": "Climate Fiction",
-    "inLanguage": "en",
-    "description": "Three teenagers fight climate change on a planet where the dinosaurs were never wiped out. Written in support of COP26. All profits to Zero Carbon Guildford.",
-    "url": "https://www.davidstokesauthor.com/books/the-singing-bowl.html"
+    "@type": "Article",
+    "headline": "Kingston's Coronation Stone — Where England Began",
+    "description": "Seven Anglo-Saxon kings were crowned at Kingston-upon-Thames, including Æthelstan, the first King of England.",
+    "image": "https://www.davidstokesauthor.com/Img/Blogs/Kingston-Stone-3-new.png",
+    "author": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com/about.html" },
+    "publisher": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com" },
+    "url": "https://www.davidstokesauthor.com/journal/kingston-the-coronation-stone.html",
+    "inLanguage": "en-GB"
   }
   </script>
   <script type="application/ld+json">
@@ -54,8 +47,8 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.davidstokesauthor.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Books", "item": "https://www.davidstokesauthor.com/books.html" },
-      { "@type": "ListItem", "position": 3, "name": "The Singing Bowl", "item": "https://www.davidstokesauthor.com/books/the-singing-bowl.html" }
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.davidstokesauthor.com/journal.html" },
+      { "@type": "ListItem", "position": 3, "name": "Kingston's Coronation Stone", "item": "https://www.davidstokesauthor.com/journal/kingston-the-coronation-stone.html" }
     ]
   }
   </script>
@@ -63,30 +56,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/reset.css?v=10.0">
-  <link rel="stylesheet" href="../css/styles.css?v=10.0">
-  <link rel="stylesheet" href="../css/theme.css?v=10.0">
+  <link rel="stylesheet" href="../css/reset.css?v=77459efcb2">
+  <link rel="stylesheet" href="../css/styles.css?v=f85d5c922e">
+  <link rel="stylesheet" href="../css/theme.css?v=dd85e925f6">
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
   <link rel="icon" type="image/png" href="../Img/favicon.png" />
   <link rel="shortcut icon" href="../favicon.ico" />
   <link rel="apple-touch-icon" href="../Img/apple-touch-icon.png" />
 </head>
-<body class="book-detail">
-
-  <!-- SKIP NAV -->
+<body>
   <a href="#main" class="skip-nav">Skip to main content</a>
-
-  <!-- NAVIGATION -->
   <nav class="site-nav" aria-label="Primary navigation">
     <a href="../index.html" class="nav-wordmark">David Stokes</a>
     <ul class="nav-links" role="list">
-      <li><a href="../books.html" aria-current="page">Books</a></li>
+      <li><a href="../books.html">Books</a></li>
       <li><a href="../about.html">About</a></li>
       <li><a href="../media.html">Media</a></li>
-      <li><a href="../journal.html">Journal</a></li>
+      <li><a href="../journal.html" aria-current="page">Journal</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
-
     <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
       <span class="theme-icon" aria-hidden="true">☾</span>
     </button>
@@ -97,107 +85,54 @@
       </svg>
     </button>
   </nav>
-
-  <!-- MOBILE NAV OVERLAY -->
   <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
     <button class="mobile-nav-close" aria-label="Close menu">&#x2715;</button>
     <ul class="nav-links" role="list">
-      <li><a href="../books.html" aria-current="page">Books</a></li>
+      <li><a href="../books.html">Books</a></li>
       <li><a href="../about.html">About</a></li>
       <li><a href="../media.html">Media</a></li>
-      <li><a href="../journal.html">Journal</a></li>
+      <li><a href="../journal.html" aria-current="page">Journal</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
-
   </div>
 
-  <!-- MAIN CONTENT -->
   <main id="main">
-
-    <!-- SECTION 1: BOOK HERO -->
-    <section class="section book-hero-section">
-      <div class="container">
-        <a href="../books.html" class="back-link reveal">← Back to Books</a>
-        <div class="book-hero-layout">
-
-          <!-- Left Column: Book Cover -->
-          <div class="book-cover-wrapper reveal">
-            <img src="../Img/The-Singing-Bowl.png" alt="The Singing Bowl" style="width:100%; aspect-ratio:2/3; object-fit:cover;" loading="lazy" decoding="async" />
-          </div>
-
-          <!-- Right Column: Metadata -->
-          <div class="reveal">
-            <span class="period-label">Climate Fiction · 2021</span>
-            <h1>The Singing Bowl</h1>
-            <p style="font-family:var(--font-serif); font-style:italic; font-size:1.5rem; line-height:1.4; margin-block:1rem 0.5rem; color:var(--text-body);">A new novel in support of COP26</p>
-            <p style="font-size:0.875rem; color:var(--text-meta); margin-bottom:2rem;">2021 · All profits to Zero Carbon Guildford</p>
-            <div>
-              <a href="https://www.amazon.in/Singing-Bowl-Warming-Worlds-Book-ebook/dp/B09L4YF633" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon UK</a>
-            </div>
-          </div>
-
-        </div>
+    <!-- PAGE HERO -->
+    <section class="section page-hero journal-post-hero">
+      <img class="journal-post-hero-bg" src="../Img/Blogs/Kingston-Stone-3-new.png" alt="" aria-hidden="true" style="object-position: center top;" loading="lazy" decoding="async">
+      <div class="container" style="max-width:var(--max-body-width); margin-inline:auto; padding-inline:var(--side-margin-mobile);">
+        <span class="period-label reveal">Anglo-Saxon History | March 2023</span>
+        <h1 class="reveal">Kingston's Coronation Stone — Where England Began</h1>
       </div>
     </section>
 
-    <!-- SECTION 2: THE STORY -->
-    <section class="section">
-      <div class="container">
-        <div class="article-body" style="max-width:var(--max-body-width); margin-inline:auto;">
+    <!-- ARTICLE BODY -->
+    <div class="section" style="padding-top:0;">
+      <div class="container article-body reveal">
 
-          <h2 class="reveal">The Story</h2>
+<p>Æthelflæd, Lady of the Mercians may have been written out of history, but today we can find evidence of her life and achievements in many places.</p>
+<p>My new book, King Alfred's Daughter, begins with the death of Alfred the Great, and the succession of his son Edward. The relationship between Edward and Æthelflæd is crucial to the plot, and this is epitomised during Edward's coronation at Kingston upon Thames. Here, on 8th June, 900AD. Edward, was crowned as 'King of the Anglo-Saxons.'</p>
+<p>In an open space near the centre of Kingston, you can see a relic that formed part of the ceremony: a large stone, possibly part of the throne on which the king sat. The Coronation Stone, as it is now called, is made of sarsen, a type of sandstone not found locally. It sits on a granite base engraved with the names of seven kings who were crowned in Kingston between 900 and 978AD.</p>
 
-          <p class="reveal">On Thera — a sister planet to Earth, where the dinosaurs were never wiped out — three teenagers discover that their world is in crisis. The same forces that are destroying Earth's climate are at work here. But on Thera, the consequences are already visible. And the teenagers are the only ones who understand what is coming.</p>
+<div class="article-image-grid reveal">
+  <img src="../Img/Blogs/Kingston-Stone-1.jpeg" alt="The Kingston Coronation Stone with kings' names inscribed on the granite base" style="object-position: center 30%;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/Kingston-Stone-2.jpeg" alt="The Kingston Coronation Stone with the author" style="object-position: center 35%;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/Kingston-Stone-3-new.png" alt="Information panel listing the seven Anglo-Saxon kings crowned at Kingston" style="object-position: center top;" loading="lazy" decoding="async">
+</div>
+<h3>Why Kingston?</h3>
+<p>Why was Kingston chosen as the site of a royal coronation, rather than Winchester, the capital of Wessex? Kingston was chosen because it was on the Thames — and the Thames was the dividing line between the Anglo-Saxon kingdoms of Wessex and Mercia. Under Alfred the Great, only these two areas had held out against the Viking invasions, and he had cemented their alliance by marrying his daughter Æthelflæd to the Lord of Mercia, Æthelred. Edward knew that continued cooperation between Wessex and what remained of Mercia was crucial to his survival, so he chose to be crowned as King of all the Anglo-Saxons in a place that connected the two surviving Saxon territories.</p>
+<h3>How similar was the ceremony to modern coronations?</h3>
+<p>The Anglo-Saxon coronations followed an 'ordo' that laid out the responsibilities that a king and his people have to each other with oaths and the singing of the Te Deum. A symbolic sceptre and rod were given to the king and a crown placed upon his head. This has formed the basis of such ceremonies for over 1000 years; the coronations of Queen Elizabeth II in 1953 and that of King Charles III on May 6th 2023 would look remarkably similar to observers from the Anglo-Saxon age.</p>
+<h3>Where was the coronation held?</h3>
+<p>Edward and his successors were probably crowned in the ancient church of St Mary. When this collapsed in the 18th century, the 'Coronation Stone' was recovered from the ruins of the chapel. In Victorian times, it was placed in the marketplace on a plinth in front of the old Town Hall where the Market House is today, before it was moved to its current position outside the Guildhall. The names of the seven kings believed to have been crowned on the stone are inscribed in the Victorian granite base, with a coin from their reign embedded under each king's name.</p>
+<p>After Edward came his son Athelstan who became the first king of all England, building on the success of King Alfred's son and daughter in reconquering the territories held by Viking invaders.</p>
+<blockquote class="novel-excerpt">
+  <p>"Plegmund, the Archbishop of Canterbury and Bishop Wærferth emerged from the shadows to welcome the king as he approached the altar. Edward stepped up on a grey stone slab to sit on the highchair. He deliberately arranged his flowing robes around him, and turned to face his audience, his three guards lined up behind him. Plegmund's voice boomed around the colourful tapestries hanging from the walls. 'I present to you, Edward, your undoubted king. Are you willing to do homage and service to him as your king?'"</p>
+  <cite>— Chapter 6, King Alfred's Daughter, David Stokes, 2023</cite>
+</blockquote>
 
-          <p class="reveal">Written to coincide with COP26, <em>The Singing Bowl</em> is a novel about the climate emergency aimed at readers of all ages. All profits from sales go to Zero Carbon Guildford. It is a different kind of book from David Stokes's historical fiction — lighter in register, urgent in purpose.</p>
-
-        </div>
       </div>
-    </section>
-
-    <section class="reviews-section">
-      <span class="period-label">About This Book</span>
-      <h2 class="reviews-section-heading">A novel written with a purpose</h2>
-      <div class="reviews-track-wrap static-wrap">
-        <div class="reviews-track static-track">
-
-          <div class="review-card">
-            <div class="review-card-stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="review-card-quote">A feel-good, heart-warming novel full of fun and whimsy that also touches on a serious theme. All profits go to organisations working to reduce carbon emissions.</p>
-            <div class="review-card-meta">
-              <span class="review-card-name">David Stokes</span>
-              <span class="review-card-source">Author's Note</span>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-card-stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="review-card-quote">A thought-provoking read for young and old alike.</p>
-            <div class="review-card-meta">
-              <span class="review-card-name">Reviewer</span>
-              <span class="review-card-source">Goodreads</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4: BUY SECTION -->
-    <section class="section bg-secondary">
-      <div class="container reveal" style="max-width:600px; text-align:center;">
-        <span class="period-label" style="display:block; text-align:center;">Available From</span>
-        <h2>Get The Singing Bowl</h2>
-        <p style="margin-block:1rem 2rem; color:var(--text-meta);">All profits go to Zero Carbon Guildford.</p>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin-bottom:1rem;">
-          <a href="https://www.amazon.in/Singing-Bowl-Warming-Worlds-Book-ebook/dp/B09L4YF633" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon →</a>
-        </div>
-      </div>
-    </section>
+    </div>
 
   
     <!-- CHAPTER STRIP -->
@@ -219,8 +154,6 @@
     </div>
 
   </main>
-
-    <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-top">
       <div class="footer-brand">
@@ -302,11 +235,8 @@
     </div>
   </footer>
 
-  <script src="../js/anime.min.js" defer></script>
-  <script src="../js/main.js?v=10.0" defer></script>
-  <script src="../js/theme.js?v=10.0"></script>
-
+  <script src="../js/main.js?v=1eb835df51" defer></script>
+  <script src="../js/theme.js?v=2a6cdd6964"></script>
 </body>
 </html>
-
 

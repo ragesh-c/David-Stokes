@@ -13,39 +13,32 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Happy Ending — David Stokes</title>
-  <meta name="description" content="Harry, a 97-year-old widower, refuses to wither. A novel weaving 20th-century history with modern slavery — built from the voice of David's own father.">
-  <meta property="og:title" content="The Happy Ending — David Stokes">
-  <meta property="og:description" content="Harry, a 97-year-old widower, refuses to wither. A novel weaving 20th-century history with modern slavery.">
-  <meta property="og:type" content="book">
-  <meta property="og:url" content="https://www.davidstokesauthor.com/books/the-happy-ending.html">
+  <title>Gloucester — Æthelflæd's Capital — David Stokes Journal</title>
+  <meta name="description" content="Gloucester was Æthelflæd and Æthelred's primary base for three decades. They built St Oswald's Priory here and were buried within its walls. The street plan of modern Gloucester still follows the Anglo-Saxon layout they established.">
+  <meta property="og:title" content="Gloucester — Æthelflæd's Capital">
+  <meta property="og:description" content="Gloucester was Æthelflæd and Æthelred's primary base for three decades. They built St Oswald's Priory here and were buried within its walls. The street plan of modern Gloucester still follows the Anglo-Saxon layout they established.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/gloucester-aethelflads-capital.html">
   <meta property="og:site_name" content="David Stokes">
-  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/David-Hero.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="800">
-  <meta property="og:image:alt" content="The Happy Ending — David Stokes">
+  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/Gloucester-Blog-Map.png">
+  <meta property="og:image:alt" content="Map of Gloucester c.1000 AD showing probable features of Æthelflæd's burh">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Happy Ending — David Stokes">
-  <meta name="twitter:description" content="Harry, a 97-year-old widower, refuses to wither. A novel weaving 20th-century history with the 21st-century problem of human trafficking.">
-  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/David-Hero.jpg">
-  <link rel="canonical" href="https://www.davidstokesauthor.com/books/the-happy-ending.html">
-  <!-- Schema.org Book structured data -->
+  <meta name="twitter:title" content="Gloucester — Æthelflæd's Capital">
+  <meta name="twitter:description" content="Gloucester was Æthelflæd's primary base for three decades. They built St Oswald's Priory here — the street plan of modern Gloucester still follows their Anglo-Saxon layout.">
+  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/Gloucester-Blog-Map.png">
+  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/gloucester-aethelflads-capital.html">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Book",
-    "name": "The Happy Ending",
-    "author": {
-      "@type": "Person",
-      "name": "David Stokes",
-      "url": "https://www.davidstokesauthor.com/about.html"
-    },
-    "datePublished": "2017",
-    "genre": "Contemporary Fiction",
-    "inLanguage": "en",
-    "description": "Harry, a 97-year-old widower, refuses to wither. A novel weaving 20th-century history with modern slavery.",
-    "url": "https://www.davidstokesauthor.com/books/the-happy-ending.html"
+    "@type": "Article",
+    "headline": "Gloucester — Æthelflæd's Capital",
+    "description": "Gloucester was Æthelflæd and Æthelred's primary base for three decades. They built St Oswald's Priory here and were buried within its walls.",
+    "image": "https://www.davidstokesauthor.com/Img/Blogs/Gloucester-Blog-Map.png",
+    "author": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com/about.html" },
+    "publisher": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com" },
+    "url": "https://www.davidstokesauthor.com/journal/gloucester-aethelflads-capital.html",
+    "inLanguage": "en-GB"
   }
   </script>
   <script type="application/ld+json">
@@ -54,8 +47,8 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.davidstokesauthor.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Books", "item": "https://www.davidstokesauthor.com/books.html" },
-      { "@type": "ListItem", "position": 3, "name": "The Happy Ending", "item": "https://www.davidstokesauthor.com/books/the-happy-ending.html" }
+      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.davidstokesauthor.com/journal.html" },
+      { "@type": "ListItem", "position": 3, "name": "Gloucester — Æthelflæd's Capital", "item": "https://www.davidstokesauthor.com/journal/gloucester-aethelflads-capital.html" }
     ]
   }
   </script>
@@ -63,30 +56,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/reset.css?v=10.0">
-  <link rel="stylesheet" href="../css/styles.css?v=10.0">
-  <link rel="stylesheet" href="../css/theme.css?v=10.0">
+  <link rel="stylesheet" href="../css/reset.css?v=77459efcb2">
+  <link rel="stylesheet" href="../css/styles.css?v=f85d5c922e">
+  <link rel="stylesheet" href="../css/theme.css?v=dd85e925f6">
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
   <link rel="icon" type="image/png" href="../Img/favicon.png" />
   <link rel="shortcut icon" href="../favicon.ico" />
   <link rel="apple-touch-icon" href="../Img/apple-touch-icon.png" />
 </head>
-<body class="book-detail">
-
-  <!-- SKIP NAV -->
+<body>
   <a href="#main" class="skip-nav">Skip to main content</a>
-
-  <!-- NAVIGATION -->
   <nav class="site-nav" aria-label="Primary navigation">
     <a href="../index.html" class="nav-wordmark">David Stokes</a>
     <ul class="nav-links" role="list">
-      <li><a href="../books.html" aria-current="page">Books</a></li>
+      <li><a href="../books.html">Books</a></li>
       <li><a href="../about.html">About</a></li>
       <li><a href="../media.html">Media</a></li>
-      <li><a href="../journal.html">Journal</a></li>
+      <li><a href="../journal.html" aria-current="page">Journal</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
-
     <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
       <span class="theme-icon" aria-hidden="true">☾</span>
     </button>
@@ -97,137 +85,66 @@
       </svg>
     </button>
   </nav>
-
-  <!-- MOBILE NAV OVERLAY -->
   <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
     <button class="mobile-nav-close" aria-label="Close menu">&#x2715;</button>
     <ul class="nav-links" role="list">
-      <li><a href="../books.html" aria-current="page">Books</a></li>
+      <li><a href="../books.html">Books</a></li>
       <li><a href="../about.html">About</a></li>
       <li><a href="../media.html">Media</a></li>
-      <li><a href="../journal.html">Journal</a></li>
+      <li><a href="../journal.html" aria-current="page">Journal</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
-
   </div>
 
-  <!-- MAIN CONTENT -->
   <main id="main">
-
-    <!-- SECTION 1: BOOK HERO -->
-    <section class="section book-hero-section">
-      <div class="container">
-        <a href="../books.html" class="back-link reveal">← Back to Books</a>
-        <div class="book-hero-layout">
-
-          <!-- Left Column: Book Cover -->
-          <div class="book-cover-wrapper reveal">
-            <img src="../Img/The-Happy-Ending.png" alt="The Happy Ending" style="width:100%; aspect-ratio:2/3; object-fit:cover;" loading="lazy" decoding="async" />
-          </div>
-
-          <!-- Right Column: Metadata -->
-          <div class="reveal">
-            <span class="period-label">Contemporary Fiction · 2017</span>
-            <h1>The Happy Ending</h1>
-            <p style="font-family:var(--font-serif); font-style:italic; font-size:1.5rem; line-height:1.4; margin-block:1rem 0.5rem; color:var(--text-body);">20th Century Man; 21st Century Problem</p>
-            <p style="font-size:0.875rem; color:var(--text-meta); margin-bottom:2rem;">2017</p>
-            <div>
-              <a href="https://www.amazon.in/Happy-Ending-David-Stokes-ebook/dp/B075CR5S4B/ref=sr_1_1?crid=27VQ7EZGQ21Z1&dib=eyJ2IjoiMSJ9.tQN1CNRs6qUcdZTArLMnRw.uydXD4WcTvjIVYIZIKcPaLN3DrJPc0f4D4TTSi0rrTo&dib_tag=se&keywords=The+Happy+Ending+David+Stokes&qid=1773561769&s=books&sprefix=the+happy+ending+david+stoke%2Cstripbooks%2C391&sr=1-1" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon →</a>
-            </div>
-          </div>
-
-        </div>
+    <!-- PAGE HERO -->
+    <section class="section page-hero journal-post-hero">
+      <img class="journal-post-hero-bg" src="../Img/Blogs/Gloucester-Blog-Map.png" alt="" aria-hidden="true" style="object-position: center center;" loading="lazy" decoding="async">
+      <div class="container" style="max-width:var(--max-body-width); margin-inline:auto; padding-inline:var(--side-margin-mobile);">
+        <span class="period-label reveal">Anglo-Saxon History | March 2023</span>
+        <h1 class="reveal">Gloucester — Æthelflæd's Capital</h1>
       </div>
     </section>
 
-    <!-- SECTION 2: THE STORY -->
-    <section class="section">
-      <div class="container">
-        <div class="article-body" style="max-width:var(--max-body-width); margin-inline:auto;">
+    <!-- ARTICLE BODY -->
+    <div class="section" style="padding-top:0;">
+      <div class="container article-body reveal">
 
-          <h2 class="reveal">The Story</h2>
+<p>Æthelflæd, Lady of the Mercians may have been written out of history, but today we can find evidence of her life and achievements in many places.</p>
+<h3>GLOUCESTER – ÆTHELFLÆD'S CAPITAL</h3>
+<p>A good place to start is Gloucester, her 'capital'. She and her husband Æthelred established the main court of Mercia in Gloucester, reinforcing the town's Roman defences and encouraging trade. Just outside the town walls, she built royal residences at Kingsholm and founded St Oswald's Priory where she and Æthelred were buried — all as described in King Alfred's Daughter.</p>
+<p>Æthelred, Æthelflæd's husband, was from the Hwicce people who originated around Gloucester. As the Lord of the Mercians, he fought alongside King Alfred against the Vikings, and his reward was the king's daughter as his bride in 887 AD. She was a teenager, he an experienced warrior at least 10 years her senior, but she soon shared the burden of running a state still at war.</p>
+<p>Gloucester had been a thriving Roman fortress and town until the fifth century, but when Æthelflæd arrived from her home in Winchester, it would have been a ramshackle collection of derelict ancient buildings, wooden huts and working farms scattered inside the crumbling walls. She set about restoring it as one of her first 'burhs', or fortified townships. The old Roman walls were repaired on three sides and extended down to the River Severn, which formed a protective fourth flank to the northwest. Access was through three renovated stone gates in the walls, and over the river by a town bridge which stood where it does today.</p>
 
-          <p class="reveal">Harry is 97 years old and has no intention of fading quietly. A widower, a veteran of the 20th century in all its chaos and wonder, he decides there is still something worth doing — and strikes out to find it. What he finds is a story that weaves his own extraordinary life across the century with a very modern problem: the hidden world of modern slavery.</p>
+<div class="article-image-grid reveal">
+  <img src="../Img/Blogs/Gloucester-Blog-Map.png" alt="Map of Gloucester c.1000 AD showing probable features of Æthelflæd's burh" style="object-position: center center;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/GloucesterStOswaldsAbby.png" alt="Ruins of St Oswald's Priory, Gloucester" style="object-position: center center;" loading="lazy" decoding="async">
+</div>
+<p>Inside the walls, Æthelflæd used the template used by her father, Alfred, to create a street layout fit for both military and civilian purposes. Four main streets connected the gates and the bridge to a crossroads in the centre. Smaller streets ran off them like fishbones where houses were built for traders and warriors alike. Today, you can walk along roads such as Longsmith Street where metals were worked, and St Aldates where the cattle market stood, knowing that 1100 years ago, Æthelflæd and her family also travelled the same path.</p>
+<p>At Kingsholm, close to the site of an old Roman fort, archaeologists have discovered evidence of a late Saxon timber building which is thought to be Æthelflæd's palace, and perhaps the main centre of Mercian government at this time.</p>
+<p>She built a new minster just outside the walls, dedicated at first to St Peter, later to St Oswald once she had obtained his relics from within the Danelaw — (as told in King Alfred's Daughter). She and her husband chose to be buried there: excavations in the 1970s revealed an ornate 10th century carved slab that may have once covered a royal grave, but the exact location of the Lord and Lady of the Mercians remains unknown. The ruins of the Abbey have been recently renovated and stand today as a monument to Æthelflæd's achievements in the early development of the city. Her life was celebrated in Gloucester with a pageant on the 1100th anniversary of her death in 2018.</p>
+<p>This is how Æthelflæd describes the building of the Abbey in the novel, King Alfred's Daughter:</p>
+<blockquote class="novel-excerpt">
+  <p>"I little thought that the abbey that I founded as our family church in Gloucester would have the impact it did. Yet so many events that followed had their roots in that simple decision to build a monument to God. We sited the abbey by the river, between the residence I had built for the family at Kingsholm and the newly repaired walls of Gloucester. The fields around the town were scattered with the ruins of buildings left by the Romans and we used the plentiful stone to create a church. From the rubble of past generations, the masons skilfully raised majestic walls and gracious arches, and constructed a most beautiful House of God. We named it after St Peter but, as I will recount, we had cause to change that later. When my earthly toils are done, I have chosen to lie there, in my own modest chapel, rather than the grandiose mausoleum that my brother has built in Winchester."</p>
+  <cite>— Excerpt from King Alfred's Daughter, The Book Guild, 28th March 2023</cite>
+</blockquote>
 
-          <blockquote class="pull-quote reveal">
-            <p><em>"What is the point of reaching 97 if you don't do something about it?"</em></p>
-            <cite class="pull-quote-attr">From the novel</cite>
-          </blockquote>
-
-          <p class="reveal"><em>The Happy Ending</em> began as something deeply personal. When David Stokes became a long-distance carer for his nearly-hundred-year-old father, Charles Stokes (1913–2015), their daily phone conversations became the raw material for a novel. Harry's voice is Charles's voice. The humour, the dignity, the quiet refusal to be diminished — all of it is drawn from life.</p>
-
-          <p class="reveal">It is not an Anglo-Saxon novel. But it is the book that unlocked the door. Writing <em>The Happy Ending</em> showed David what fiction could do that history cannot.</p>
-
-        </div>
       </div>
-    </section>
+    </div>
 
-    <section class="reviews-section">
-      <span class="period-label">What Readers Say</span>
-      <h2 class="reviews-section-heading">Readers across the world on The Happy Ending</h2>
-      <div class="reviews-track-wrap">
-        <div class="reviews-track">
-
-          <div class="review-card">
-            <div class="review-card-stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="review-card-quote">A delightful story of courage, adversity and determination to help others. Warm, funny and unexpectedly moving.</p>
-            <div class="review-card-meta">
-              <span class="review-card-name">Verified Buyer</span>
-              <span class="review-card-source">Amazon UK</span>
-            </div>
+    <!-- CONTINUE READING -->
+    <div class="section bg-secondary" style="padding-block:3rem;">
+      <div class="container" style="max-width:var(--max-body-width);">
+        <span class="period-label">Continue Reading</span>
+        <a href="finding-aethelflad-in-tamworth.html" class="journal-card reveal" style="display:block; text-decoration:none; color:inherit; max-width:500px;">
+          <div class="journal-card-image">
+            <img src="../Img/Blogs/TamworthStatueAethelstan.jpg" alt="Statue of Æthelflæd with Athelstan in Tamworth" style="object-position: center top;" loading="lazy" decoding="async">
           </div>
-
-          <div class="review-card">
-            <div class="review-card-stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="review-card-quote">The main character is the highlight of the book. He is instantly likeable, and his values and feelings are heart-warmingly presented throughout.</p>
-            <div class="review-card-meta">
-              <span class="review-card-name">Verified Buyer</span>
-              <span class="review-card-source">Amazon UK</span>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-card-stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-            </div>
-            <p class="review-card-quote">A story of human kindness at its heart. It is ultimately about what it means to still matter in the world. Worth a read.</p>
-            <div class="review-card-meta">
-              <span class="review-card-name">Verified Buyer</span>
-              <span class="review-card-source">Amazon UK</span>
-            </div>
-          </div>
-
-          <div class="review-card">
-            <div class="review-card-stars">
-              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
-            </div>
-            <p class="review-card-quote">It was amazing. Absolutely gorgeous book — highly recommended, a must read! I fell in love with Harry from the first page.</p>
-            <div class="review-card-meta">
-              <span class="review-card-name">NetGalley Reviewer</span>
-              <span class="review-card-source">NetGalley</span>
-            </div>
-          </div>
-
-        </div>
+          <h3 class="journal-card-title" style="margin-top:1rem;">Tamworth — The Ancient Capital Reclaimed</h3>
+          <p class="journal-card-excerpt">Tamworth was the ancient seat of Mercian kings, lost to the Danes in 874. When Æthelflæd retook it in 913, it was more than a military victory — it was a declaration that Mercia still existed, and that its history had not been erased.</p>
+        </a>
       </div>
-      <div class="reviews-dots"></div>
-    </section>
-
-    <!-- SECTION 4: BUY SECTION -->
-    <section class="section bg-secondary">
-      <div class="container" style="max-width:600px; text-align:center;">
-        <div class="reveal">
-          <span class="period-label" style="text-align:center; display:block;">Get the Book</span>
-          <h2>The Happy Ending</h2>
-          <p style="margin-block: 1rem 2.5rem; color:var(--text-meta);">Available now on Amazon.</p>
-          <a href="https://www.amazon.in/Happy-Ending-David-Stokes-ebook/dp/B075CR5S4B/ref=sr_1_1?crid=27VQ7EZGQ21Z1&dib=eyJ2IjoiMSJ9.tQN1CNRs6qUcdZTArLMnRw.uydXD4WcTvjIVYIZIKcPaLN3DrJPc0f4D4TTSi0rrTo&dib_tag=se&keywords=The+Happy+Ending+David+Stokes&qid=1773561769&s=books&sprefix=the+happy+ending+david+stoke%2Cstripbooks%2C391&sr=1-1" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon →</a>
-        </div>
-      </div>
-    </section>
+    </div>
 
   
     <!-- CHAPTER STRIP -->
@@ -249,8 +166,6 @@
     </div>
 
   </main>
-
-    <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-top">
       <div class="footer-brand">
@@ -332,11 +247,8 @@
     </div>
   </footer>
 
-  <script src="../js/anime.min.js" defer></script>
-  <script src="../js/main.js?v=10.0" defer></script>
-  <script src="../js/theme.js?v=10.0"></script>
-
+  <script src="../js/main.js?v=1eb835df51" defer></script>
+  <script src="../js/theme.js?v=2a6cdd6964"></script>
 </body>
 </html>
-
 

@@ -3,13 +3,17 @@ DirectoryIndex index.php index.html
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # HTTP 302 redirect root / to /index.html to bypass Nginx root proxy cache completely
-    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /\ HTTP/ [NC]
-    RewriteRule ^$ /index.html [R=302,L]
-
     RewriteRule ^api/posts/?$ api/index.php?action=posts [L,QSA]
     RewriteRule ^api/upload/?$ api/index.php?action=upload [L,QSA]
     RewriteRule ^api/post/(.+)$ api/index.php?action=delete&slug=$1 [L,QSA]
+
+    # Pages are served through PHP (see *.php next to each *.page source) so
+    # Cache-Control below actually reaches the browser. Nginx serves *.html
+    # straight off disk for any file that still exists there, bypassing this
+    # file entirely — this rule only fires once the .html no longer exists,
+    # transparently mapping old/bookmarked .html links to their .php twin.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.+)\.html$ $1.php [L]
 </IfModule>
 
 <IfModule mod_headers.c>

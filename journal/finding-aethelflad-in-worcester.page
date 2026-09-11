@@ -13,31 +13,31 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Æthelflæd's Leicester — What the City Still Remembers — David Stokes Journal</title>
-  <meta name="description" content="Leicester was one of the Five Boroughs, held by the Danes for four decades. In 918, Æthelflæd took it without a battle — and the city still carries traces of that extraordinary moment.">
-  <meta property="og:title" content="Æthelflæd's Leicester — What the City Still Remembers">
-  <meta property="og:description" content="Leicester was one of the Five Boroughs, held by the Danes for four decades. In 918, Æthelflæd took it without a battle — and the city still carries traces of that extraordinary moment.">
+  <title>Æthelflæd's Worcester — Knowledge Hub of Mercia — David Stokes Journal</title>
+  <meta name="description" content="Worcester was where Mercia thought. Æthelflæd and Æthelred rebuilt its minster and made it a centre of scholarship and manuscript production. The crypt beneath the cathedral preserves the oldest surviving fabric of their work.">
+  <meta property="og:title" content="Æthelflæd's Worcester — Knowledge Hub of Mercia">
+  <meta property="og:description" content="Worcester was where Mercia thought. Æthelflæd and Æthelred rebuilt its minster and made it a centre of scholarship. The crypt beneath the cathedral preserves the oldest surviving fabric of their work.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-leicester.html">
+  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-worcester.html">
   <meta property="og:site_name" content="David Stokes">
-  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/Plaque-to-Ethelfrelda-statue-in-Leicester-Guildhall-1.jpeg">
-  <meta property="og:image:alt" content="Plaque to Æthelflæd at Leicester Guildhall">
+  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/Worcester-Post-2.png">
+  <meta property="og:image:alt" content="Stained glass showing Æthelflæd receiving the charter of Mercia, Worcester Cathedral">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Æthelflæd's Leicester — What the City Still Remembers">
-  <meta name="twitter:description" content="In 918, Æthelflæd took Leicester without a battle. The city still carries traces of that extraordinary moment.">
-  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/Plaque-to-Ethelfrelda-statue-in-Leicester-Guildhall-1.jpeg">
-  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-leicester.html">
+  <meta name="twitter:title" content="Æthelflæd's Worcester — Knowledge Hub of Mercia">
+  <meta name="twitter:description" content="Worcester was where Mercia thought. Æthelflæd rebuilt its minster and made it a centre of scholarship and manuscript production.">
+  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/Worcester-Post-2.png">
+  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-worcester.html">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Æthelflæd's Leicester — What the City Still Remembers",
-    "description": "Leicester was one of the Five Boroughs, held by the Danes for four decades. In 918, Æthelflæd took it without a battle.",
-    "image": "https://www.davidstokesauthor.com/Img/Blogs/Plaque-to-Ethelfrelda-statue-in-Leicester-Guildhall-1.jpeg",
+    "headline": "Æthelflæd's Worcester — Knowledge Hub of Mercia",
+    "description": "Worcester was where Mercia thought. Æthelflæd and Æthelred rebuilt its minster and made it a centre of scholarship and manuscript production.",
+    "image": "https://www.davidstokesauthor.com/Img/Blogs/Worcester-Post-2.png",
     "author": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com/about.html" },
     "publisher": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com" },
-    "url": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-leicester.html",
+    "url": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-worcester.html",
     "inLanguage": "en-GB"
   }
   </script>
@@ -48,7 +48,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.davidstokesauthor.com/" },
       { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.davidstokesauthor.com/journal.html" },
-      { "@type": "ListItem", "position": 3, "name": "Æthelflæd's Leicester", "item": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-leicester.html" }
+      { "@type": "ListItem", "position": 3, "name": "Æthelflæd's Worcester", "item": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-worcester.html" }
     ]
   }
   </script>
@@ -56,9 +56,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/reset.css?v=10.0">
-  <link rel="stylesheet" href="../css/styles.css?v=10.0">
-  <link rel="stylesheet" href="../css/theme.css?v=10.0">
+  <link rel="stylesheet" href="../css/reset.css?v=77459efcb2">
+  <link rel="stylesheet" href="../css/styles.css?v=f85d5c922e">
+  <link rel="stylesheet" href="../css/theme.css?v=dd85e925f6">
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
   <link rel="icon" type="image/png" href="../Img/favicon.png" />
   <link rel="shortcut icon" href="../favicon.ico" />
@@ -99,10 +99,10 @@
   <main id="main">
     <!-- PAGE HERO -->
     <section class="section page-hero journal-post-hero">
-      <img class="journal-post-hero-bg" src="../Img/Blogs/Plaque-to-Ethelfrelda-statue-in-Leicester-Guildhall-1.jpeg" alt="" aria-hidden="true" style="object-position: center center;" loading="lazy" decoding="async">
+      <img class="journal-post-hero-bg" src="../Img/Blogs/Worcester-Post-2.png" alt="" aria-hidden="true" style="object-position: center 30%;" loading="lazy" decoding="async">
       <div class="container" style="max-width:var(--max-body-width); margin-inline:auto; padding-inline:var(--side-margin-mobile);">
-        <span class="period-label reveal">Anglo-Saxon History | October 2023</span>
-        <h1 class="reveal">Æthelflæd's Leicester — What the City Still Remembers</h1>
+        <span class="period-label reveal">Anglo-Saxon History | May 2023</span>
+        <h1 class="reveal">Æthelflæd's Worcester — Knowledge Hub of Mercia</h1>
       </div>
     </section>
 
@@ -110,16 +110,21 @@
     <div class="section" style="padding-top:0;">
       <div class="container article-body reveal">
 
-  <p>Æthelflæd, Lady of the Mercians may have been written out of history, but today we can find evidence of her life and achievements in many places.</p>
-  <h3>Leicester</h3>
-  <p>Æthelflæd, Lady of the Mercians played a significant role in the history of Leicester, liberating the town from the control of Danish forces in 918 and reclaiming the city as part of the Anglo-Saxon territory of Mercia. This is commemorated by a small statue of Æthelflæd in the Guildhall square with a plaque stating that she repelled the Danes, but also a reminder that a more substantial monument to her was intended: "this bronze statuette is a replica of the former drinking fountain erected on Victoria Park in 1922 and paid for from money left by Edith Gittins 1845-1910 who was well-known locally for her generous public service."</p>
+<p>Æthelflæd, Lady of the Mercians may have been written out of history, but today we can find evidence of her life and achievements in many places.</p>
+<h3>Finding Æthelflæd in WORCESTER</h3>
+<p>Worcester was a key borough reinforced by King Alfred's daughter, Æthelflæd, and her husband, Æthelred, who are today celebrated in a stained-glass window in Worcester Cathedral. A Charter of 902, signed by Æthelflæd, along with Bishop Wærferth and Æthelred, gave rights to tax revenues to the church in return for prayers in the cathedral to Æthelflæd and Æthelred. This is a rare example of a woman signing Anglo-Saxon charters, and symbolises Æthelflæd's influence even in the early part of her time as the Lady of the Mercians.</p>
 
 <div class="article-image-grid reveal">
-  <img src="../Img/Blogs/Plaque-to-Ethelfrelda-statue-in-Leicester-Guildhall-1.jpeg" alt="Plaque to Æthelflæd at Leicester Guildhall" style="object-position: center center;" loading="lazy" decoding="async">
-  <img src="../Img/Blogs/Statuette-of-Aethelflaed-in-Leicester-GuildhallB.jpeg" alt="Statuette of Æthelflæd at Leicester Guildhall" style="object-position: center 10%;" loading="lazy" decoding="async">
-  <img src="../Img/Blogs/Statuette-of-Aethelflaed-in-Leicester-GuildhallC.jpeg" alt="Statuette of Æthelflæd — detail" style="object-position: center 10%;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/Worcester-Post-1.png" alt="Stained glass of Æthelflæd and Æthelred in Worcester Cathedral" style="object-position: center center;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/Worcester-Post-2.png" alt="Stained glass showing Æthelflæd receiving the charter of Mercia" style="object-position: center 30%;" loading="lazy" decoding="async">
 </div>
-  <p>Her life was however celebrated as part of Leicester Libraries Week on Monday 2nd October, 2023 where I gave a talk on her life. She is the subject of my novel King Alfred's Daughter which tells the story of Æthelflæd, the heroine who was written out of history. I reminded the audience of the achievement of this remarkable person, the first woman to rule an Anglo-Saxon state in her own right, who founded many towns in the Midlands as part of her system of defensive boroughs and who fostered Athelstan the first king of all England.</p>
+<p>Although she is more famous for fortifying towns and leading the fightback against the Vikings, she also supported what has been called a 'knowledge hub' in Worcester throughout her reign. Four contemporary prayer books were written by women, for women, in Worcester, including one containing gynaecological prayer. (see Femina, Jamina Ramirez, 2022)</p>
+<p>During Æthelflæd's early years in Mercia, Wærferth, the Bishop of Worcester, became a key advisor and remained a constant supporter and friend.</p>
+<p>In King Alfred's Daughter, this is how Æthelflæd describes a visit to the church where she checks to see if the Bishop has been keeping his side of the bargain as documented in the Charter of 902AD:</p>
+<blockquote class="novel-excerpt">
+  <p>"When I entered the vestibule of St Peter's with the bishop, we paused to allow those ahead to be seated. Someone whispered and pointed in our direction. As one, the heads of the congregation turned to gawk at me before looking down to pray as though they had seen nothing. Wærferth walked me down the knave, past the rows of farmers, artisans, traders and their families, and into the empty front pew. I sat there in lonely isolation whilst the bishop took his seat in the chancel. The priest who took the mass was young yet word perfect, and the choir of monks sang in such harmony that I almost wept at the beauty of the sound. Finally, at the end of the service, the moment came when I would discover how our charter agreement was being honoured. The priest looked to Bishop Wærferth who rose and came to the pulpit. I had noticed before that the bishop used a booming voice when he spoke in church, yet today he used softer tones, more like the ones he used privately. 'Those of you who regularly attend this church will know that it is our custom to sing the psalm, De Profundis to conclude our service. The younger ones amongst you may not know why we do this. Well, many years ago, the Lord and the Lady of Mercia generously endowed this church and, in return, we agreed to sing this psalm in their honour as long as they shall live. Happily, we welcome the Lady Æthelflæd amongst us today, so I ask you to sing even more heartily than usual for our kind benefactor.' Tears welled in my eyes as the psalm resonated around the rafters and I joined the good folk of Worcester in singing the words: Out of the depths, I have cried unto You, Lord. Lord, hear my voice. I was soon to discover that He had."</p>
+  <cite>— Excerpt from King Alfred's Daughter, chapter 11, The Book Guild</cite>
+</blockquote>
 
       </div>
     </div>
@@ -128,12 +133,12 @@
     <div class="section bg-secondary" style="padding-block:3rem;">
       <div class="container" style="max-width:var(--max-body-width);">
         <span class="period-label">Continue Reading</span>
-        <a href="finding-aethelflad-in-shrewsbury.html" class="journal-card reveal" style="display:block; text-decoration:none; color:inherit; max-width:500px;">
+        <a href="finding-aethelflad-in-chester.html" class="journal-card reveal" style="display:block; text-decoration:none; color:inherit; max-width:500px;">
           <div class="journal-card-image">
-            <img src="../Img/Blogs/ShrewsburyPost2a.png" alt="St Alkmund's Church, Shrewsbury" style="object-position: center center;" loading="lazy" decoding="async">
+            <img src="../Img/Blogs/ChesterBlogPic2b.jpg" alt="Stained glass depicting Æthelflæd at Chester" style="object-position: center 30%;" loading="lazy" decoding="async">
           </div>
-          <h3 class="journal-card-title" style="margin-top:1rem;">Æthelflæd's Shrewsbury — The Fort in the Scrub</h3>
-          <p class="journal-card-excerpt">The town's very name tells you what it was: a fortified place in the scrubland, wrapped in a great loop of the Severn. Æthelflæd founded the burh around 901 AD, and the river has been doing most of the defensive work ever since.</p>
+          <h3 class="journal-card-title" style="margin-top:1rem;">Chester — The Burh Æthelflæd Defended with Bees</h3>
+          <p class="journal-card-excerpt">Chester was refounded as a burh in 907 AD. When a Viking raiding party attacked shortly after, the Chronicle records an extraordinary defence — townswomen pouring boiling ale from the walls, and, in some accounts, hives of bees thrown at the attackers.</p>
         </a>
       </div>
     </div>
@@ -239,8 +244,8 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=10.0" defer></script>
-  <script src="../js/theme.js?v=10.0"></script>
+  <script src="../js/main.js?v=1eb835df51" defer></script>
+  <script src="../js/theme.js?v=2a6cdd6964"></script>
 </body>
 </html>
 

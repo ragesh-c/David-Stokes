@@ -12,11 +12,17 @@
 (function () {
   'use strict';
 
-  // INSTANT NGINX CACHE BUSTING REDIRECT FOR ROOT URL
-  if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-    if (!window.location.search.includes('v=2026')) {
-      window.location.replace('/index.html?v=20260730_v30' + window.location.hash);
-    }
+  // One-time bridge for a known stuck edge-cache entry: the bare "/" URL
+  // has an old cached snapshot at the host that predates this file's
+  // no-cache fix and can't be purged without control-panel access (FTP
+  // only). That frozen snapshot still loads this exact file (its own
+  // Cache-Control is fine), so this is the only place able to detect and
+  // correct it. /index.html itself is already fixed and always fresh.
+  // Self-neutralizing: once the stale entry expires or is purged, "/" will
+  // include the cache-fresh meta tag and this stops running for good.
+  if (window.location.pathname === '/' && !document.querySelector('meta[name="cache-fresh"]')) {
+    window.location.replace('/index.html?_bust=' + Date.now() + window.location.hash);
+    return;
   }
 
   var ICON_DARK  = '☾';   // shown in light mode  → "click to go dark"
@@ -42,17 +48,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    var eyebrow = document.querySelector('.hero-eyebrow .line-inner');
-    var titleLines = document.querySelectorAll('.hero-title-line .line-inner');
-    var descriptor = document.querySelector('.hero-descriptor .line-inner');
-
-    if (eyebrow) eyebrow.textContent = 'ANGLO-SAXON HISTORICAL FICTION';
-    if (titleLines && titleLines.length >= 2) {
-      titleLines[0].textContent = 'Novels that don’t invent history,';
-      titleLines[1].textContent = 'but let it speak.';
-    }
-    if (descriptor) descriptor.textContent = 'Three books set in the world of early medieval England and its neighbours.';
-
     // Remove the no-transition class so manual toggles animate from here on
     requestAnimationFrame(function () {
       document.documentElement.classList.remove('no-transition');

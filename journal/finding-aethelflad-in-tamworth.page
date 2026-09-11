@@ -13,31 +13,31 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Æthelflæd's Worcester — Knowledge Hub of Mercia — David Stokes Journal</title>
-  <meta name="description" content="Worcester was where Mercia thought. Æthelflæd and Æthelred rebuilt its minster and made it a centre of scholarship and manuscript production. The crypt beneath the cathedral preserves the oldest surviving fabric of their work.">
-  <meta property="og:title" content="Æthelflæd's Worcester — Knowledge Hub of Mercia">
-  <meta property="og:description" content="Worcester was where Mercia thought. Æthelflæd and Æthelred rebuilt its minster and made it a centre of scholarship. The crypt beneath the cathedral preserves the oldest surviving fabric of their work.">
+  <title>Tamworth — The Ancient Capital Reclaimed — David Stokes Journal</title>
+  <meta name="description" content="Tamworth was the ancient seat of the Mercian kings, lost to the Danes in 874. When Æthelflæd retook it in 913, it was more than a military victory — it was a declaration that Mercia's identity and history had not been extinguished.">
+  <meta property="og:title" content="Tamworth — The Ancient Capital Reclaimed">
+  <meta property="og:description" content="Tamworth was the ancient seat of the Mercian kings, lost to the Danes in 874. When Æthelflæd retook it in 913, it was more than a military victory — it was a declaration that Mercia's identity had not been extinguished.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-worcester.html">
+  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-tamworth.html">
   <meta property="og:site_name" content="David Stokes">
-  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/Worcester-Post-2.png">
-  <meta property="og:image:alt" content="Stained glass showing Æthelflæd receiving the charter of Mercia, Worcester Cathedral">
+  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/TamworthMap1.jpg">
+  <meta property="og:image:alt" content="Artist's reconstruction of Tamworth as an Anglo-Saxon burh">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Æthelflæd's Worcester — Knowledge Hub of Mercia">
-  <meta name="twitter:description" content="Worcester was where Mercia thought. Æthelflæd rebuilt its minster and made it a centre of scholarship and manuscript production.">
-  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/Worcester-Post-2.png">
-  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-worcester.html">
+  <meta name="twitter:title" content="Tamworth — The Ancient Capital Reclaimed">
+  <meta name="twitter:description" content="Tamworth was the ancient seat of Mercia's kings, lost to the Danes in 874. When Æthelflæd retook it in 913, it was more than a military victory.">
+  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/TamworthMap1.jpg">
+  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-tamworth.html">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Æthelflæd's Worcester — Knowledge Hub of Mercia",
-    "description": "Worcester was where Mercia thought. Æthelflæd and Æthelred rebuilt its minster and made it a centre of scholarship and manuscript production.",
-    "image": "https://www.davidstokesauthor.com/Img/Blogs/Worcester-Post-2.png",
+    "headline": "Tamworth — The Ancient Capital Reclaimed",
+    "description": "Tamworth was the ancient seat of the Mercian kings, lost to the Danes in 874. When Æthelflæd retook it in 913, it was more than a military victory.",
+    "image": "https://www.davidstokesauthor.com/Img/Blogs/TamworthMap1.jpg",
     "author": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com/about.html" },
     "publisher": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com" },
-    "url": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-worcester.html",
+    "url": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-tamworth.html",
     "inLanguage": "en-GB"
   }
   </script>
@@ -48,7 +48,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.davidstokesauthor.com/" },
       { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.davidstokesauthor.com/journal.html" },
-      { "@type": "ListItem", "position": 3, "name": "Æthelflæd's Worcester", "item": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-worcester.html" }
+      { "@type": "ListItem", "position": 3, "name": "Tamworth — The Ancient Capital Reclaimed", "item": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-tamworth.html" }
     ]
   }
   </script>
@@ -56,9 +56,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/reset.css?v=10.0">
-  <link rel="stylesheet" href="../css/styles.css?v=10.0">
-  <link rel="stylesheet" href="../css/theme.css?v=10.0">
+  <link rel="stylesheet" href="../css/reset.css?v=77459efcb2">
+  <link rel="stylesheet" href="../css/styles.css?v=f85d5c922e">
+  <link rel="stylesheet" href="../css/theme.css?v=dd85e925f6">
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
   <link rel="icon" type="image/png" href="../Img/favicon.png" />
   <link rel="shortcut icon" href="../favicon.ico" />
@@ -99,10 +99,10 @@
   <main id="main">
     <!-- PAGE HERO -->
     <section class="section page-hero journal-post-hero">
-      <img class="journal-post-hero-bg" src="../Img/Blogs/Worcester-Post-2.png" alt="" aria-hidden="true" style="object-position: center 30%;" loading="lazy" decoding="async">
+      <img class="journal-post-hero-bg" src="../Img/Blogs/TamworthMap1.jpg" alt="" aria-hidden="true" style="object-position: center center;" loading="lazy" decoding="async">
       <div class="container" style="max-width:var(--max-body-width); margin-inline:auto; padding-inline:var(--side-margin-mobile);">
-        <span class="period-label reveal">Anglo-Saxon History | May 2023</span>
-        <h1 class="reveal">Æthelflæd's Worcester — Knowledge Hub of Mercia</h1>
+        <span class="period-label reveal">Anglo-Saxon History | March 2023</span>
+        <h1 class="reveal">Tamworth — The Ancient Capital Reclaimed</h1>
       </div>
     </section>
 
@@ -111,19 +111,18 @@
       <div class="container article-body reveal">
 
 <p>Æthelflæd, Lady of the Mercians may have been written out of history, but today we can find evidence of her life and achievements in many places.</p>
-<h3>Finding Æthelflæd in WORCESTER</h3>
-<p>Worcester was a key borough reinforced by King Alfred's daughter, Æthelflæd, and her husband, Æthelred, who are today celebrated in a stained-glass window in Worcester Cathedral. A Charter of 902, signed by Æthelflæd, along with Bishop Wærferth and Æthelred, gave rights to tax revenues to the church in return for prayers in the cathedral to Æthelflæd and Æthelred. This is a rare example of a woman signing Anglo-Saxon charters, and symbolises Æthelflæd's influence even in the early part of her time as the Lady of the Mercians.</p>
+<p>Tamworth was an ancient capital of Mercia until it was sacked by the Vikings in the 9th century. During Æthelflæd's time, it was a border town between the Danelaw and Mercia. She renovated and reinforced it as one of her line of burhs, a network of fortified settlements to protect against attackers. She used Tamworth as her base when she invaded the Danelaw in her later years, and she died there in her royal residence close to the site of the later Tamworth castle. As described in the book, she restored the church that was dedicated to St Editha, daughter of a Wessex king. She is now commemorated in the local church with her own stained glass window.</p>
+<p>Tamworth has been very conscientious in remembering Æthelflæd's role in their history. A statue of her, sword in hand, looking down on a young Athelstan, was created by Edward George Bramwell in 1913, one thousand years after she re-entered the town. The town regularly commemorates her life: a pageant in 2013, celebrated the centenary of the unveiling of the statue; in 2018, a service was held in the Church of St Editha to commemorate her death on 12th June, 1100 years before. About 500 guests attended including the Earl of Wessex, the Danish Ambassador, several bishops, military representatives, at least six professors of history, local dignitaries and representatives from the towns which had been founded or rebuilt by Æthelflæd. In 2018 a modern 20 ft. statue by Luke Perry was erected on a roundabout next to the town's railway station.</p>
 
 <div class="article-image-grid reveal">
-  <img src="../Img/Blogs/Worcester-Post-1.png" alt="Stained glass of Æthelflæd and Æthelred in Worcester Cathedral" style="object-position: center center;" loading="lazy" decoding="async">
-  <img src="../Img/Blogs/Worcester-Post-2.png" alt="Stained glass showing Æthelflæd receiving the charter of Mercia" style="object-position: center 30%;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/AethelflaedTamworthChurchCloseup.jpg" alt="Stained glass of Æthelflæd, Lady of the Mercians, in St Editha's Church, Tamworth" style="object-position: center 15%;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/TamworthMap1.jpg" alt="Artist's reconstruction of Tamworth as an Anglo-Saxon burh" style="object-position: center center;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/TamworthStatue2.jpg" alt="The 2018 statue of Æthelflæd by Luke Perry, Tamworth" style="object-position: center top;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/TamworthStatueAethelstan.jpg" alt="The 1913 statue of Æthelflæd with the young Athelstan, Tamworth" style="object-position: center top;" loading="lazy" decoding="async">
 </div>
-<p>Although she is more famous for fortifying towns and leading the fightback against the Vikings, she also supported what has been called a 'knowledge hub' in Worcester throughout her reign. Four contemporary prayer books were written by women, for women, in Worcester, including one containing gynaecological prayer. (see Femina, Jamina Ramirez, 2022)</p>
-<p>During Æthelflæd's early years in Mercia, Wærferth, the Bishop of Worcester, became a key advisor and remained a constant supporter and friend.</p>
-<p>In King Alfred's Daughter, this is how Æthelflæd describes a visit to the church where she checks to see if the Bishop has been keeping his side of the bargain as documented in the Charter of 902AD:</p>
 <blockquote class="novel-excerpt">
-  <p>"When I entered the vestibule of St Peter's with the bishop, we paused to allow those ahead to be seated. Someone whispered and pointed in our direction. As one, the heads of the congregation turned to gawk at me before looking down to pray as though they had seen nothing. Wærferth walked me down the knave, past the rows of farmers, artisans, traders and their families, and into the empty front pew. I sat there in lonely isolation whilst the bishop took his seat in the chancel. The priest who took the mass was young yet word perfect, and the choir of monks sang in such harmony that I almost wept at the beauty of the sound. Finally, at the end of the service, the moment came when I would discover how our charter agreement was being honoured. The priest looked to Bishop Wærferth who rose and came to the pulpit. I had noticed before that the bishop used a booming voice when he spoke in church, yet today he used softer tones, more like the ones he used privately. 'Those of you who regularly attend this church will know that it is our custom to sing the psalm, De Profundis to conclude our service. The younger ones amongst you may not know why we do this. Well, many years ago, the Lord and the Lady of Mercia generously endowed this church and, in return, we agreed to sing this psalm in their honour as long as they shall live. Happily, we welcome the Lady Æthelflæd amongst us today, so I ask you to sing even more heartily than usual for our kind benefactor.' Tears welled in my eyes as the psalm resonated around the rafters and I joined the good folk of Worcester in singing the words: Out of the depths, I have cried unto You, Lord. Lord, hear my voice. I was soon to discover that He had."</p>
-  <cite>— Excerpt from King Alfred's Daughter, chapter 11, The Book Guild</cite>
+  <p>"In the following year, 913, I was ready for my boldest move yet against the Danes. I marched on the ancient royal centre of Mercia. I took an army to Tamworth. It was not just an army. I took workmen to rebuild what had once been King Offa's great hall and residence. I took my household of clerks and priests. It was to be my permanent camp on the frontline of our struggle to reclaim the middle lands of England that my ancestors had ruled for centuries. It was in Tamworth, that King Offa had received vassal kings and lords from far and wide and I was determined to reinstate it to its former glory. Those who lived in the surrounding Danelaw would see that there was now an alternative to being ruled by the Danes. Tamworth is sited on the juncture of two rivers, the Tame and the Anker, which protect its southern boundary. I was first to ride my horse across the ford near the confluence of the rivers and up the incline towards the ancient buildings. We had sent scouts ahead, so I knew there was no danger and I wanted to show that the Mercian royal family was returning to its home. When I caught sight of the ancient palace and the church, tears sprang into my eyes. I looked upon a desolate ruin of rotten wood and crumbled masonry overgrown with weeds. The inhabitants had long gone and rats scurried around the fallen timbers."</p>
+  <cite>— King Alfred's Daughter, Chapter 21, David Stokes, 2023</cite>
 </blockquote>
 
       </div>
@@ -133,12 +132,12 @@
     <div class="section bg-secondary" style="padding-block:3rem;">
       <div class="container" style="max-width:var(--max-body-width);">
         <span class="period-label">Continue Reading</span>
-        <a href="finding-aethelflad-in-chester.html" class="journal-card reveal" style="display:block; text-decoration:none; color:inherit; max-width:500px;">
+        <a href="kingston-the-coronation-stone.html" class="journal-card reveal" style="display:block; text-decoration:none; color:inherit; max-width:500px;">
           <div class="journal-card-image">
-            <img src="../Img/Blogs/ChesterBlogPic2b.jpg" alt="Stained glass depicting Æthelflæd at Chester" style="object-position: center 30%;" loading="lazy" decoding="async">
+            <img src="../Img/Blogs/Kingston-Stone-1.jpeg" alt="The Kingston Coronation Stone" style="object-position: center 30%;" loading="lazy" decoding="async">
           </div>
-          <h3 class="journal-card-title" style="margin-top:1rem;">Chester — The Burh Æthelflæd Defended with Bees</h3>
-          <p class="journal-card-excerpt">Chester was refounded as a burh in 907 AD. When a Viking raiding party attacked shortly after, the Chronicle records an extraordinary defence — townswomen pouring boiling ale from the walls, and, in some accounts, hives of bees thrown at the attackers.</p>
+          <h3 class="journal-card-title" style="margin-top:1rem;">Kingston's Coronation Stone — Where England Began</h3>
+          <p class="journal-card-excerpt">Seven Anglo-Saxon kings were crowned at Kingston-upon-Thames, including Æthelflæd's nephew Æthelstan, who first called himself King of England. The stone that witnessed those coronations sits today in a market square, history in plain sight.</p>
         </a>
       </div>
     </div>
@@ -244,8 +243,8 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=10.0" defer></script>
-  <script src="../js/theme.js?v=10.0"></script>
+  <script src="../js/main.js?v=1eb835df51" defer></script>
+  <script src="../js/theme.js?v=2a6cdd6964"></script>
 </body>
 </html>
 

@@ -2,20 +2,9 @@
 // DAVID STOKES — main.js
 // ============================================================
 
-// 1. PAGE LOAD FADE-IN & HERO COPY ENFORCEMENT
+// 1. PAGE LOAD FADE-IN
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('loaded');
-
-  var eyebrow = document.querySelector('.hero-eyebrow .line-inner');
-  var titleLines = document.querySelectorAll('.hero-title-line .line-inner');
-  var descriptor = document.querySelector('.hero-descriptor .line-inner');
-
-  if (eyebrow) eyebrow.textContent = 'ANGLO-SAXON HISTORICAL FICTION';
-  if (titleLines && titleLines.length >= 2) {
-    titleLines[0].textContent = 'Novels that don’t invent history,';
-    titleLines[1].textContent = 'but let it speak.';
-  }
-  if (descriptor) descriptor.textContent = 'Three books set in the world of early medieval England and its neighbours.';
 });
 
 // 2. NAV SCROLL STATE

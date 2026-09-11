@@ -13,31 +13,31 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Æthelflæd's Warwick — The Burh on the Avon — David Stokes Journal</title>
-  <meta name="description" content="Warwick was founded as a burh in 914 AD, one of the last Æthelflæd established before the great push north. The Norman castle stands on Anglo-Saxon foundations, and the town still holds traces of its Mercian origins.">
-  <meta property="og:title" content="Æthelflæd's Warwick — The Burh on the Avon">
-  <meta property="og:description" content="Warwick was founded as a burh in 914 AD. The Norman castle stands on Anglo-Saxon foundations, and the town still holds traces of its Mercian origins.">
+  <title>The Coronation of the King — David Stokes Journal</title>
+  <meta name="description" content="Which part of the Coronation ceremony on May 6th is required by law? Explore the Anglo-Saxon origins of the ceremony.">
+  <meta property="og:title" content="The Coronation of the King — Anglo-Saxon Origins">
+  <meta property="og:description" content="Which part of the Coronation ceremony is required by law? Explore the Anglo-Saxon origins of the ceremony — and what has survived intact for over a thousand years.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-warwick.html">
+  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/coronation-of-the-king.html">
   <meta property="og:site_name" content="David Stokes">
-  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/Warwick-Blog-Pic.png">
-  <meta property="og:image:alt" content="Warwick 1100 Years plaque commemorating the founding of Warwick by Æthelflæd">
+  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/Promissio-Regis-copy-1.png">
+  <meta property="og:image:alt" content="The Promissio Regis — the King's promise, the original Anglo-Saxon coronation oath">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Æthelflæd's Warwick — The Burh on the Avon">
-  <meta name="twitter:description" content="Warwick was founded as a burh in 914 AD. The Norman castle stands on Anglo-Saxon foundations that Æthelflæd laid.">
-  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/Warwick-Blog-Pic.png">
-  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-warwick.html">
+  <meta name="twitter:title" content="The Coronation of the King — Anglo-Saxon Origins">
+  <meta name="twitter:description" content="Which part of the Coronation ceremony is required by law? The Anglo-Saxon origins of a ceremony that has survived intact for over a thousand years.">
+  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/Promissio-Regis-copy-1.png">
+  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/coronation-of-the-king.html">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Æthelflæd's Warwick — The Burh on the Avon",
-    "description": "Warwick was founded as a burh in 914 AD, one of the last Æthelflæd established before the great push north.",
-    "image": "https://www.davidstokesauthor.com/Img/Blogs/Warwick-Blog-Pic.png",
+    "headline": "The Coronation of the King — Anglo-Saxon Origins",
+    "description": "Which part of the Coronation ceremony is required by law? Explore the Anglo-Saxon origins of the ceremony.",
+    "image": "https://www.davidstokesauthor.com/Img/Blogs/Promissio-Regis-copy-1.png",
     "author": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com/about.html" },
     "publisher": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com" },
-    "url": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-warwick.html",
+    "url": "https://www.davidstokesauthor.com/journal/coronation-of-the-king.html",
     "inLanguage": "en-GB"
   }
   </script>
@@ -48,7 +48,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.davidstokesauthor.com/" },
       { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.davidstokesauthor.com/journal.html" },
-      { "@type": "ListItem", "position": 3, "name": "Æthelflæd's Warwick", "item": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-warwick.html" }
+      { "@type": "ListItem", "position": 3, "name": "The Coronation of the King", "item": "https://www.davidstokesauthor.com/journal/coronation-of-the-king.html" }
     ]
   }
   </script>
@@ -56,9 +56,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/reset.css?v=10.0">
-  <link rel="stylesheet" href="../css/styles.css?v=10.0">
-  <link rel="stylesheet" href="../css/theme.css?v=10.0">
+  <link rel="stylesheet" href="../css/reset.css?v=77459efcb2">
+  <link rel="stylesheet" href="../css/styles.css?v=f85d5c922e">
+  <link rel="stylesheet" href="../css/theme.css?v=dd85e925f6">
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
   <link rel="icon" type="image/png" href="../Img/favicon.png" />
   <link rel="shortcut icon" href="../favicon.ico" />
@@ -99,10 +99,10 @@
   <main id="main">
     <!-- PAGE HERO -->
     <section class="section page-hero journal-post-hero">
-      <img class="journal-post-hero-bg" src="../Img/Blogs/Warwick-Blog-Pic.png" alt="" aria-hidden="true" style="object-position: center center;" loading="lazy" decoding="async">
+      <img class="journal-post-hero-bg" src="../Img/Blogs/Promissio-Regis-copy-1.png" alt="" aria-hidden="true" style="object-position: center top;" loading="lazy" decoding="async">
       <div class="container" style="max-width:var(--max-body-width); margin-inline:auto; padding-inline:var(--side-margin-mobile);">
-        <span class="period-label reveal">Anglo-Saxon History | June 2023</span>
-        <h1 class="reveal">Æthelflæd's Warwick — The Burh on the Avon</h1>
+        <span class="period-label reveal">Anglo-Saxon History | May 2023</span>
+        <h1 class="reveal">The Coronation of the King</h1>
       </div>
     </section>
 
@@ -110,16 +110,25 @@
     <div class="section" style="padding-top:0;">
       <div class="container article-body reveal">
 
-<p>Æthelflæd, Lady of the Mercians may have been written out of history, but today we can find evidence of her life and achievements in many places.</p>
-<p>In 914 Æthelflæd fortified the existing village of Wæringwic located on a sandstone hill above the River Avon and a nearby ford, close to the strategic road of the Fosse Way. 1000 years later Warwick celebrated Æthelflæd as its founder in 2014 with a plaque on the wall of the Court House, Jury St. The image is taken from a stained glass window in Worcester Cathedral.</p>
+<p>Which part of the Coronation ceremony on May 6th is required by law?</p>
+
+<p>This month’s Coronation of King Charles has its origin in the crowning of Anglo-Saxon kings over 1000 years ago. Following the conversion of the Saxons to Christianity, the church played an increasing role in state affairs. This was symbolised by God’s acceptance of a new king in a ceremony led by archbishops. The first recorded service was that of Edward the Elder who was crowned ‘King of the Anglo Saxons’ in 900AD at Kingston. A central part of the service was the ‘Coronation Oath’ which places an obligation on the monarch to govern according to the rule of law. In surviving documents of the time, the King’s promise’ (promissio regis) specifies that the king undertakes to maintain peace, good order and the rule of law. It is the only part of the service which today is required by law.</p>
 
 <div class="article-image-grid reveal">
-  <img src="../Img/Blogs/Warwick-Blog-Pic.png" alt="Warwick 1100 Years plaque commemorating the founding of Warwick by Æthelflæd" style="object-position: center center;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/Promissio-Regis-copy-1.png" alt="The Promissio Regis — the King's promise, the original Anglo-Saxon coronation oath" style="object-position: center top;" loading="lazy" decoding="async">
 </div>
-<p>This is how Æthelflæd describes the founding of Warwick in the novel King Alfred's Daughter (2023):</p>
+
+<p>This is how the coronation oath of Edward, King Alfred’s son, is described in my latest historical novel King Alfred’s Daughter:</p>
+
 <blockquote class="novel-excerpt">
-  <p>"I chose a wonderful site for a burh at Warwick near the Fosse Way, a road which gave me direct access to the Danes of Leicester and Lincoln. A trading settlement had already developed on the sandstone cliff overlooking the crossing point of the River Avon, an ideal site for fortifications. My men were busy building an oval-shaped palisade to encircle the existing homesteads, when some visitors came calling. They were Danes. Six horsemen bearing no flag to indicate their allegiance sat watching us on the far bank of the Avon by the ford. Their leader sat tall on his horse but wisps of grey hair in his beard told me he was not young. Athelstan had already exchanged greetings with him when I arrived from the far side of town where I had been measuring the ditches we needed. 'He is the Jarl Thurketel from Northampton. He wants to know our intentions,' Athelstan reported. I chuckled and shouted down from the cliff top to him. 'Have we killed all your kings that I have to speak with jarls, now?' To my surprise, he bowed his head and smiled. 'M'lady of the Mercians, I had hoped to meet you. Your renown has spread throughout our land.' His tone surprised me. 'Maybe you would like to cross the ford and kneel before me. I would accept your allegiance now that you have no king.' His grin disappeared. 'And take my lands and kill my children as soon as I lay down my sword, no doubt.' 'Once you submit, you will have my word and of King Edward and all our followers that you will live in peace under our protection. You and your warriors will be welcome to stand alongside us against our common enemies.' His smile returned. 'I've heard you have the reputation of a lady who likes to command men. I will think on what you have said. We will meet again.' With that he rode away, no doubt to report to his fellow warlords. For so many years, the Danelaw had seemed a lost land to us, only visited by merchant traders. Now we rode freely across the frontier. I sometimes think that the ease with which we made those early inroads softened my mind to possible disasters ahead."</p>
-  <cite>— From King Alfred's Daughter, Chapter 18, David Stokes, 2023</cite>
+  <p>“The Archbishop turned to Edward. ‘Will you, Edward, swear to rule according to our ancient laws?’</p>
+  <p>‘I will,’ he said, projecting his voice to make sure everyone heard.</p>
+  <p>‘Will you carry out justice and enforce our laws?’</p>
+  <p>‘I will.’</p>
+  <p>‘Will you use your utmost powers to maintain the Church of the One True God.’</p>
+  <p>‘I will.’</p>
+  <p>As I listened to the oaths, I recognised the hand that had scripted them. The bishops were putting on a show to signify that God had chosen Edward to be king. If anyone disputed his authority from this day forward, they would have to answer to the Lord of Heaven.”</p>
+  <cite>(from chapter 6, King Alfred’s Daughter, by David Stokes, The Book Guild, 2023)</cite>
 </blockquote>
 
       </div>
@@ -129,12 +138,12 @@
     <div class="section bg-secondary" style="padding-block:3rem;">
       <div class="container" style="max-width:var(--max-body-width);">
         <span class="period-label">Continue Reading</span>
-        <a href="finding-aethelflad-in-derby.html" class="journal-card reveal" style="display:block; text-decoration:none; color:inherit; max-width:500px;">
+        <a href="finding-aethelflad-in-worcester.html" class="journal-card reveal" style="display:block; text-decoration:none; color:inherit; max-width:500px;">
           <div class="journal-card-image">
-            <img src="../Img/Blogs/Derby-Image.png" alt="Æthelflæd's name in the Anglo-Saxon Chronicle" style="object-position: center center;" loading="lazy" decoding="async">
+            <img src="../Img/Blogs/Worcester-Post-1.png" alt="Stained glass of Æthelflæd and Æthelred in Worcester Cathedral" style="object-position: center center;" loading="lazy" decoding="async">
           </div>
-          <h3 class="journal-card-title" style="margin-top:1rem;">Derby — A Bloody and Decisive Victory</h3>
-          <p class="journal-card-excerpt">Derby was the first of the Five Boroughs to fall. The Anglo-Saxon Chronicle records the victory — and then, in a rare moment of personal feeling, notes that four thegns who were dear to her died in the fighting.</p>
+          <h3 class="journal-card-title" style="margin-top:1rem;">Æthelflæd's Worcester — Knowledge Hub of Mercia</h3>
+          <p class="journal-card-excerpt">Worcester was more than a military base — it was where Mercia thought. The minster that Æthelflæd and Æthelred rebuilt became a centre of manuscript production and scholarship, and the crypt beneath the cathedral preserves the memory of what they built.</p>
         </a>
       </div>
     </div>
@@ -240,8 +249,8 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=10.0" defer></script>
-  <script src="../js/theme.js?v=10.0"></script>
+  <script src="../js/main.js?v=1eb835df51" defer></script>
+  <script src="../js/theme.js?v=2a6cdd6964"></script>
 </body>
 </html>
 

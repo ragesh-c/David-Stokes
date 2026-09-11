@@ -13,32 +13,39 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Finding Æthelflæd in Derby — David Stokes Journal</title>
-  <meta name="description" content="Derby was the first of the Five Boroughs to fall to Æthelflæd's armies in 917 AD. The Chronicle records the victory briefly, then pauses to note a personal loss — four thegns who were dear to her.">
-  <meta property="og:title" content="Finding Æthelflæd in Derby — David Stokes Journal">
-  <meta property="og:description" content="Derby was the first of the Five Boroughs to fall to Æthelflæd's armies in 917 AD. The Chronicle records the victory briefly, then pauses to note a personal loss — four thegns who were dear to her.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-derby.html">
+  <title>The Happy Ending — David Stokes</title>
+  <meta name="description" content="Harry, a 97-year-old widower, refuses to wither. A novel weaving 20th-century history with modern slavery — built from the voice of David's own father.">
+  <meta property="og:title" content="The Happy Ending — David Stokes">
+  <meta property="og:description" content="Harry, a 97-year-old widower, refuses to wither. A novel weaving 20th-century history with modern slavery.">
+  <meta property="og:type" content="book">
+  <meta property="og:url" content="https://www.davidstokesauthor.com/books/the-happy-ending.html">
   <meta property="og:site_name" content="David Stokes">
-  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/Derby-Image.png">
-  <meta property="og:image:alt" content="Æthelflæd's name in the Mercian Register of the Anglo-Saxon Chronicle">
+  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/David-Hero.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="The Happy Ending — David Stokes">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Finding Æthelflæd in Derby — David Stokes Journal">
-  <meta name="twitter:description" content="Derby was the first of the Five Boroughs to fall to Æthelflæd in 917 AD. What survives of her presence in the city today?">
-  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/Derby-Image.png">
-  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-derby.html">
+  <meta name="twitter:title" content="The Happy Ending — David Stokes">
+  <meta name="twitter:description" content="Harry, a 97-year-old widower, refuses to wither. A novel weaving 20th-century history with the 21st-century problem of human trafficking.">
+  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/David-Hero.jpg">
+  <link rel="canonical" href="https://www.davidstokesauthor.com/books/the-happy-ending.html">
+  <!-- Schema.org Book structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Finding Æthelflæd in Derby",
-    "description": "Derby was the first of the Five Boroughs to fall to Æthelflæd's armies in 917 AD.",
-    "image": "https://www.davidstokesauthor.com/Img/Blogs/Derby-Image.png",
-    "author": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com/about.html" },
-    "publisher": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com" },
-    "url": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-derby.html",
-    "inLanguage": "en-GB"
+    "@type": "Book",
+    "name": "The Happy Ending",
+    "author": {
+      "@type": "Person",
+      "name": "David Stokes",
+      "url": "https://www.davidstokesauthor.com/about.html"
+    },
+    "datePublished": "2017",
+    "genre": "Contemporary Fiction",
+    "inLanguage": "en",
+    "description": "Harry, a 97-year-old widower, refuses to wither. A novel weaving 20th-century history with modern slavery.",
+    "url": "https://www.davidstokesauthor.com/books/the-happy-ending.html"
   }
   </script>
   <script type="application/ld+json">
@@ -47,8 +54,8 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.davidstokesauthor.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.davidstokesauthor.com/journal.html" },
-      { "@type": "ListItem", "position": 3, "name": "Finding Æthelflæd in Derby", "item": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-derby.html" }
+      { "@type": "ListItem", "position": 2, "name": "Books", "item": "https://www.davidstokesauthor.com/books.html" },
+      { "@type": "ListItem", "position": 3, "name": "The Happy Ending", "item": "https://www.davidstokesauthor.com/books/the-happy-ending.html" }
     ]
   }
   </script>
@@ -56,25 +63,30 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/reset.css?v=10.0">
-  <link rel="stylesheet" href="../css/styles.css?v=10.0">
-  <link rel="stylesheet" href="../css/theme.css?v=10.0">
+  <link rel="stylesheet" href="../css/reset.css?v=77459efcb2">
+  <link rel="stylesheet" href="../css/styles.css?v=f85d5c922e">
+  <link rel="stylesheet" href="../css/theme.css?v=dd85e925f6">
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
   <link rel="icon" type="image/png" href="../Img/favicon.png" />
   <link rel="shortcut icon" href="../favicon.ico" />
   <link rel="apple-touch-icon" href="../Img/apple-touch-icon.png" />
 </head>
-<body>
+<body class="book-detail">
+
+  <!-- SKIP NAV -->
   <a href="#main" class="skip-nav">Skip to main content</a>
+
+  <!-- NAVIGATION -->
   <nav class="site-nav" aria-label="Primary navigation">
     <a href="../index.html" class="nav-wordmark">David Stokes</a>
     <ul class="nav-links" role="list">
-      <li><a href="../books.html">Books</a></li>
+      <li><a href="../books.html" aria-current="page">Books</a></li>
       <li><a href="../about.html">About</a></li>
       <li><a href="../media.html">Media</a></li>
-      <li><a href="../journal.html" aria-current="page">Journal</a></li>
+      <li><a href="../journal.html">Journal</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
+
     <button class="theme-toggle" id="theme-toggle" aria-label="Switch to dark mode">
       <span class="theme-icon" aria-hidden="true">☾</span>
     </button>
@@ -85,67 +97,137 @@
       </svg>
     </button>
   </nav>
+
+  <!-- MOBILE NAV OVERLAY -->
   <div class="mobile-nav-overlay" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
     <button class="mobile-nav-close" aria-label="Close menu">&#x2715;</button>
     <ul class="nav-links" role="list">
-      <li><a href="../books.html">Books</a></li>
+      <li><a href="../books.html" aria-current="page">Books</a></li>
       <li><a href="../about.html">About</a></li>
       <li><a href="../media.html">Media</a></li>
-      <li><a href="../journal.html" aria-current="page">Journal</a></li>
+      <li><a href="../journal.html">Journal</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
+
   </div>
 
+  <!-- MAIN CONTENT -->
   <main id="main">
-    <!-- PAGE HERO -->
-    <section class="section page-hero journal-post-hero">
-      <img class="journal-post-hero-bg" src="../Img/Blogs/Derby-Image.png" alt="" aria-hidden="true" style="object-position: center center;" loading="lazy" decoding="async">
-      <div class="container" style="max-width:var(--max-body-width); margin-inline:auto; padding-inline:var(--side-margin-mobile);">
-        <span class="period-label reveal">Anglo-Saxon History | June 2023</span>
-        <h1 class="reveal">Finding Æthelflæd in Derby</h1>
+
+    <!-- SECTION 1: BOOK HERO -->
+    <section class="section book-hero-section">
+      <div class="container">
+        <a href="../books.html" class="back-link reveal">← Back to Books</a>
+        <div class="book-hero-layout">
+
+          <!-- Left Column: Book Cover -->
+          <div class="book-cover-wrapper reveal">
+            <img src="../Img/The-Happy-Ending.png" alt="The Happy Ending" style="width:100%; aspect-ratio:2/3; object-fit:cover;" loading="lazy" decoding="async" />
+          </div>
+
+          <!-- Right Column: Metadata -->
+          <div class="reveal">
+            <span class="period-label">Contemporary Fiction · 2017</span>
+            <h1>The Happy Ending</h1>
+            <p style="font-family:var(--font-serif); font-style:italic; font-size:1.5rem; line-height:1.4; margin-block:1rem 0.5rem; color:var(--text-body);">20th Century Man; 21st Century Problem</p>
+            <p style="font-size:0.875rem; color:var(--text-meta); margin-bottom:2rem;">2017</p>
+            <div>
+              <a href="https://www.amazon.in/Happy-Ending-David-Stokes-ebook/dp/B075CR5S4B/ref=sr_1_1?crid=27VQ7EZGQ21Z1&dib=eyJ2IjoiMSJ9.tQN1CNRs6qUcdZTArLMnRw.uydXD4WcTvjIVYIZIKcPaLN3DrJPc0f4D4TTSi0rrTo&dib_tag=se&keywords=The+Happy+Ending+David+Stokes&qid=1773561769&s=books&sprefix=the+happy+ending+david+stoke%2Cstripbooks%2C391&sr=1-1" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon →</a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <!-- ARTICLE BODY -->
-    <div class="section" style="padding-top:0;">
-      <div class="container article-body reveal">
+    <!-- SECTION 2: THE STORY -->
+    <section class="section">
+      <div class="container">
+        <div class="article-body" style="max-width:var(--max-body-width); margin-inline:auto;">
 
-<h2>FINDING ÆTHELFLÆD, Lady of the Mercians</h2>
+          <h2 class="reveal">The Story</h2>
 
-<p>Æthelflæd, Lady of the Mercians may have been written out of history, but today we can find evidence of her life and achievements in many places.</p>
+          <p class="reveal">Harry is 97 years old and has no intention of fading quietly. A widower, a veteran of the 20th century in all its chaos and wonder, he decides there is still something worth doing — and strikes out to find it. What he finds is a story that weaves his own extraordinary life across the century with a very modern problem: the hidden world of modern slavery.</p>
 
-<h3>DERBY – a significant but costly victory</h3>
+          <blockquote class="pull-quote reveal">
+            <p><em>"What is the point of reaching 97 if you don't do something about it?"</em></p>
+            <cite class="pull-quote-attr">From the novel</cite>
+          </blockquote>
 
-<p>Derby was one of the Five Boroughs of the Danelaw, created when King Alfred made peace with Viking invaders towards the end of the 9th century. His daughter Æthelflæd lead Mercian forces against the Danish forces based there in 917AD. Her victory and recapture of the town was one of her most significant military achievements. But it was achieved at a cost, as recorded in the Anglo Saxon Chronicles (Mercian Register): “Four thegns who were dear to her were slain there within the gates”.</p>
+          <p class="reveal"><em>The Happy Ending</em> began as something deeply personal. When David Stokes became a long-distance carer for his nearly-hundred-year-old father, Charles Stokes (1913–2015), their daily phone conversations became the raw material for a novel. Harry's voice is Charles's voice. The humour, the dignity, the quiet refusal to be diminished — all of it is drawn from life.</p>
 
-<p>The re-taking of Derby was clearly a bloody affair; there is also an account that a Welsh king had fled there and was killed by the Mercian forces. The Danish defeat made a significant impact on the morale of other settlers in the Danelaw. It was quickly followed by the surrender of Leicester, another of the Danish Five Boroughs, to Æthelflæd, this time without bloodshed.</p>
+          <p class="reveal">It is not an Anglo-Saxon novel. But it is the book that unlocked the door. Writing <em>The Happy Ending</em> showed David what fiction could do that history cannot.</p>
 
-<div class="article-image-grid reveal">
-  <img src="../Img/Blogs/Derby-Image.png" alt="Æthelflæd's name (Æþelflæd) in the Mercian Register of the Anglo-Saxon Chronicle" style="object-position: center center;" loading="lazy" decoding="async">
-</div>
-
-<p><i>Æthelflaed’s name (spelled Æþelflæd), in the ‘Mercian Register (B-text) of the Anglo-Saxon Chronicle, courtesy of the British Library.</i></p>
-
-<p>Historians today acknowledge that Æthelflæd, the heroine of the historical novel, King Alfred’s Daughter, was one of the most influential leaders of the Anglo-Saxon era. Yet she was almost written out of the contemporary historical records by those anxious to promote their own power and legacy. If manipulating the media sounds all too familiar to us today, back then it was even easier to control the communication channels as the written word was confined to an educated religious elite subservient to powerful kings.</p>
-
-<p>Fortunately, we can now piece together Æthelflæd’s achievements because many related to specific places. As ‘Lady of the Mercians’, she founded many well-known towns that populate the East Midlands today. By building a chain of fortified towns on the River Severn and along the boundary of the Danelaw which roughly followed a line between London and Chester, she helped fulfil King Alfred’s dream of a united England. Today, these towns and the churches she founded within them, stand as monuments to her campaign to provide havens for the Anglo-Saxon people.</p>
-
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- CONTINUE READING -->
-    <div class="section bg-secondary" style="padding-block:3rem;">
-      <div class="container" style="max-width:var(--max-body-width);">
-        <span class="period-label">Continue Reading</span>
-        <a href="coronation-of-the-king.html" class="journal-card reveal" style="display:block; text-decoration:none; color:inherit; max-width:500px;">
-          <div class="journal-card-image">
-            <img src="../Img/Blogs/Promissio-Regis-copy-1.png" alt="The Promissio Regis — the Anglo-Saxon coronation oath" style="object-position: center 15%;" loading="lazy" decoding="async">
+    <section class="reviews-section">
+      <span class="period-label">What Readers Say</span>
+      <h2 class="reviews-section-heading">Readers across the world on The Happy Ending</h2>
+      <div class="reviews-track-wrap">
+        <div class="reviews-track">
+
+          <div class="review-card">
+            <div class="review-card-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="review-card-quote">A delightful story of courage, adversity and determination to help others. Warm, funny and unexpectedly moving.</p>
+            <div class="review-card-meta">
+              <span class="review-card-name">Verified Buyer</span>
+              <span class="review-card-source">Amazon UK</span>
+            </div>
           </div>
-          <h3 class="journal-card-title" style="margin-top:1rem;">The Anglo-Saxon Roots of the Coronation Oath</h3>
-          <p class="journal-card-excerpt">When Charles III was crowned in May 2023, the oath he swore was built on words composed more than a thousand years ago. Æthelflæd's brother Edward was crowned at Kingston, and the ceremony that began there has never quite been forgotten.</p>
-        </a>
+
+          <div class="review-card">
+            <div class="review-card-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="review-card-quote">The main character is the highlight of the book. He is instantly likeable, and his values and feelings are heart-warmingly presented throughout.</p>
+            <div class="review-card-meta">
+              <span class="review-card-name">Verified Buyer</span>
+              <span class="review-card-source">Amazon UK</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-card-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p class="review-card-quote">A story of human kindness at its heart. It is ultimately about what it means to still matter in the world. Worth a read.</p>
+            <div class="review-card-meta">
+              <span class="review-card-name">Verified Buyer</span>
+              <span class="review-card-source">Amazon UK</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-card-stars">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+            </div>
+            <p class="review-card-quote">It was amazing. Absolutely gorgeous book — highly recommended, a must read! I fell in love with Harry from the first page.</p>
+            <div class="review-card-meta">
+              <span class="review-card-name">NetGalley Reviewer</span>
+              <span class="review-card-source">NetGalley</span>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>
+      <div class="reviews-dots"></div>
+    </section>
+
+    <!-- SECTION 4: BUY SECTION -->
+    <section class="section bg-secondary">
+      <div class="container" style="max-width:600px; text-align:center;">
+        <div class="reveal">
+          <span class="period-label" style="text-align:center; display:block;">Get the Book</span>
+          <h2>The Happy Ending</h2>
+          <p style="margin-block: 1rem 2.5rem; color:var(--text-meta);">Available now on Amazon.</p>
+          <a href="https://www.amazon.in/Happy-Ending-David-Stokes-ebook/dp/B075CR5S4B/ref=sr_1_1?crid=27VQ7EZGQ21Z1&dib=eyJ2IjoiMSJ9.tQN1CNRs6qUcdZTArLMnRw.uydXD4WcTvjIVYIZIKcPaLN3DrJPc0f4D4TTSi0rrTo&dib_tag=se&keywords=The+Happy+Ending+David+Stokes&qid=1773561769&s=books&sprefix=the+happy+ending+david+stoke%2Cstripbooks%2C391&sr=1-1" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Buy on Amazon →</a>
+        </div>
+      </div>
+    </section>
 
   
     <!-- CHAPTER STRIP -->
@@ -167,6 +249,8 @@
     </div>
 
   </main>
+
+    <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-top">
       <div class="footer-brand">
@@ -248,8 +332,11 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=10.0" defer></script>
-  <script src="../js/theme.js?v=10.0"></script>
+  <script src="../js/anime.min.js?v=6cec04e0bb" defer></script>
+  <script src="../js/main.js?v=1eb835df51" defer></script>
+  <script src="../js/theme.js?v=2a6cdd6964"></script>
+
 </body>
 </html>
+
 

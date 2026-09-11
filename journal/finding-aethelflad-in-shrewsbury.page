@@ -13,31 +13,31 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Coronation of the King — David Stokes Journal</title>
-  <meta name="description" content="Which part of the Coronation ceremony on May 6th is required by law? Explore the Anglo-Saxon origins of the ceremony.">
-  <meta property="og:title" content="The Coronation of the King — Anglo-Saxon Origins">
-  <meta property="og:description" content="Which part of the Coronation ceremony is required by law? Explore the Anglo-Saxon origins of the ceremony — and what has survived intact for over a thousand years.">
+  <title>Æthelflæd's Shrewsbury — The Fort in the Scrub — David Stokes Journal</title>
+  <meta name="description" content="Shrewsbury's very name means 'fort in the scrubland', and Æthelflæd founded the burh here around 901 AD. The loop of the Severn made it one of the most naturally defensible positions in Mercia.">
+  <meta property="og:title" content="Æthelflæd's Shrewsbury — The Fort in the Scrub">
+  <meta property="og:description" content="Shrewsbury's very name means 'fort in the scrubland', and Æthelflæd founded the burh here around 901 AD. The loop of the Severn made it one of the most naturally defensible positions in Mercia.">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/coronation-of-the-king.html">
+  <meta property="og:url" content="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-shrewsbury.html">
   <meta property="og:site_name" content="David Stokes">
-  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/Promissio-Regis-copy-1.png">
-  <meta property="og:image:alt" content="The Promissio Regis — the King's promise, the original Anglo-Saxon coronation oath">
+  <meta property="og:image" content="https://www.davidstokesauthor.com/Img/Blogs/ShrewsburyPost1.png">
+  <meta property="og:image:alt" content="Parish Church of St Alkmund, Shrewsbury — founded by Æthelflæd">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="The Coronation of the King — Anglo-Saxon Origins">
-  <meta name="twitter:description" content="Which part of the Coronation ceremony is required by law? The Anglo-Saxon origins of a ceremony that has survived intact for over a thousand years.">
-  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/Promissio-Regis-copy-1.png">
-  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/coronation-of-the-king.html">
+  <meta name="twitter:title" content="Æthelflæd's Shrewsbury — The Fort in the Scrub">
+  <meta name="twitter:description" content="Shrewsbury's name means 'fort in the scrubland'. Æthelflæd founded the burh here around 901 AD — the loop of the Severn made it one of the most defensible positions in Mercia.">
+  <meta name="twitter:image" content="https://www.davidstokesauthor.com/Img/Blogs/ShrewsburyPost1.png">
+  <link rel="canonical" href="https://www.davidstokesauthor.com/journal/finding-aethelflad-in-shrewsbury.html">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "The Coronation of the King — Anglo-Saxon Origins",
-    "description": "Which part of the Coronation ceremony is required by law? Explore the Anglo-Saxon origins of the ceremony.",
-    "image": "https://www.davidstokesauthor.com/Img/Blogs/Promissio-Regis-copy-1.png",
+    "headline": "Æthelflæd's Shrewsbury — The Fort in the Scrub",
+    "description": "Shrewsbury's name means 'fort in the scrubland'. Æthelflæd founded the burh here around 901 AD.",
+    "image": "https://www.davidstokesauthor.com/Img/Blogs/ShrewsburyPost1.png",
     "author": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com/about.html" },
     "publisher": { "@type": "Person", "name": "David Stokes", "url": "https://www.davidstokesauthor.com" },
-    "url": "https://www.davidstokesauthor.com/journal/coronation-of-the-king.html",
+    "url": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-shrewsbury.html",
     "inLanguage": "en-GB"
   }
   </script>
@@ -48,7 +48,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.davidstokesauthor.com/" },
       { "@type": "ListItem", "position": 2, "name": "Journal", "item": "https://www.davidstokesauthor.com/journal.html" },
-      { "@type": "ListItem", "position": 3, "name": "The Coronation of the King", "item": "https://www.davidstokesauthor.com/journal/coronation-of-the-king.html" }
+      { "@type": "ListItem", "position": 3, "name": "Æthelflæd's Shrewsbury", "item": "https://www.davidstokesauthor.com/journal/finding-aethelflad-in-shrewsbury.html" }
     ]
   }
   </script>
@@ -56,9 +56,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/reset.css?v=10.0">
-  <link rel="stylesheet" href="../css/styles.css?v=10.0">
-  <link rel="stylesheet" href="../css/theme.css?v=10.0">
+  <link rel="stylesheet" href="../css/reset.css?v=77459efcb2">
+  <link rel="stylesheet" href="../css/styles.css?v=f85d5c922e">
+  <link rel="stylesheet" href="../css/theme.css?v=dd85e925f6">
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
   <link rel="icon" type="image/png" href="../Img/favicon.png" />
   <link rel="shortcut icon" href="../favicon.ico" />
@@ -99,10 +99,10 @@
   <main id="main">
     <!-- PAGE HERO -->
     <section class="section page-hero journal-post-hero">
-      <img class="journal-post-hero-bg" src="../Img/Blogs/Promissio-Regis-copy-1.png" alt="" aria-hidden="true" style="object-position: center top;" loading="lazy" decoding="async">
+      <img class="journal-post-hero-bg" src="../Img/Blogs/ShrewsburyPost1.png" alt="" aria-hidden="true" style="object-position: center center;" loading="lazy" decoding="async">
       <div class="container" style="max-width:var(--max-body-width); margin-inline:auto; padding-inline:var(--side-margin-mobile);">
-        <span class="period-label reveal">Anglo-Saxon History | May 2023</span>
-        <h1 class="reveal">The Coronation of the King</h1>
+        <span class="period-label reveal">Anglo-Saxon History | August 2023</span>
+        <h1 class="reveal">Æthelflæd's Shrewsbury — The Fort in the Scrub</h1>
       </div>
     </section>
 
@@ -110,26 +110,36 @@
     <div class="section" style="padding-top:0;">
       <div class="container article-body reveal">
 
-<p>Which part of the Coronation ceremony on May 6th is required by law?</p>
+<p style="text-transform:uppercase; font-size:0.75rem; letter-spacing:0.2em; color:var(--accent-burg); margin-bottom:0.5rem; font-weight:600;">FINDING ÆTHELFLÆD, Lady of the Mercians</p>
+<p>Æthelflæd, Lady of the Mercians may have been written out of history, but today we can find evidence of her life and achievements in many places.</p>
 
-<p>This month’s Coronation of King Charles has its origin in the crowning of Anglo-Saxon kings over 1000 years ago. Following the conversion of the Saxons to Christianity, the church played an increasing role in state affairs. This was symbolised by God’s acceptance of a new king in a ceremony led by archbishops. The first recorded service was that of Edward the Elder who was crowned ‘King of the Anglo Saxons’ in 900AD at Kingston. A central part of the service was the ‘Coronation Oath’ which places an obligation on the monarch to govern according to the rule of law. In surviving documents of the time, the King’s promise’ (promissio regis) specifies that the king undertakes to maintain peace, good order and the rule of law. It is the only part of the service which today is required by law.</p>
+<h3>SHREWSBURY, the “fort in the scrub’</h3>
+
+<p>There is uncertainty over the date of the development of Shrewsbury as an Anglo-Saxon ‘burh’ or fortified town. A charter indicates that Æthelflæd and her husband Æthelred met with the elders of Mercia by the upper Severn in 901AD at a place called Scrobbesburgh, or ‘fort in the scrub’, thought to be Shrewsbury. This date could be the founding of the town, but according to local tradition it was not finished until 912. What is certain is that Shrewsbury thrived thereafter as an easily defended hilltop town, surrounded by a tight loop of the Severn, and even boasted a mint. The location of the line of defences established for the town are unknown, but it is likely that Æthelflæd built a rampart across the ‘neck’ of the loop in the river, relying on the river to defend the other three sides.</p>
+
+<p>When Æthelflæd founded St Alkmund’s church in Shrewsbury, she invested it with relics as she did with many of her churches. She retrieved the bones of Alkmund, a Northumbrian prince, from his resting place in Derby when she recaptured that town from the Danes in 917. To keep them safe and to bless the newly established town, she brought them to Shrewsbury.</p>
 
 <div class="article-image-grid reveal">
-  <img src="../Img/Blogs/Promissio-Regis-copy-1.png" alt="The Promissio Regis — the King's promise, the original Anglo-Saxon coronation oath" style="object-position: center top;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/ShrewsburyPost1.png" alt="Parish Church of St Alkmund, Shrewsbury — founded by Æthelflæd" style="object-position: center center;" loading="lazy" decoding="async">
+  <img src="../Img/Blogs/ShrewsburyPost2a.png" alt="St Alkmund's Church painting" style="object-position: center center;" loading="lazy" decoding="async">
 </div>
 
-<p>This is how the coronation oath of Edward, King Alfred’s son, is described in my latest historical novel King Alfred’s Daughter:</p>
+<p>Æthelflæd developed fortified towns like Shrewsbury as a key part of her strategy to re-take those parts of her territory occupied by the Danes. Sadly, her contribution has been largely overlooked, but I hope my historical novel, <em>King Alfred’s Daughter</em> can further promote her legacy by bringing this determined, courageous and compassionate woman to life. In the book, Shrewsbury was home to one of Æthelflæd’s ealdormen, Beornoth and this is how her initial meeting with him in her role as Lady of the Mercians is described:</p>
 
 <blockquote class="novel-excerpt">
-  <p>“The Archbishop turned to Edward. ‘Will you, Edward, swear to rule according to our ancient laws?’</p>
-  <p>‘I will,’ he said, projecting his voice to make sure everyone heard.</p>
-  <p>‘Will you carry out justice and enforce our laws?’</p>
-  <p>‘I will.’</p>
-  <p>‘Will you use your utmost powers to maintain the Church of the One True God.’</p>
-  <p>‘I will.’</p>
-  <p>As I listened to the oaths, I recognised the hand that had scripted them. The bishops were putting on a show to signify that God had chosen Edward to be king. If anyone disputed his authority from this day forward, they would have to answer to the Lord of Heaven.”</p>
-  <cite>(from chapter 6, King Alfred’s Daughter, by David Stokes, The Book Guild, 2023)</cite>
+  <p>‘By the time the vessels pulled slowly onto a rough wooden wharf at the foot of Shrewsbury’s hilltop settlement, Beornoth was waiting to greet us, resplendent in fur and gold ornaments and surrounded by a retinue of armed guards.</p>
+  <p>‘Welcome to Shrewsbury m’lady, although it is not a good time of year to appreciate our surroundings.’</p>
+  <p>I used to liken him to a weasel on account of his long thin body and sharp beady eyes. I had not seen him since a Danish axe had sliced into his skull and he had been thought to die. I felt some sympathy when I saw the red scar that ran down his face from forehead to cheekbone, a patch covering the place where his right eye used to be.</p>
+  <p>He still reminded me of a weasel.</p>
+  <p>‘We have reason to come at an unseasonable time, Lord Beornoth. We are urgently seeking your son, Beorhsige.’</p>
+  <p>The ealdorman gave a look of surprise or made a good attempt at feigning one. ‘Why, he has only just departed on urgent business to the north. Shall we shelter from this bitter weather?’ He indicated a pathway that wound upwards to a set of wooden buildings on the crest of the rise. ‘Will you be staying? Is there baggage to fetch?’</p>
+  <p>I glanced at Cenwulf who silently nodded his agreement to a halt. ‘That depends on what you have to tell us,’ I said, striding along the path.</p>
+  <p>‘There is a horse for you,’ Beornoth called after me. ‘My legs are too old to climb, so I will ride to the hall.’</p>
+  <p>‘I will walk. I have been sitting for too long,’ I said.</p>
+  <p>As I neared the summit, I stopped to look around. It was as Cenwulf had described: the River Severn made an almost complete loop around the hill, enclosing an area that was more than sufficient for a large town. Yet it contained only a few scattered huts in need of repair. The harbour would have to be improved and walls built to defend the unprotected north-eastern approaches, but Shrewsbury could be strengthened relatively easily. With new streets and buildings, it would make an ideal burh.’</p>
+  <cite>— King Alfred’s Daughter, David Stokes, 2013</cite>
 </blockquote>
+
 
       </div>
     </div>
@@ -138,12 +148,12 @@
     <div class="section bg-secondary" style="padding-block:3rem;">
       <div class="container" style="max-width:var(--max-body-width);">
         <span class="period-label">Continue Reading</span>
-        <a href="finding-aethelflad-in-worcester.html" class="journal-card reveal" style="display:block; text-decoration:none; color:inherit; max-width:500px;">
+        <a href="finding-aethelflad-in-warwick.html" class="journal-card reveal" style="display:block; text-decoration:none; color:inherit; max-width:500px;">
           <div class="journal-card-image">
-            <img src="../Img/Blogs/Worcester-Post-1.png" alt="Stained glass of Æthelflæd and Æthelred in Worcester Cathedral" style="object-position: center center;" loading="lazy" decoding="async">
+            <img src="../Img/Blogs/Warwick-Blog-Pic.png" alt="Warwick 1100 Years plaque" style="object-position: center center;" loading="lazy" decoding="async">
           </div>
-          <h3 class="journal-card-title" style="margin-top:1rem;">Æthelflæd's Worcester — Knowledge Hub of Mercia</h3>
-          <p class="journal-card-excerpt">Worcester was more than a military base — it was where Mercia thought. The minster that Æthelflæd and Æthelred rebuilt became a centre of manuscript production and scholarship, and the crypt beneath the cathedral preserves the memory of what they built.</p>
+          <h3 class="journal-card-title" style="margin-top:1rem;">Æthelflæd's Warwick — The Burh on the Avon</h3>
+          <p class="journal-card-excerpt">Founded in 914 AD on a strategic bend of the Avon, Warwick was one of the last burhs Æthelflæd established before the great push north began. The Norman castle stands on the Anglo-Saxon foundations, and the Collegiate Church of St Mary remembers an older minster.</p>
         </a>
       </div>
     </div>
@@ -249,8 +259,8 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=10.0" defer></script>
-  <script src="../js/theme.js?v=10.0"></script>
+  <script src="../js/main.js?v=1eb835df51" defer></script>
+  <script src="../js/theme.js?v=2a6cdd6964"></script>
 </body>
 </html>
 
