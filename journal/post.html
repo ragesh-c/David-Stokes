@@ -65,7 +65,10 @@
     <section class="section page-hero journal-post-hero" id="post-hero">
       <img class="journal-post-hero-bg" id="post-hero-img" src="" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <div class="container" style="max-width:var(--max-body-width); margin-inline:auto; padding-inline:var(--side-margin-mobile);">
-        <span class="period-label" id="post-period-label"></span>
+        <div style="margin-bottom:0.75rem; display:flex; flex-wrap:wrap; gap:0.75rem; align-items:center;">
+          <span class="period-label" id="post-series-label" style="display:none; color:var(--accent-burg); font-weight:600;"></span>
+          <span class="period-label" id="post-period-label"></span>
+        </div>
         <h1 id="post-title"></h1>
       </div>
     </section>
@@ -146,7 +149,7 @@
         <div class="footer-info-col">
           <p class="footer-label">Representation</p>
           <p class="footer-info-text">Represented by<br>Foreshore Books<br>London, UK</p>
-          <a href="mailto:david@davidstokesauthor.com" class="footer-small-link">Inquiries &rarr;</a>
+          <a href="mailto:davidstokesauthor@gmail.com" class="footer-small-link">Inquiries &rarr;</a>
         </div>
         <div class="footer-info-col">
           <p class="footer-label">The Series</p>
@@ -188,7 +191,14 @@
   <script>
     (async function () {
       const params = new URLSearchParams(window.location.search);
-      const slug = params.get('slug');
+      let slug = params.get('slug');
+      if (!slug) {
+        const pathParts = window.location.pathname.split('/');
+        const lastPart = pathParts[pathParts.length - 1];
+        if (lastPart && lastPart !== 'post.html' && lastPart !== 'post.php') {
+          slug = decodeURIComponent(lastPart.replace(/\.(html|php|page)$/, ''));
+        }
+      }
 
       if (!slug) {
         document.getElementById('post-title').textContent = 'Post not found';
@@ -196,7 +206,7 @@
       }
 
       try {
-        const res = await fetch('../data/journal-posts.json');
+        const res = await fetch('../data/journal-posts.json?v=' + Date.now());
         const data = await res.json();
         const posts = data.posts || [];
         const post = posts.find(p => p.slug === slug);
@@ -215,11 +225,22 @@
         heroImg.alt = post.title;
         heroImg.style.objectPosition = post.hero_image_position || 'center center';
 
-        document.getElementById('post-period-label').textContent = post.period_label;
+        // Series & Period labels
+        const seriesEl = document.getElementById('post-series-label');
+        if (post.series && seriesEl) {
+          seriesEl.textContent = 'Series: ' + post.series;
+          seriesEl.style.display = 'inline-block';
+        }
+        document.getElementById('post-period-label').textContent = post.period_label || '';
         document.getElementById('post-title').textContent = post.title;
 
-        // Body — render markdown to HTML
-        document.getElementById('post-body').innerHTML = marked.parse(post.body || '');
+        // Body — configure marked for line breaks and render markdown/HTML
+        if (typeof marked !== 'undefined') {
+          marked.setOptions({ breaks: true, gfm: true });
+          document.getElementById('post-body').innerHTML = marked.parse(post.body || '');
+        } else {
+          document.getElementById('post-body').innerHTML = post.body || '';
+        }
 
       } catch (err) {
         document.getElementById('post-title').textContent = 'Error loading post';

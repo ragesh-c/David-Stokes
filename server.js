@@ -200,6 +200,11 @@ function serveStatic(req, res, pathname) {
     if (fs.existsSync(pageFile)) filepath = pageFile;
   }
 
+  // Dynamic journal post fallback: if journal/<slug>.html doesn't exist, serve journal/post.html
+  if (pathname.startsWith('/journal/') && !fs.existsSync(filepath)) {
+    filepath = path.join(ROOT, 'journal', 'post.html');
+  }
+
   fs.readFile(filepath, (err, data) => {
     if (err) {
       if (err.code === 'ENOENT' || err.code === 'EISDIR') {

@@ -161,9 +161,10 @@
       let filtered = allPosts.filter(p => {
         const title = (p.title || '').toLowerCase();
         const period = (p.period_label || '').toLowerCase();
+        const series = (p.series || '').toLowerCase();
         const excerpt = (p.excerpt || '').toLowerCase();
         const date = (p.date || '').toLowerCase();
-        return title.includes(query) || period.includes(query) || excerpt.includes(query) || date.includes(query);
+        return title.includes(query) || period.includes(query) || series.includes(query) || excerpt.includes(query) || date.includes(query);
       });
 
       if (sort === 'date-desc') {
@@ -197,17 +198,20 @@
           const thumb = post.hero_image
             ? `<img class="card-thumb" src="${post.hero_image}" alt="" loading="lazy" style="object-position:${post.hero_image_position || 'center'}">`
             : `<div class="card-thumb-placeholder">&#128247;</div>`;
+          const seriesBadge = post.series
+            ? `<span style="color:var(--sage);font-weight:600;margin-right:0.35rem;">[${post.series}]</span>`
+            : '';
           return `
             <article class="post-card">
               ${thumb}
               <div class="card-body">
-                <p class="card-period">${post.period_label || 'Journal Entry'}</p>
+                <p class="card-period">${seriesBadge}${post.period_label || 'Journal Entry'}</p>
                 <h2 class="card-title">${post.title}</h2>
                 <p class="card-excerpt">${post.excerpt || ''}</p>
                 <div class="card-footer">
                   <span class="card-date">${formatDate(post.date)}</span>
                   <div class="card-actions">
-                    <a href="../journal.html#${post.slug}" target="_blank" class="btn btn-ghost btn-sm" title="View live post on site">&#128065; Live</a>
+                    <a href="../journal/post.html?slug=${encodeURIComponent(post.slug)}" target="_blank" class="btn btn-ghost btn-sm" title="View live post on site">&#128065; Live</a>
                     <button class="btn btn-secondary btn-sm" onclick="editPost('${post.slug}')">&#9998; Edit</button>
                     <button class="btn btn-danger btn-sm" onclick="openDeleteModal('${post.slug}')" title="Delete">&#128465;</button>
                   </div>
