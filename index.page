@@ -400,8 +400,10 @@
       <!-- Book 03 — dark panel -->
       <article class="book-panel book-panel--dark reveal" data-delay="0">
         <div class="book-panel-image">
-          <img src="Img/Sermon-of-the-Wolf.png" alt="Sermon of the Wolf" loading="lazy" decoding="async" />
-          <div class="book-panel-image-overlay"></div>
+          <a href="books/sermon-of-the-wolf.html" style="display:block;">
+            <img src="Img/Sermon-of-the-Wolf.png" alt="Sermon of the Wolf" loading="lazy" decoding="async" />
+            <div class="book-panel-image-overlay"></div>
+          </a>
         </div>
         <div class="book-panel-content">
           <div class="book-panel-top">
@@ -409,7 +411,7 @@
             <span class="book-panel-date">c. 1002–1066</span>
           </div>
           <span class="book-panel-badge book-panel-badge--burg">Coming October 2026</span>
-          <h3>Sermon of the Wolf</h3>
+          <h3><a href="books/sermon-of-the-wolf.html" style="color: inherit; text-decoration: none;">Sermon of the Wolf</a></h3>
           <p class="book-panel-hook">Twice queen of England. Emma of Normandy survived invasion, betrayal, and the slow collapse of the Anglo-Saxon world. The half-century before 1066 was just as decisive as the battle itself.</p>
           <div class="book-panel-actions">
             <a href="books/sermon-of-the-wolf.html" class="book-panel-cta">Read more →</a>
