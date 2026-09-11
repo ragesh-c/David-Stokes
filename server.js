@@ -31,6 +31,7 @@ const IMG_DIR = path.join(ROOT, 'Img', 'Blogs');
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
+  '.page': 'text/html; charset=utf-8',
   '.css':  'text/css',
   '.js':   'application/javascript',
   '.json': 'application/json',
@@ -177,9 +178,14 @@ function serveStatic(req, res, pathname) {
   // security: no path traversal
   if (!filepath.startsWith(ROOT)) { res.writeHead(403); res.end('Forbidden'); return; }
 
-  // if path is a directory, serve its index.html
+  // if path is a directory, redirect if missing trailing slash, or serve its index.html
   try {
     if (fs.statSync(filepath).isDirectory()) {
+      if (!pathname.endsWith('/')) {
+        res.writeHead(302, { 'Location': pathname + '/' });
+        res.end();
+        return;
+      }
       filepath = path.join(filepath, 'index.html');
     }
   } catch (_) { /* doesn't exist — let readFile return ENOENT */ }
@@ -194,6 +200,11 @@ function serveStatic(req, res, pathname) {
     if (fs.existsSync(pageFile)) filepath = pageFile;
   }
 
+  // Dynamic journal post fallback: if journal/<slug>.html doesn't exist, serve journal/post.html
+  if (pathname.startsWith('/journal/') && !fs.existsSync(filepath)) {
+    filepath = path.join(ROOT, 'journal', 'post.html');
+  }
+
   fs.readFile(filepath, (err, data) => {
     if (err) {
       if (err.code === 'ENOENT' || err.code === 'EISDIR') {
@@ -204,8 +215,14 @@ function serveStatic(req, res, pathname) {
       }
       return;
     }
-    const mime = MIME[requestExt] || 'application/octet-stream';
-    res.writeHead(200, { 'Content-Type': mime });
+    const finalExt = path.extname(filepath).toLowerCase();
+    const mime = MIME[finalExt] || MIME[requestExt] || 'application/octet-stream';
+    res.writeHead(200, {
+      'Content-Type': mime,
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache',
+      'Expires': '0'
+    });
     res.end(data);
   });
 }

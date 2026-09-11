@@ -76,6 +76,15 @@
               <div class="field-hint">Appears above the title in small caps.</div>
             </div>
             <div class="field">
+              <label>Series</label>
+              <select id="series">
+                <option value="Finding the Path to Hastings">Finding the Path to Hastings (Sermon of the Wolf)</option>
+                <option value="Finding Æthelflæd" selected>Finding Æthelflæd (King Alfred's Daughter)</option>
+                <option value="Other">Other / Standalone</option>
+              </select>
+              <div class="field-hint">The book or research series this post belongs to.</div>
+            </div>
+            <div class="field">
               <label>Excerpt</label>
               <textarea id="excerpt" rows="3" placeholder="A short summary shown on the journal listing page…"></textarea>
             </div>
@@ -193,6 +202,7 @@
         title:               document.getElementById('title').value.trim(),
         date:                document.getElementById('date').value,
         period_label:        document.getElementById('period_label').value.trim(),
+        series:              document.getElementById('series').value,
         excerpt:             document.getElementById('excerpt').value.trim(),
         hero_image:          document.getElementById('hero_image').value,
         hero_image_position: document.querySelector('input[name="focus"]:checked')?.value || 'center',
@@ -289,6 +299,12 @@
         document.getElementById('status-label').textContent = 'Published';
         document.getElementById('nav-label').textContent   = 'Editing';
         document.getElementById('publish-btn').textContent = 'Update Post';
+        const liveBtn = document.getElementById('live-link');
+        if (liveBtn) {
+          liveBtn.href = '../journal/post.html?slug=' + encodeURIComponent(post.slug);
+          liveBtn.style.display = 'inline-flex';
+        }
+
         document.title = post.title + ' — David Stokes Admin';
         setAutosave('Saved ✓', 'saved');
         showToast('Post published successfully!');
@@ -321,6 +337,21 @@
         document.getElementById('slug').value         = post.slug  || '';
         document.getElementById('date').value         = post.date  || '';
         document.getElementById('period_label').value = post.period_label || '';
+        if (post.series) {
+          const sSelect = document.getElementById('series');
+          let matched = false;
+          for (let i = 0; i < sSelect.options.length; i++) {
+            if (sSelect.options[i].value.toLowerCase() === post.series.toLowerCase()) {
+              sSelect.selectedIndex = i;
+              matched = true;
+              break;
+            }
+          }
+          if (!matched) {
+            const opt = new Option(post.series, post.series, true, true);
+            sSelect.add(opt);
+          }
+        }
         document.getElementById('excerpt').value      = post.excerpt || '';
         if (mde) mde.value(post.body || '');
         if (post.hero_image) setImagePreview(post.hero_image);
@@ -340,7 +371,7 @@
         
         const liveBtn = document.getElementById('live-link');
         if (liveBtn) {
-          liveBtn.href = '../journal.html#' + encodeURIComponent(slug);
+          liveBtn.href = '../journal/post.html?slug=' + encodeURIComponent(slug);
           liveBtn.style.display = 'inline-flex';
         }
 
