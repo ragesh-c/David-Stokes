@@ -35,7 +35,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Libre+Caslon+Display&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css?v=77459efcb2">
-  <link rel="stylesheet" href="css/styles.css?v=f85d5c922e">
+  <link rel="stylesheet" href="css/styles.css?v=c70bb7a76e">
   <link rel="stylesheet" href="css/theme.css?v=dd85e925f6">
   <script>(function(){var t=localStorage.getItem('theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);document.documentElement.classList.add('no-transition');})();</script>
   <link rel="icon" type="image/png" href="Img/favicon.png" />
@@ -244,9 +244,11 @@
           <div class="journal-card-image">
             <img src="${post.hero_image}" alt="${post.title}" style="object-position:${post.hero_image_position || 'center center'}" loading="lazy" decoding="async">
           </div>
-          <span class="period-label" style="display:inline-block;margin-top:0.75rem;">${post.period_label || ''}</span>
-          <h3 class="journal-card-title">${post.title}</h3>
-          <p class="journal-card-excerpt">${post.excerpt || ''}</p>
+          <div class="journal-card-body">
+            <span class="period-label" style="display:inline-block;margin-top:0.25rem;font-size:0.75rem;letter-spacing:0.08em;">${post.period_label || ''}</span>
+            <h3 class="journal-card-title" style="margin-top:0.4rem;font-size:1.35rem;line-height:1.35;">${post.title}</h3>
+            <p class="journal-card-excerpt">${post.excerpt || ''}</p>
+          </div>
         `;
         return card;
       }
@@ -260,8 +262,8 @@
         };
 
         const section = document.createElement('section');
-        section.className = 'section';
-        if (!isFirst) section.style.paddingTop = '0';
+        section.className = 'section journal-series-section';
+        section.style.paddingBlock = isFirst ? '4rem 3rem' : '2rem 4rem';
         isFirst = false;
 
         const inner = document.createElement('div');
@@ -269,10 +271,10 @@
 
         const labelBlock = document.createElement('div');
         labelBlock.className = 'reveal';
-        labelBlock.style.cssText = 'margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid var(--divider);';
+        labelBlock.style.cssText = 'margin-bottom:2.25rem; padding-bottom:1.5rem; border-bottom:1px solid var(--divider);';
         labelBlock.innerHTML = `
-          <span class="period-label">${meta.title}</span>
-          <p style="max-width:600px; color:var(--text-meta); margin-top:0.5rem;">
+          <span class="period-label" style="font-size:0.85rem; letter-spacing:0.1em; color:var(--accent-burg); font-weight:600;">${meta.title}</span>
+          <p style="max-width:640px; color:var(--text-meta); margin-top:0.45rem; font-size:1.05rem; line-height:1.6;">
             ${meta.description}
           </p>
         `;
