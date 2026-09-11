@@ -60,6 +60,12 @@
         <input type="text" id="search-input" placeholder="Search posts by title, date, or topic…" oninput="filterPosts()">
       </div>
       <div class="sort-wrap">
+        <label for="series-filter">Series:</label>
+        <select id="series-filter" onchange="filterPosts()">
+          <option value="">All Series</option>
+        </select>
+      </div>
+      <div class="sort-wrap">
         <label for="sort-select">Sort:</label>
         <select id="sort-select" onchange="filterPosts()">
           <option value="date-desc">Newest First</option>
@@ -154,9 +160,28 @@
       if (e.target === this) closeModal();
     });
 
+    function populateSeriesFilter(posts) {
+      const select = document.getElementById('series-filter');
+      if (!select) return;
+      const currentVal = select.value;
+      const seriesSet = new Set();
+      posts.forEach(p => {
+        if (p.series && p.series.trim()) seriesSet.add(p.series.trim());
+      });
+      select.innerHTML = '<option value="">All Series</option>';
+      Array.from(seriesSet).sort().forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s;
+        opt.textContent = s;
+        if (s === currentVal) opt.selected = true;
+        select.appendChild(opt);
+      });
+    }
+
     function filterPosts() {
       const query = (document.getElementById('search-input').value || '').toLowerCase().trim();
       const sort = document.getElementById('sort-select').value;
+      const selectedSeries = (document.getElementById('series-filter')?.value || '').toLowerCase();
 
       let filtered = allPosts.filter(p => {
         const title = (p.title || '').toLowerCase();
@@ -164,6 +189,8 @@
         const series = (p.series || '').toLowerCase();
         const excerpt = (p.excerpt || '').toLowerCase();
         const date = (p.date || '').toLowerCase();
+
+        if (selectedSeries && series !== selectedSeries) return false;
         return title.includes(query) || period.includes(query) || series.includes(query) || excerpt.includes(query) || date.includes(query);
       });
 
@@ -226,6 +253,7 @@
       try {
         const data = await GitHubAPI.loadPosts();
         allPosts   = (data.posts || []).slice();
+        populateSeriesFilter(allPosts);
         filterPosts();
       } catch (e) {
         document.getElementById('posts-container').innerHTML =

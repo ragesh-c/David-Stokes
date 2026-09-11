@@ -97,39 +97,8 @@
       </div>
     </section>
 
-    <!-- SECTION: FINDING THE PATH TO HASTINGS -->
-    <section class="section" id="series-hastings">
-      <div class="container">
-
-        <!-- Series label -->
-        <div class="reveal" style="margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid var(--divider);">
-          <span class="period-label">Series: Finding the Path to Hastings</span>
-          <p style="max-width:600px; color:var(--text-meta);">
-            Research notes, historical context, and the real stories behind <em>Sermon of the Wolf</em>.
-          </p>
-        </div>
-
-        <!-- 3-column journal card grid -->
-        <div class="journal-grid" id="journal-grid-hastings"></div>
-      </div><!-- /.container -->
-    </section>
-
-    <!-- SECTION: FINDING ÆTHELFLÆD SERIES + CARD GRID -->
-    <section class="section" id="series-aethelflaed" style="padding-top:0;">
-      <div class="container">
-
-        <!-- Series label -->
-        <div class="reveal" style="margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid var(--divider);">
-          <span class="period-label">Series: Finding Æthelflæd</span>
-          <p style="max-width:600px; color:var(--text-meta);">
-            A tour of the towns, churches, and monuments that still remember the woman history tried to erase.
-          </p>
-        </div>
-
-        <!-- 3-column journal card grid — populated by JS from journal-posts.json -->
-        <div class="journal-grid" id="journal-grid-aethelflaed"></div>
-      </div><!-- /.container -->
-    </section>
+    <!-- DYNAMIC JOURNAL SERIES SECTIONS -->
+    <div id="journal-series-container"></div>
 
   
     <!-- CHAPTER STRIP -->
@@ -238,20 +207,39 @@
 
   <script>
   (async function () {
-    const gridHastings   = document.getElementById('journal-grid-hastings');
-    const gridAethelflaed = document.getElementById('journal-grid-aethelflaed');
-    if (!gridHastings && !gridAethelflaed) return;
+    const container = document.getElementById('journal-series-container');
+    if (!container) return;
+
+    const KNOWN_SERIES = {
+      'finding the path to hastings': {
+        title: 'Series: Finding the Path to Hastings',
+        description: 'Research notes, historical context, and the real stories behind <em>Sermon of the Wolf</em>.'
+      },
+      'finding æthelflæd': {
+        title: 'Series: Finding Æthelflæd',
+        description: 'A tour of the towns, churches, and monuments that still remember the woman history tried to erase.'
+      }
+    };
 
     try {
       const res  = await fetch('data/journal-posts.json?v=' + Date.now());
       const data = await res.json();
       const posts = (data.posts || []).sort((a, b) => new Date(b.date) - new Date(a.date));
 
+      // Group posts by series (preserving order of newest post in that series)
+      const seriesGroups = new Map();
+      posts.forEach(post => {
+        const seriesName = (post.series || 'Other').trim();
+        if (!seriesGroups.has(seriesName)) {
+          seriesGroups.set(seriesName, []);
+        }
+        seriesGroups.get(seriesName).push(post);
+      });
+
       function createCard(post) {
         const card = document.createElement('a');
-        card.href      = 'journal/' + post.slug + '.html';
+        card.href      = 'journal/' + encodeURIComponent(post.slug) + '.html';
         card.className = 'journal-card';
-
         card.innerHTML = `
           <div class="journal-card-image">
             <img src="${post.hero_image}" alt="${post.title}" style="object-position:${post.hero_image_position || 'center center'}" loading="lazy" decoding="async">
@@ -263,14 +251,42 @@
         return card;
       }
 
-      posts.forEach(post => {
-        const card = createCard(post);
-        const series = (post.series || '').toLowerCase();
-        if (series.includes('hastings')) {
-          if (gridHastings) gridHastings.appendChild(card);
-        } else {
-          if (gridAethelflaed) gridAethelflaed.appendChild(card);
-        }
+      let isFirst = true;
+      seriesGroups.forEach((seriesPosts, seriesName) => {
+        const key = seriesName.toLowerCase();
+        const meta = KNOWN_SERIES[key] || {
+          title: seriesName.toLowerCase() === 'other' ? 'Journal Entries' : 'Series: ' + seriesName,
+          description: 'Research notes, historical context, and dispatches from the places where England was made.'
+        };
+
+        const section = document.createElement('section');
+        section.className = 'section';
+        if (!isFirst) section.style.paddingTop = '0';
+        isFirst = false;
+
+        const inner = document.createElement('div');
+        inner.className = 'container';
+
+        const labelBlock = document.createElement('div');
+        labelBlock.className = 'reveal';
+        labelBlock.style.cssText = 'margin-bottom:3rem; padding-bottom:2rem; border-bottom:1px solid var(--divider);';
+        labelBlock.innerHTML = `
+          <span class="period-label">${meta.title}</span>
+          <p style="max-width:600px; color:var(--text-meta); margin-top:0.5rem;">
+            ${meta.description}
+          </p>
+        `;
+        inner.appendChild(labelBlock);
+
+        const grid = document.createElement('div');
+        grid.className = 'journal-grid';
+        seriesPosts.forEach(post => {
+          grid.appendChild(createCard(post));
+        });
+        inner.appendChild(grid);
+
+        section.appendChild(inner);
+        container.appendChild(section);
       });
 
       // Trigger anime.js stagger once cards are in the DOM

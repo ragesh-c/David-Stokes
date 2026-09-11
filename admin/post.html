@@ -76,12 +76,20 @@
               <div class="field-hint">Appears above the title in small caps.</div>
             </div>
             <div class="field">
-              <label>Series</label>
+              <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                <label>Series <span class="required">*</span></label>
+                <button type="button" id="btn-toggle-new-series" style="background:none; border:none; color:var(--sage, #4A6B5A); font-size:0.82rem; cursor:pointer; text-decoration:underline; font-family:inherit;">+ Add New Series</button>
+              </div>
               <select id="series">
                 <option value="Finding the Path to Hastings">Finding the Path to Hastings (Sermon of the Wolf)</option>
                 <option value="Finding Æthelflæd" selected>Finding Æthelflæd (King Alfred's Daughter)</option>
                 <option value="Other">Other / Standalone</option>
+                <option value="__NEW__">+ Create a new series…</option>
               </select>
+              <div id="new-series-wrap" style="display:none; margin-top:0.6rem;">
+                <input type="text" id="new_series_name" placeholder="Enter new series name (e.g. Chronicles of Wessex)…" autocomplete="off">
+                <div class="field-hint" style="color:var(--sage, #4A6B5A); margin-top:0.3rem;">This new series will automatically be created and displayed on your journal page.</div>
+              </div>
               <div class="field-hint">The book or research series this post belongs to.</div>
             </div>
             <div class="field">
@@ -197,17 +205,92 @@
     }
 
     function getFormData() {
+      let seriesVal = document.getElementById('series').value;
+      const newWrap = document.getElementById('new-series-wrap');
+      const newName = document.getElementById('new_series_name').value.trim();
+      if (seriesVal === '__NEW__' || (newWrap && newWrap.style.display !== 'none' && newName)) {
+        seriesVal = newName || 'Other';
+      }
+
       return {
         slug:                document.getElementById('slug').value.trim(),
         title:               document.getElementById('title').value.trim(),
         date:                document.getElementById('date').value,
         period_label:        document.getElementById('period_label').value.trim(),
-        series:              document.getElementById('series').value,
+        series:              seriesVal,
         excerpt:             document.getElementById('excerpt').value.trim(),
         hero_image:          document.getElementById('hero_image').value,
         hero_image_position: document.querySelector('input[name="focus"]:checked')?.value || 'center',
         body:                mde ? mde.value() : document.getElementById('body').value,
       };
+    }
+
+    function populateSeriesOptions(posts) {
+      const sSelect = document.getElementById('series');
+      if (!sSelect) return;
+      const standard = [
+        'Finding the Path to Hastings',
+        'Finding Æthelflæd',
+        'Other'
+      ];
+      const seen = new Set(standard.map(s => s.toLowerCase()));
+      const customSeries = [];
+
+      (posts || []).forEach(p => {
+        if (p.series && !seen.has(p.series.trim().toLowerCase())) {
+          seen.add(p.series.trim().toLowerCase());
+          customSeries.push(p.series.trim());
+        }
+      });
+
+      const newOption = sSelect.querySelector('option[value="__NEW__"]');
+      customSeries.forEach(s => {
+        let existing = false;
+        for (let i = 0; i < sSelect.options.length; i++) {
+          if (sSelect.options[i].value.toLowerCase() === s.toLowerCase()) {
+            existing = true; break;
+          }
+        }
+        if (!existing) {
+          const opt = document.createElement('option');
+          opt.value = s;
+          opt.textContent = s;
+          if (newOption) sSelect.insertBefore(opt, newOption);
+          else sSelect.appendChild(opt);
+        }
+      });
+    }
+
+    // Series dropdown + new series toggle
+    const seriesSelect = document.getElementById('series');
+    const newSeriesWrap = document.getElementById('new-series-wrap');
+    const newSeriesInput = document.getElementById('new_series_name');
+    const btnToggleNewSeries = document.getElementById('btn-toggle-new-series');
+
+    if (seriesSelect && newSeriesWrap && newSeriesInput) {
+      seriesSelect.addEventListener('change', function() {
+        if (this.value === '__NEW__') {
+          newSeriesWrap.style.display = 'block';
+          newSeriesInput.focus();
+        } else {
+          newSeriesWrap.style.display = 'none';
+        }
+      });
+
+      if (btnToggleNewSeries) {
+        btnToggleNewSeries.addEventListener('click', function() {
+          if (newSeriesWrap.style.display === 'none') {
+            newSeriesWrap.style.display = 'block';
+            seriesSelect.value = '__NEW__';
+            newSeriesInput.focus();
+          } else {
+            newSeriesWrap.style.display = 'none';
+            if (seriesSelect.value === '__NEW__') {
+              seriesSelect.value = 'Finding the Path to Hastings';
+            }
+          }
+        });
+      }
     }
 
     // title → slug
@@ -337,6 +420,7 @@
         document.getElementById('slug').value         = post.slug  || '';
         document.getElementById('date').value         = post.date  || '';
         document.getElementById('period_label').value = post.period_label || '';
+        populateSeriesOptions(data.posts || []);
         if (post.series) {
           const sSelect = document.getElementById('series');
           let matched = false;
@@ -349,7 +433,8 @@
           }
           if (!matched) {
             const opt = new Option(post.series, post.series, true, true);
-            sSelect.add(opt);
+            const newOption = sSelect.querySelector('option[value="__NEW__"]');
+            sSelect.insertBefore(opt, newOption);
           }
         }
         document.getElementById('excerpt').value      = post.excerpt || '';
@@ -404,6 +489,7 @@
       if (slug) {
         loadForEdit(slug).finally(() => document.getElementById('loading').classList.add('hidden'));
       } else {
+        GitHubAPI.loadPosts().then(data => populateSeriesOptions(data.posts || [])).catch(() => {});
         document.getElementById('loading').classList.add('hidden');
       }
     });

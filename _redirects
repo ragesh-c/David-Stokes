@@ -1,0 +1,3 @@
+# Netlify rewrites for dynamic journal posts
+/journal/:slug.html   /journal/post.html?slug=:slug   200
+/journal/*            /journal/post.html              200
